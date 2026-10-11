@@ -428,10 +428,10 @@
           bodies: [
             {
               id: 'esdc',
-              name: 'Labour Program (ESDC) / Canada Industrial Relations Board',
+              name: 'Labour Program (ESDC)',
               role: 'Statutory Regulator, Policy Developer & Federal Inspection Service',
               framework: {
-                model: 'Bifurcated Model',
+                model: 'Bifurcated Model: Federal enforcement handled by ESDC Labour Program inspectors; compensation claims administered through provincial WCBs via GECA.',
                 irsPrinciple: 'Internal Responsibility System (IRS) is enshrined in CLC Part II. Mandatory Policy Health & Safety Committees (for employers with 300+ employees), Work Place H&S Committees (20+ employees), or H&S Representatives (under 20 employees).',
                 hierarchy: '1. Primary Statute: Canada Labour Code, Part II (R.S.C., 1985, c. L-2)\n2. Operational Regulations: Canada Occupational Health and Safety Regulations (COHSR, SOR/86-304)\n3. Industry-Specific Regulations: Aviation, Maritime, Rail/On-Board Trains, and Oil and Gas OHS Regulations.',
                 administrativeQuirk: 'Applies strictly to federal works, undertakings, and businesses (approx. 6% of Canadian workforce: interprovincial transport, aviation, banking, telecommunications, marine shipping, atomic energy, Crown corporations). Workers compensation is NOT handled by a federal board; it is administered by provincial workers compensation boards via the Government Employees Compensation Act (GECA).'
@@ -506,8 +506,57 @@
               sources: [
                 { name: 'Canada Labour Code (Official Full Text)', url: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/' },
                 { name: 'ESDC Labour Program OHS Portal', url: 'https://www.canada.ca/en/employment-social-development/services/health-safety.html' },
-                { name: 'Canada Industrial Relations Board (CIRB) Appeals', url: 'https://www.cirb-ccri.gc.ca/' },
                 { name: 'CanLII Canada Labour Code', url: 'https://www.canlii.org/en/ca/laws/stat/rsc-1985-c-l-2/latest/' }
+              ]
+            },
+            {
+              id: 'cirb',
+              name: 'Canada Industrial Relations Board (CIRB)',
+              role: 'Independent Federal Quasi-Judicial Tribunal Adjudicating OHS Appeals & Reprisal Complaints',
+              framework: {
+                model: 'Independent Federal Tribunal: CIRB is an autonomous quasi-judicial board established under the Canada Labour Code, Part I, with specific statutory powers under Part II to hear dangerous work appeals, ministerial direction reviews, and reprisal complaints.',
+                irsPrinciple: 'Protects workers exercising Internal Responsibility System rights (Right to Refuse Dangerous Work) and ensures external legal oversight of ministerial compliance directions.',
+                hierarchy: 'Canada Labour Code (Part II, ss. 133, 146.1) + CIRB Regulations, 2012 (SOR/2012-305) + CIRB Practice Policies.',
+                administrativeQuirk: 'Appeals from a decision of the Head of Compliance regarding dangerous work refusals (s. 129(7)) or compliance directions (s. 146.1) are heard directly by the CIRB rather than the courts.'
+              },
+              acts: [
+                {
+                  title: 'Canada Labour Code (Part II, Appeals & Reprisals)',
+                  citation: 'R.S.C., 1985, c. L-2, ss. 133, 146.1',
+                  date: 'Federal Statute',
+                  link: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/page-24.html',
+                  desc: 'Grants the CIRB jurisdiction over complaints of reprisal against employees and appeals against ministerial directions.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Canada Industrial Relations Board Regulations, 2012',
+                  citation: 'SOR/2012-305',
+                  link: 'https://laws-lois.justice.gc.ca/eng/regulations/SOR-2012-305/index.html',
+                  desc: 'Rules governing applications, notices, expedited hearings, and procedural evidence for OHS appeals.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Comply with all CIRB interim and final orders, participate in appeal hearings, and refrain from unlawful reprisals.',
+                specificDuties: [
+                  'Section 133: Respond to worker complaints alleging retaliation, termination, or discipline for exercising safety rights.',
+                  'Comply with CIRB decisions confirming, rescinding, or amending Head of Compliance directions.',
+                  'Reinstate employees and pay back-pay with interest when ordered by the Board.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'CIRB Board Members / Vice-Chairs', ref: 'CLC s. 146.1', notes: 'Quasi-judicial decision makers adjudicating appeals.' },
+                { role: 'Employers & Management', ref: 'CLC s. 133', notes: 'Respondents in reprisal complaints and compliance direction appeals.' },
+                { role: 'Employees & Committees', ref: 'CLC s. 129(7)', notes: 'Appellants in dangerous work determinations.' }
+              ],
+              selfEmployed: {
+                defined: 'Contractors operating within federal undertakings.',
+                treatment: 'May be called as witnesses or interested parties in worksite determinations.',
+                obligations: 'Subject to CIRB subpoenas and binding worksite rulings.'
+              },
+              sources: [
+                { name: 'Canada Industrial Relations Board Official Portal', url: 'https://www.cirb-ccri.gc.ca/' },
+                { name: 'CIRB OHS Decisions (CanLII)', url: 'https://www.canlii.org/en/ca/cirb/' }
               ]
             }
           ]
@@ -716,6 +765,56 @@
                 { name: 'BC OHS Regulation (BC Reg 296/97)', url: 'https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/296_97_00_multi' },
                 { name: 'CanLII BC Workers Compensation Act', url: 'https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/' }
               ]
+            },
+            {
+              id: 'wcat-bc',
+              name: 'Workers’ Compensation Appeal Tribunal (WCAT BC)',
+              role: 'Independent External Quasi-Judicial Tribunal for OHS Orders, Penalties & Claims Appeals',
+              framework: {
+                model: 'Independent Quasi-Judicial Appeals Tribunal: Operates independently of WorkSafeBC under Part 6 of the Workers Compensation Act to hear appeals from WorkSafeBC Review Division decisions regarding compensation claims and OHS compliance orders/penalties.',
+                irsPrinciple: 'Provides independent quasi-judicial review of prevention compliance orders, discriminatory action complaints, and financial penalties.',
+                hierarchy: 'Workers Compensation Act (RSBC 2019, c 1, Part 6) + Administrative Tribunals Act (SBC 2004, c 45) + WCAT Manual of Practice and Procedure.',
+                administrativeQuirk: 'WorkSafeBC decisions must first proceed through internal Review Division; external final appeals are escalated to WCAT.'
+              },
+              acts: [
+                {
+                  title: 'Workers Compensation Act (Part 6: Appeals)',
+                  citation: 'RSBC 2019, c 1, Part 6',
+                  date: 'Consolidated Statute',
+                  link: 'https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/19001_06',
+                  desc: 'Establishes WCAT as the final independent level of appeal in the British Columbia workers’ compensation and safety system.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'WCAT Manual of Practice and Procedure',
+                  citation: 'WCAT Practice Rules',
+                  link: 'https://www.wcat.bc.ca/resources/manual-of-practice-and-procedure/',
+                  desc: 'Binding rules governing evidence, oral hearings, expert opinions, and timelines for OHS penalty appeals.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Comply with WCAT procedural orders, produce documents, and abide by final appellate determinations.',
+                specificDuties: [
+                  'File appeals of Review Division decisions within statutory time limits (generally 30 days for OHS prevention matters).',
+                  'Respond to worker discriminatory action appeals and provide verified worksite records.',
+                  'Comply with confirmed administrative penalties or penalty modifications.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'WCAT Vice-Chairs', ref: 'WCA s. 280', notes: 'Independent quasi-judicial adjudicators.' },
+                { role: 'Employers / Appellants', ref: 'WCA s. 288', notes: 'Parties appealing WorkSafeBC prevention orders or penalty assessments.' },
+                { role: 'Workers / Complainants', ref: 'WCA s. 289', notes: 'Parties appealing claims determinations or reprisal complaints.' }
+              ],
+              selfEmployed: {
+                defined: 'Independent operators registered with WorkSafeBC.',
+                treatment: 'Eligible to appear before WCAT regarding coverage determinations or site safety penalty appeals.',
+                obligations: 'Subject to WCAT determinations regarding contractor status and safety compliance.'
+              },
+              sources: [
+                { name: 'WCAT BC Official Portal', url: 'https://www.wcat.bc.ca/' },
+                { name: 'CanLII WCAT Decisions', url: 'https://www.canlii.org/en/bc/bcwcat/' }
+              ]
             }
           ]
         },
@@ -856,6 +955,56 @@
                 { name: 'WSIB Ontario Portal', url: 'https://www.wsib.ca/en' },
                 { name: 'WSIA on Ontario e-Laws', url: 'https://www.ontario.ca/laws/statute/97w16' }
               ]
+            },
+            {
+              id: 'olrb-on',
+              name: 'Ontario Labour Relations Board (OLRB)',
+              role: 'Independent Quasi-Judicial Tribunal Adjudicating OHS Inspector Appeals & Reprisal Complaints',
+              framework: {
+                model: 'Quasi-Judicial Tribunal: OLRB has express statutory jurisdiction conferred by OHSA Sections 50 (Unlawful Reprisals) and 61 (Appeals from Inspector Orders).',
+                irsPrinciple: 'Enforces strict non-reprisal protections with reverse onus on employers, safeguarding worker participation in the Internal Responsibility System.',
+                hierarchy: 'Occupational Health and Safety Act (R.S.O. 1990, c. O.1, ss. 50, 61) + Labour Relations Act, 1995 + OLRB Rules of Practice.',
+                administrativeQuirk: 'Appeals of an inspector\'s order (or refusal to make an order) go directly to the OLRB with full power to rescind, affirm, or substitute orders. Workers fired or disciplined for exercising safety rights can file directly with the OLRB under s. 50.'
+              },
+              acts: [
+                {
+                  title: 'Occupational Health and Safety Act (Appeals & Reprisal Provisions)',
+                  citation: 'R.S.O. 1990, c. O.1, ss. 50 & 61',
+                  date: 'Consolidated Statute',
+                  link: 'https://www.ontario.ca/laws/statute/90o01#BK64',
+                  desc: 'Sections 50 (Reprisals) and 61 (Appeals from Inspector Orders) confer statutory authority on the Board.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'OLRB Rules of Practice',
+                  citation: 'Rules of Procedure',
+                  link: 'http://www.olrb.gov.on.ca/Rules-Forms-Bulletins/Rules-of-Procedure',
+                  desc: 'Binding procedural rules governing application filing, mediation, expedited hearings, and evidence.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Strict statutory prohibition against taking any reprisal against workers exercising health and safety rights (OHSA s. 50(1)).',
+                specificDuties: [
+                  'Section 50(1): No employer shall dismiss, discipline, suspend, intimidate, or penalize a worker because the worker has acted in compliance with the Act or sought enforcement.',
+                  'Section 50(5) Reverse Onus: On an inquiry by the Board into a reprisal complaint, the burden of proof rests entirely on the employer to prove it did not act contrary to s. 50(1).',
+                  'Comply with all interim and final orders issued by the Board, including orders to reinstate workers and pay back-wages with interest.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employers & Supervisors', ref: 'OHSA s. 50(1)', notes: 'Subject to reverse onus in reprisal proceedings.' },
+                { role: 'Workers', ref: 'OHSA s. 50(2)', notes: 'Right to file complaints with the OLRB if penalized for safety concerns.' },
+                { role: 'OLRB Vice-Chairs', ref: 'OHSA s. 61', notes: 'Quasi-judicial adjudicators with powers to summon witnesses and rescind/affirm inspector orders.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed contractors on Ontario worksites.',
+                treatment: 'Can be named as parties or respondents in multi-employer site disputes.',
+                obligations: 'Bound by OLRB adjudicative determinations where operating on affected projects.'
+              },
+              sources: [
+                { name: 'Ontario Labour Relations Board Portal', url: 'http://www.olrb.gov.on.ca/' },
+                { name: 'CanLII OLRB Decisions', url: 'https://www.canlii.org/en/on/onlrb/' }
+              ]
             }
           ]
         },
@@ -930,6 +1079,58 @@
                 { name: 'Government of Saskatchewan OHS Overview', url: 'https://www.saskatchewan.ca/business/safety-in-the-workplace' },
                 { name: 'CanLII Saskatchewan Employment Act', url: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/' }
               ]
+            },
+            {
+              id: 'wcb-sk',
+              name: 'Workers’ Compensation Board (WCB) Saskatchewan',
+              role: 'Workers’ Compensation Insurer, Injury Prevention Partner (WorkSafe Saskatchewan) & Claims Adjudication',
+              framework: {
+                model: 'Bifurcated Model: Autonomous board administering no-fault compensation under The Workers\' Compensation Act, 2013 (SS 2013, c W-17.11). Prevention branch operates WorkSafe Saskatchewan in formal partnership with the Ministry of LRWS.',
+                irsPrinciple: 'Operates the Meredith Principles: Collective employer liability, no-fault compensation, system funded by employer payroll assessments, and exclusive jurisdiction.',
+                hierarchy: '1. Primary Statute: The Workers\' Compensation Act, 2013 (SS 2013, c W-17.11)\n2. Operational Regulations: The Workers\' Compensation General Regulations, 1985\n3. WCB Operational Policies (Rate-setting, Injury Compensation, Return to Work).',
+                administrativeQuirk: 'Separate from the Ministry of LRWS inspection branch. Does not issue stop-work orders, but co-operates through "WorkSafe Saskatchewan" to deliver Targeted Industry programs and fatal injury elimination strategies.'
+              },
+              acts: [
+                {
+                  title: 'The Workers’ Compensation Act, 2013',
+                  citation: 'SS 2013, c W-17.11',
+                  date: 'Consolidated Statute',
+                  link: 'https://publications.saskatchewan.ca/#/products/69389',
+                  desc: 'Establishes employer premium assessment schedules, wage loss benefits, medical treatment, vocational rehabilitation, and the Injury Fund.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'The Workers’ Compensation General Regulations, 1985',
+                  citation: 'R.R.S. c W-17.1 Reg 1',
+                  link: 'https://publications.saskatchewan.ca/#/products/2105',
+                  desc: 'Industry classifications, employer assessment schedules, and statutory reporting rules.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Register business with WCB within 30 days of hiring workers, submit annual payroll declarations by February 28, report workplace injuries within 5 days, and pay assessed premiums.',
+                specificDuties: [
+                  'Section 52: Report every injury that requires medical aid or causes time lost from work within 5 calendar days (Employer\'s Initial Report of Injury - Form E1).',
+                  'Support and facilitate early and safe return-to-work modified duties in cooperation with the injured worker and healthcare providers.',
+                  'Maintain accurate payroll records and permit WCB auditors access for payroll verification.',
+                  'Section 167: Never deduct workers\' compensation premiums from workers\' wages.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Covered Employers', ref: 'WCA 2013 s. 8', notes: 'Must pay collective liability premiums and maintain payroll records.' },
+                { role: 'Injured Workers', ref: 'WCA 2013 s. 51', notes: 'Must report injury to employer and file worker claim (Form W1).' },
+                { role: 'Directors & Corporate Officers', ref: 'WCA 2013 s. 165', notes: 'May be held personally liable for unpaid employer assessments.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole Proprietors / Partners / Executive Officers',
+                treatment: 'Not automatically covered by default; can purchase voluntary Personal Coverage.',
+                obligations: 'Must apply for Personal Coverage to receive wage replacement and medical expense coverage if injured while working for themselves.'
+              },
+              sources: [
+                { name: 'WCB Saskatchewan Official Portal', url: 'https://www.wcbsask.com/' },
+                { name: 'WorkSafe Saskatchewan', url: 'https://www.worksafesask.ca/' },
+                { name: 'Publications Saskatchewan WCA', url: 'https://publications.saskatchewan.ca/#/products/69389' }
+              ]
             }
           ]
         },
@@ -998,6 +1199,58 @@
                 { name: 'Manitoba Laws WSHA Portal', url: 'https://web2.gov.mb.ca/laws/statutes/ccsm/w210e.php' },
                 { name: 'SAFE Work Manitoba', url: 'https://www.safemanitoba.com/' }
               ]
+            },
+            {
+              id: 'wcb-mb',
+              name: 'Workers Compensation Board (WCB) of Manitoba / SAFE Work Manitoba',
+              role: 'Workers’ Compensation Insurer, Disability Management, Prevention Funding & SAFE Work Certification',
+              framework: {
+                model: 'Bifurcated Model: Autonomous statutory corporation governed under The Workers Compensation Act (C.C.S.M. c. W200). SAFE Work Manitoba operates as the dedicated prevention arm of the WCB, coordinating with the inspection branch of Labour and Immigration.',
+                irsPrinciple: 'Operates the Meredith Principles: Collective employer liability, no-fault compensation, system funded by employer payroll assessments, independent administration.',
+                hierarchy: '1. Primary Statute: The Workers Compensation Act (C.C.S.M. c. W200)\n2. Operational Regulations: Workers Compensation General Regulation (Man. Reg. 42/2014)\n3. SAFE Work Certified Standards & WCB Policies.',
+                administrativeQuirk: 'Unique integrated prevention division (SAFE Work Manitoba) inside the WCB that delivers prevention education, safety excellence certifications, and funds Industry-Based Safety Programs (IBSPs) alongside provincial enforcement.'
+              },
+              acts: [
+                {
+                  title: 'The Workers Compensation Act',
+                  citation: 'C.C.S.M. c. W200',
+                  date: 'Consolidated Statute',
+                  link: 'https://web2.gov.mb.ca/laws/statutes/ccsm/w200e.php',
+                  desc: 'Governs compensation for workplace injuries, rehabilitation services, employer assessment rates, and prevention levies.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Workers Compensation General Regulation',
+                  citation: 'Man. Reg. 42/2014',
+                  link: 'https://web2.gov.mb.ca/laws/regs/current/_pdf-regs.php?reg=42/2014',
+                  desc: 'Industry exclusion schedules, rate assessments, and claims administration procedures.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Register with WCB Manitoba, pay assigned assessment premiums, report workplace injuries within 5 business days, and comply with statutory re-employment obligations.',
+                specificDuties: [
+                  'Section 18: File an Employer\'s Incident Report with the WCB within 5 business days of learning of an injury requiring medical aid or causing wage loss.',
+                  'Section 49.3: Re-employ injured workers who have been continuously employed for at least 12 months (for employers regularly employing 25+ workers).',
+                  'Cooperate in early and safe return to work by accommodating modified duties.',
+                  'Section 15: Never deduct compensation premiums or levy contributions from workers\' wages.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Class E Employers', ref: 'WCA s. 73', notes: 'Compulsory collective liability employers.' },
+                { role: 'Individually Liable Employers', ref: 'WCA Classes A-D', notes: 'Government and designated agencies.' },
+                { role: 'Injured Workers', ref: 'WCA s. 18', notes: 'Duty to report injuries promptly and cooperate in healthcare treatment.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed persons, independent contractors, and directors.',
+                treatment: 'Not automatically covered by default; eligible to purchase Optional Personal Coverage.',
+                obligations: 'Must apply for and maintain Personal Coverage to receive wage loss replacement if injured during independent operations.'
+              },
+              sources: [
+                { name: 'WCB Manitoba Official Portal', url: 'https://www.wcb.mb.ca/' },
+                { name: 'SAFE Work Manitoba', url: 'https://www.safemanitoba.com/' },
+                { name: 'Manitoba Laws WCA', url: 'https://web2.gov.mb.ca/laws/statutes/ccsm/w200e.php' }
+              ]
             }
           ]
         },
@@ -1063,6 +1316,56 @@
                 { name: 'CNESST Official Portal', url: 'https://www.cnesst.gouv.qc.ca/' },
                 { name: 'Légis Québec LSST', url: 'https://www.legisquebec.gouv.qc.ca/fr/document/lc/S-2.1' }
               ]
+            },
+            {
+              id: 'tat-qc',
+              name: 'Tribunal administratif du travail (TAT)',
+              role: 'Specialized Administrative Tribunal Adjudicating OHS Appeals, Reprisals & Medical Disputes',
+              framework: {
+                model: 'Autonomous Administrative Tribunal established under the Loi instituant le Tribunal administratif du travail (LITAT, CQLR c T-15.1), hearing appeals of CNESST decisions.',
+                irsPrinciple: 'Guarantees impartiality in appeals concerning employer orders, refusal of dangerous work, protective re-assignment, and occupational disease compensation.',
+                hierarchy: 'Loi sur la santé et la sécurité du travail (LSST) + LATMP + Loi instituant le Tribunal administratif du travail (LITAT).',
+                administrativeQuirk: 'Hears appeals from the CNESST administrative review branch (Direction de la révision administrative) across both prevention and compensation divisions.'
+              },
+              acts: [
+                {
+                  title: 'Loi instituant le Tribunal administratif du travail',
+                  citation: 'CQLR c T-15.1',
+                  date: 'Consolidated Statute',
+                  link: 'https://www.legisquebec.gouv.qc.ca/fr/document/lc/T-15.1',
+                  desc: 'Establishes the specialized occupational health and safety division of the TAT to adjudicate disputes.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Règles de preuve et de procédure du Tribunal administratif du travail',
+                  citation: 'CQLR c T-15.1, r. 2',
+                  link: 'https://www.legisquebec.gouv.qc.ca/fr/document/rc/T-15.1,%20r.%202',
+                  desc: 'Rules of evidence and procedure governing OHS appeals, conciliation, and hearings.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Comply with TAT procedural orders, participate in conciliation or hearings, and abide by final judgments.',
+                specificDuties: [
+                  'Defend against worker reprisal complaints under LSST s. 227 (Interdiction de congédiement ou de mesure de représailles).',
+                  'Comply with TAT orders confirming or cancelling CNESST inspector remedial notices.',
+                  'Execute orders of reinstatement and retroactive wage compensation.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Juges administratifs (Administrative Judges)', ref: 'LITAT art. 9', notes: 'Specialized adjudicators in the health and safety division.' },
+                { role: 'Employeurs (Parties)', ref: 'LSST art. 227', notes: 'Respondents in reprisal and inspector review proceedings.' },
+                { role: 'Travailleurs (Parties)', ref: 'LSST art. 37', notes: 'Appellants in refusal to work and compensation matters.' }
+              ],
+              selfEmployed: {
+                defined: 'Travailleur autonome.',
+                treatment: 'Can appear before the TAT regarding CNESST coverage status or site inspection orders.',
+                obligations: 'Subject to binding TAT decisions regarding occupational status.'
+              },
+              sources: [
+                { name: 'Tribunal administratif du travail (TAT)', url: 'https://www.tat.gouv.qc.ca/' },
+                { name: 'CanLII TAT Decisions', url: 'https://www.canlii.org/fr/qc/qctat/' }
+              ]
             }
           ]
         },
@@ -1124,6 +1427,57 @@
               sources: [
                 { name: 'Nova Scotia Legislation Portal', url: 'https://nslegislature.ca/legc/statutes/occupational%20health%20and%20safety.pdf' },
                 { name: 'NS Department of Labour Safety Portal', url: 'https://novascotia.ca/lae/healthandsafety/' }
+              ]
+            },
+            {
+              id: 'wcb-ns',
+              name: 'Workers’ Compensation Board (WCB) Nova Scotia',
+              role: 'Workers’ Compensation Insurer, Workplace Injury Prevention & Return-to-Work Services',
+              framework: {
+                model: 'Bifurcated Model: Independent board administering no-fault workplace injury insurance under Part I of the Workers\' Compensation Act (SNS 1994-95, c. 10). Safety Branch of the Department of Labour, Skills and Immigration handles inspections and enforcement.',
+                irsPrinciple: 'Meredith Principles: Collective employer liability, no-fault compensation, system funded by employer payroll assessments.',
+                hierarchy: '1. Primary Statute: Workers\' Compensation Act (SNS 1994-95, c. 10, Part I)\n2. Operational Regulations: Workers\' Compensation General Regulations (NS Reg 22/96)\n3. WCB Policy Manual.',
+                administrativeQuirk: 'WCB NS partners with the Department of Labour on the Workplace Safety Strategy for Nova Scotia, coordinating prevention campaigns while maintaining independent compensation adjudication.'
+              },
+              acts: [
+                {
+                  title: 'Workers’ Compensation Act',
+                  citation: 'SNS 1994-95, c. 10',
+                  date: 'Consolidated Statute',
+                  link: 'https://nslegislature.ca/legc/statutes/workers%27%20compensation.pdf',
+                  desc: 'Establishes the compensation scheme, Accident Fund, rate assessments, and return-to-work obligations.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Workers’ Compensation General Regulations',
+                  citation: 'NS Reg 22/96',
+                  link: 'https://novascotia.ca/just/regulations/regs/wcgen.htm',
+                  desc: 'Employer registration thresholds, excluded industries, and assessment calculation methods.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Register within 10 days of employing 3 or more workers (or immediately in mandatory sectors like construction), submit injury reports within 5 business days, and remit assessment premiums.',
+                specificDuties: [
+                  'Section 10: Report any workplace injury that causes loss of earnings or requires healthcare to WCB within 5 business days (Form 7).',
+                  'Maintain payroll records and submit annual statements of payroll.',
+                  'Facilitate timely return-to-work modified duties in cooperation with the injured worker and healthcare providers.',
+                  'Never deduct workers\' compensation premiums from workers\' wages.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Covered Employers', ref: 'WCA Part I s. 5', notes: 'Must register and pay premiums into the Accident Fund.' },
+                { role: 'Injured Workers', ref: 'WCA s. 11', notes: 'Duty to report injury and claim benefits within 12 months.' },
+                { role: 'Board Directors', ref: 'WCA s. 154', notes: 'Fiduciary oversight of the Accident Fund.' }
+              ],
+              selfEmployed: {
+                defined: 'Proprietors, partners, and independent operators without employees.',
+                treatment: 'Excluded from mandatory coverage; eligible to purchase Special Protection (Voluntary Coverage).',
+                obligations: 'Must apply for Special Protection to secure wage-loss and medical coverage while working on their own account.'
+              },
+              sources: [
+                { name: 'WCB Nova Scotia Official Portal', url: 'https://www.wcb.ns.ca/' },
+                { name: 'Nova Scotia Legislature WCA', url: 'https://nslegislature.ca/legc/statutes/workers%27%20compensation.pdf' }
               ]
             }
           ]
@@ -1244,6 +1598,57 @@
               },
               sources: [
                 { name: 'NL House of Assembly OHS Act', url: 'https://www.assembly.nl.ca/legislation/sr/statutes/o03.htm' }
+              ]
+            },
+            {
+              id: 'workplacenl',
+              name: 'WorkplaceNL (Health, Safety and Compensation Commission)',
+              role: 'Workers’ Compensation Insurer, Mandatory Safety Training Certification & Injury Prevention',
+              framework: {
+                model: 'Bifurcated Model with Prevention Mandate: WorkplaceNL administers insurance claims under the Workplace Health, Safety and Compensation Act, 2022 (SNL 2022, c W-11.1) AND sets mandatory certification standards for safety training, while Service NL OHS Division enforces statutory compliance.',
+                irsPrinciple: 'Meredith Principles coupled with aggressive prevention requirements and certification of OHS Committee members.',
+                hierarchy: '1. Primary Statute: Workplace Health, Safety and Compensation Act, 2022 (SNL 2022, c W-11.1)\n2. Operational Regulations: Workplace Health, Safety and Compensation Regulations (NLR 102/22)\n3. WorkplaceNL Policy Manual & Training Standards.',
+                administrativeQuirk: 'Unlike most provincial WCBs that purely handle insurance, WorkplaceNL sets binding provincial curriculum standards and approves training providers for high-hazard certifications (Fall Protection, Confined Space Entry, Mine Rescue, OHS Committee Training).'
+              },
+              acts: [
+                {
+                  title: 'Workplace Health, Safety and Compensation Act, 2022',
+                  citation: 'SNL 2022, c W-11.1',
+                  date: 'Enacted 2022 (replacing former RSNL 1990 c W-11)',
+                  link: 'https://www.assembly.nl.ca/Legislation/sr/statutes/w11-01.htm',
+                  desc: 'Comprehensive statute governing the injury compensation fund, rehabilitation, early and safe return to work, and training certifications.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Workplace Health, Safety and Compensation Regulations',
+                  citation: 'NLR 102/22',
+                  link: 'https://www.assembly.nl.ca/Legislation/sr/regulations/rc220102.htm',
+                  desc: 'Industry assessments, payroll calculations, and training certification procedures.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Register within 10 days of employing workers, report injury incidents within 3 business days, provide WorkplaceNL-certified safety training to workers, and pay assessed premiums into the Injury Fund.',
+                specificDuties: [
+                  'Section 53: File an Employer\'s Report of Injury (Form 7) within 3 business days of notification of an injury requiring medical aid or time loss.',
+                  'Ensure all workers performing high-hazard work (fall protection, confined space, scaffolding) hold valid WorkplaceNL-approved training certificates.',
+                  'Ensure OHS Committee members and representatives complete WorkplaceNL-certified Level 1 and Level 2 training.',
+                  'Section 89: Duty to cooperate in Early and Safe Return to Work (ESRTW) programs.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Covered Employers', ref: 'WHSCA 2022 s. 36', notes: 'Pay collective liability assessments and maintain valid certificates.' },
+                { role: 'Certified Workers', ref: 'WHSCA 2022 s. 44', notes: 'Must maintain valid training credentials for high-hazard work.' },
+                { role: 'Training Providers', ref: 'WorkplaceNL Standards', notes: 'Must be certified and audited by WorkplaceNL.' }
+              ],
+              selfEmployed: {
+                defined: 'Independent operators, sole proprietors, and partners.',
+                treatment: 'Excluded from compulsory coverage; eligible for Optional Personal Coverage.',
+                obligations: 'Must purchase Optional Personal Coverage to receive loss of earnings benefits in the event of an occupational injury.'
+              },
+              sources: [
+                { name: 'WorkplaceNL Official Portal', url: 'https://workplacenl.ca/' },
+                { name: 'Workplace Health, Safety and Compensation Act 2022', url: 'https://www.assembly.nl.ca/Legislation/sr/statutes/w11-01.htm' }
               ]
             }
           ]
@@ -1484,6 +1889,9 @@
           ]
         },
 
+        /* ==========================================================
+           UNITED STATES
+           ========================================================== */
         'us-fed': {
           country: 'usa',
           name: 'United States Federal (Federal OSHA)',
@@ -3044,6 +3452,91 @@
           ]
         },
 
+        'au-model': {
+          country: 'australia',
+          name: 'Safe Work Australia (National Model WHS Framework)',
+          code: 'SWA',
+          type: 'National Model Legislation & Policy Harmonisation Body',
+          hierarchyType: 'Model WHS Act + Model WHS Regulations + 24 Model Codes of Practice',
+          primaryStatute: 'Safe Work Australia Act 2008 (Cth) & Model Work Health and Safety Act',
+          primaryAgency: 'Safe Work Australia (Statutory Tripartite Agency)',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 25 of the Model WHS Act explicitly imposes positive primary duties on suppliers of plant, substances, or structures.',
+          selfEmployedStatus: 'Classified as a Person Conducting a Business or Undertaking (PCBU) under Section 5, owing a primary duty of care under Section 19(5).',
+          bodies: [
+            {
+              id: 'swa-policy',
+              name: 'Safe Work Australia (National Policy & Tripartite Agency)',
+              role: 'National Statutory Tripartite Body: Develops National Policy, Model WHS Laws, Codes of Practice & Workers’ Compensation Policy',
+              framework: {
+                model: 'National Harmonisation Model: Established under the Safe Work Australia Act 2008 (Cth). Safe Work Australia develops the Model WHS legislative framework, but does not enforce it; implementation and enforcement is enacted by the Commonwealth, states, and territories.',
+                irsPrinciple: 'Primary Duty of Care (s. 19) anchored on the PCBU. Positive Due Diligence for Officers (s. 27). Worker participation via Health and Safety Representatives (HSRs) and Health and Safety Committees (HSCs).',
+                hierarchy: '1. Model Work Health and Safety Act (revised with national Boland Review amendments)\n2. Model Work Health and Safety Regulations\n3. 24 Model Codes of Practice (practical guides with evidentiary status).',
+                administrativeQuirk: 'Tripartite governance comprising an independent chair, representatives of the Commonwealth and all State/Territory governments, the Australian Council of Trade Unions (ACTU), and the Australian Chamber of Commerce and Industry (ACCI).'
+              },
+              acts: [
+                {
+                  title: 'Safe Work Australia Act 2008 (Cth)',
+                  citation: 'Act No. 123 of 2008 (Cth)',
+                  date: 'In force 1 Nov 2009',
+                  link: 'https://www.legislation.gov.au/Details/C2016C00845',
+                  desc: 'Statute establishing Safe Work Australia as the national statutory policy body overseeing national WHS harmonisation.'
+                },
+                {
+                  title: 'Model Work Health and Safety Act',
+                  citation: 'Model WHS Act (Safe Work Australia)',
+                  date: 'Consolidated National Model',
+                  link: 'https://www.safeworkaustralia.gov.au/doc/model-whs-act',
+                  desc: 'The national model statute providing the template for harmonised WHS legislation across all Australian jurisdictions.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Model Work Health and Safety Regulations',
+                  citation: 'Model WHS Regulations',
+                  link: 'https://www.safeworkaustralia.gov.au/doc/model-whs-regulations',
+                  desc: 'National technical model provisions covering high-risk work, hazardous chemicals, asbestos, and psychosocial hazards.'
+                },
+                {
+                  title: 'Model Code of Practice: Managing Psychosocial Hazards at Work',
+                  citation: 'Model Code 2022',
+                  link: 'https://www.safeworkaustralia.gov.au/doc/model-code-practice-managing-psychosocial-hazards-work',
+                  desc: 'National model standard requiring PCBUs to manage psychological risks and work-related stress.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Model WHS Act s. 19: A person conducting a business or undertaking (PCBU) must ensure, so far as is reasonably practicable, the health and safety of workers engaged by the person or whose activities are influenced by the person.',
+                specificDuties: [
+                  'Provide and maintain a work environment without risks to health and safety.',
+                  'Provide and maintain safe plant and structures, and safe systems of work.',
+                  'Ensure safe use, handling, and storage of plant, structures, and substances.',
+                  'Provide adequate facilities for the welfare of workers at work.',
+                  'Provide information, training, instruction, or supervision necessary to protect all persons from risks to their health and safety.',
+                  'Section 27 Due Diligence: Officers of the PCBU must exercise active due diligence to ensure compliance.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'PCBU (Person Conducting a Business or Undertaking)', ref: 'Model WHS Act s. 5, s. 19', notes: 'Core duty holder encompassing corporations, sole traders, and partnerships.' },
+                { role: 'Officer (Directors & Executives)', ref: 'Model WHS Act s. 27', notes: 'Positive duty of proactive due diligence.' },
+                { role: 'Worker', ref: 'Model WHS Act s. 7, s. 28', notes: 'Employees, contractors, volunteers; must take reasonable care.' },
+                { role: 'Designers, Manufacturers & Importers', ref: 'Model WHS Act ss. 22-24', notes: 'Must ensure products and structures are safe at design and production stages.' },
+                { role: 'Suppliers of Plant, Substances or Structures', ref: 'Model WHS Act s. 25', notes: 'EXPLICIT SUPPLIER DUTY: Must ensure supplied plant, substances, or structures are safe.' },
+                { role: 'Installers / Constructors', ref: 'Model WHS Act s. 26', notes: 'Must ensure proper installation so plant is not hazardous.' }
+              ],
+              selfEmployed: {
+                defined: 'Model WHS Act s. 5(1)(b): A person conducts a business or undertaking alone (sole trader / self-employed).',
+                treatment: 'Treated as a PCBU.',
+                obligations: 'Section 19(5): A self-employed person must ensure, so far as is reasonably practicable, his or her own health and safety while at work, and ensure others are not put at risk by their work.'
+              },
+              sources: [
+                { name: 'Safe Work Australia Official Portal', url: 'https://www.safeworkaustralia.gov.au/' },
+                { name: 'Model WHS Laws Portal', url: 'https://www.safeworkaustralia.gov.au/law-and-regulation/model-whs-laws' },
+                { name: 'Federal Register of Legislation - Safe Work Australia Act', url: 'https://www.legislation.gov.au/Details/C2016C00845' }
+              ]
+            }
+          ]
+        },
+
         'au-cth': {
           country: 'australia',
           name: 'Australia Commonwealth (Comcare / Cth)',
@@ -3364,6 +3857,302 @@
               },
               sources: [
                 { name: 'WorkSafe WA Official Portal', url: 'https://www.commerce.wa.gov.au/worksafe' }
+              ]
+            }
+          ]
+        },
+
+        'au-sa': {
+          country: 'australia',
+          name: 'South Australia (SafeWork SA)',
+          code: 'AU-SA',
+          type: 'Harmonised Model WHS Framework (Adopted 2013)',
+          hierarchyType: 'Work Health and Safety Act 2012 (SA) + WHS Regulations 2012',
+          primaryStatute: 'Work Health and Safety Act 2012 (SA)',
+          primaryAgency: 'SafeWork SA (Department for Industrial Relations and Policy) & ReturnToWorkSA',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 25 of the Work Health and Safety Act 2012 (SA) imposes explicit statutory duties on suppliers of plant, substances, or structures.',
+          selfEmployedStatus: 'Classified as a PCBU under Section 5 with primary duty of care under Section 19(5).',
+          bodies: [
+            {
+              id: 'safework-sa',
+              name: 'SafeWork SA',
+              role: 'State WHS Regulator, Inspectorate, Licensing & Prosecutions',
+              framework: {
+                model: 'Harmonised WHS State Model: South Australia harmonised on 1 January 2013. SafeWork SA conducts inspections and enforcement, while ReturnToWorkSA manages workers compensation insurance independently.',
+                irsPrinciple: 'PCBU primary duty of care; HSRs with provisional improvement notice (PIN) and cease-work powers; Health and Safety Committees for 20+ workers upon request.',
+                hierarchy: '1. Work Health and Safety Act 2012 (SA)\n2. Work Health and Safety Regulations 2012 (SA)\n3. Approved South Australian Codes of Practice.',
+                administrativeQuirk: 'Enacted industrial manslaughter provisions into the SA WHS Act in 2024, carrying maximum penalties of 20 years imprisonment for individuals and up to $18 million for corporate entities.'
+              },
+              acts: [
+                {
+                  title: 'Work Health and Safety Act 2012 (SA)',
+                  citation: 'SA Act No. 40 of 2012',
+                  date: 'In force 1 Jan 2013',
+                  link: 'https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fwork%20health%20and%20safety%20act%202012',
+                  desc: 'Harmonised South Australian WHS statute setting out PCBU duties, officer due diligence, and enforcement tools.'
+                },
+                {
+                  title: 'Return to Work Act 2014 (SA)',
+                  citation: 'SA Act No. 16 of 2014',
+                  date: 'Consolidated Statute',
+                  link: 'https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Freturn%20to%20work%20act%202014',
+                  desc: 'Administered by ReturnToWorkSA, covering workplace injury insurance and rehabilitation.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Work Health and Safety Regulations 2012 (SA)',
+                  citation: 'SA Regs No. 268 of 2012',
+                  link: 'https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fr%2Fwork%20health%20and%20safety%20regulations%202012',
+                  desc: 'Detailed operational safety provisions including high risk licensing, hazardous chemicals, and major hazard facilities.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'WHS Act 2012 (SA) s. 19: A PCBU must ensure, so far as is reasonably practicable, the health and safety of workers and other persons at work.',
+                specificDuties: [
+                  'Provide and maintain a safe working environment, plant, structures, and systems of work.',
+                  'Provide adequate facilities for worker welfare and safety training/instruction.',
+                  'Ensure that officers exercise active due diligence to maintain compliance under Section 27.',
+                  'Notify SafeWork SA immediately of notifiable incidents under Section 38.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'PCBU (Person Conducting a Business or Undertaking)', ref: 'WHS Act 2012 (SA) s. 19', notes: 'Primary duty holder.' },
+                { role: 'Officer', ref: 'WHS Act 2012 (SA) s. 27', notes: 'Personal positive due diligence duty.' },
+                { role: 'Worker', ref: 'WHS Act 2012 (SA) s. 28', notes: 'Must take reasonable care and comply with reasonable instructions.' },
+                { role: 'Supplier', ref: 'WHS Act 2012 (SA) s. 25', notes: 'EXPLICIT SUPPLIER DUTY: Must ensure supplied plant, substances, or structures are safe.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole trader PCBU under Section 5.',
+                treatment: 'Section 19(5).',
+                obligations: 'Must ensure, so far as reasonably practicable, their own health and safety and that others are not harmed by the business undertaking.'
+              },
+              sources: [
+                { name: 'SafeWork SA Official Portal', url: 'https://www.safework.sa.gov.au/' },
+                { name: 'South Australian Legislation Register', url: 'https://www.legislation.sa.gov.au/' },
+                { name: 'ReturnToWorkSA Portal', url: 'https://www.rtwsa.com/' }
+              ]
+            }
+          ]
+        },
+
+        'au-tas': {
+          country: 'australia',
+          name: 'Tasmania (WorkSafe Tasmania)',
+          code: 'AU-TAS',
+          type: 'Harmonised Model WHS Framework (Adopted 2013)',
+          hierarchyType: 'Work Health and Safety Act 2012 (Tas) + WHS Regulations 2022',
+          primaryStatute: 'Work Health and Safety Act 2012 (Tas No. 1 of 2012)',
+          primaryAgency: 'WorkSafe Tasmania (Department of Justice) & WorkCover Tasmania',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 25 of the Work Health and Safety Act 2012 (Tas) establishes explicit statutory duties for suppliers of plant, substances, or structures.',
+          selfEmployedStatus: 'Classified as a PCBU under Section 5 with primary duty under Section 19(5).',
+          bodies: [
+            {
+              id: 'worksafe-tas',
+              name: 'WorkSafe Tasmania',
+              role: 'State Safety Regulator, Compliance Inspectorate & Licensing Authority',
+              framework: {
+                model: 'Harmonised State Framework: Tasmania commenced model WHS legislation on 1 January 2013 under the Department of Justice. The WorkCover Tasmania Board oversees the workers compensation scheme.',
+                irsPrinciple: 'PCBU primary duty; HSRs with cease-work and PIN powers; Health and Safety Committees.',
+                hierarchy: '1. Work Health and Safety Act 2012 (Tas)\n2. Work Health and Safety Regulations 2022 (Tas)\n3. Tasmanian Approved Codes of Practice.',
+                administrativeQuirk: 'Administers an integrated safety inspectorate covering general workplace safety, dangerous goods, major hazard facilities, and mining safety across Tasmania.'
+              },
+              acts: [
+                {
+                  title: 'Work Health and Safety Act 2012 (Tas)',
+                  citation: 'Tas Act No. 1 of 2012',
+                  date: 'In force 1 Jan 2013',
+                  link: 'https://www.legislation.tas.gov.au/view/html/inforce/current/act-2012-001',
+                  desc: 'Comprehensive harmonised Tasmanian statute setting out primary duty of care, worker protections, and penalties.'
+                },
+                {
+                  title: 'Workers Rehabilitation and Compensation Act 1988 (Tas)',
+                  citation: 'Tas Act No. 4 of 1988',
+                  date: 'Consolidated Statute',
+                  link: 'https://www.legislation.tas.gov.au/view/html/inforce/current/act-1988-004',
+                  desc: 'Governs injury management, rehabilitation, and workers compensation claims in Tasmania.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Work Health and Safety Regulations 2022 (Tas)',
+                  citation: 'Tas S.R. 2022, No. 104',
+                  link: 'https://www.legislation.tas.gov.au/view/html/inforce/current/sr-2022-104',
+                  desc: 'Consolidated regulations covering high-risk work, construction, asbestos, and hazardous chemicals.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'WHS Act 2012 (Tas) s. 19: A PCBU must ensure, so far as is reasonably practicable, the health and safety of workers and other persons.',
+                specificDuties: [
+                  'Provide safe plant, structures, and systems of work without risks to health.',
+                  'Provide information, instruction, training, and supervision.',
+                  'Ensure officers exercise active due diligence to maintain compliance under Section 27.',
+                  'Preserve incident sites and report notifiable incidents under Section 38.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'PCBU', ref: 'WHS Act 2012 (Tas) s. 19', notes: 'Primary duty holder.' },
+                { role: 'Officer', ref: 'WHS Act 2012 (Tas) s. 27', notes: 'Positive due diligence obligations.' },
+                { role: 'Worker', ref: 'WHS Act 2012 (Tas) s. 28', notes: 'Must take reasonable care.' },
+                { role: 'Supplier', ref: 'WHS Act 2012 (Tas) s. 25', notes: 'EXPLICIT SUPPLIER DUTY: Must ensure supplied plant, substances, or structures are safe.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole trader PCBU under Section 5.',
+                treatment: 'Section 19(5).',
+                obligations: 'Must ensure own health and safety and that others are not endangered by the business undertaking.'
+              },
+              sources: [
+                { name: 'WorkSafe Tasmania Official Portal', url: 'https://worksafe.tas.gov.au/' },
+                { name: 'Tasmanian Legislation Register', url: 'https://www.legislation.tas.gov.au/' },
+                { name: 'WorkCover Tasmania Board', url: 'https://workcover.tas.gov.au/' }
+              ]
+            }
+          ]
+        },
+
+        'au-act': {
+          country: 'australia',
+          name: 'Australian Capital Territory (WorkSafe ACT)',
+          code: 'AU-ACT',
+          type: 'Harmonised Model WHS Framework (Adopted 2011)',
+          hierarchyType: 'Work Health and Safety Act 2011 (ACT) + WHS Regulation 2011',
+          primaryStatute: 'Work Health and Safety Act 2011 (ACT A2011-35)',
+          primaryAgency: 'WorkSafe ACT (Office of the Work Health and Safety Commissioner)',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 25 of the Work Health and Safety Act 2011 (ACT) imposes explicit positive duties on suppliers of plant, substances, or structures.',
+          selfEmployedStatus: 'Classified as a PCBU under Section 5 with primary duty of care under Section 19(5).',
+          bodies: [
+            {
+              id: 'worksafe-act',
+              name: 'WorkSafe ACT',
+              role: 'Independent Statutory Territory Regulator headed by the WHS Commissioner',
+              framework: {
+                model: 'Independent Statutory Authority Model: WorkSafe ACT is established as an independent statutory agency under the Work Health and Safety Commissioner, regulating territory businesses, construction, and public sector operations.',
+                irsPrinciple: 'PCBU primary duty; HSRs with provisional improvement notices; positive officer due diligence (s. 27); mandatory consultation.',
+                hierarchy: '1. Work Health and Safety Act 2011 (ACT)\n2. Work Health and Safety Regulation 2011 (ACT)\n3. ACT Approved Codes of Practice.',
+                administrativeQuirk: 'Pioneered early Industrial Manslaughter legislation in Australia (originally in the Crimes Act 1900 (ACT) in 2004, later incorporated into the WHS Act) and maintains active territory-wide residential construction audits.'
+              },
+              acts: [
+                {
+                  title: 'Work Health and Safety Act 2011 (ACT)',
+                  citation: 'ACT Act No. A2011-35',
+                  date: 'In force 1 Jan 2012',
+                  link: 'https://www.legislation.act.gov.au/a/2011-35/',
+                  desc: 'Harmonised ACT statute establishing the PCBU concept, officer due diligence, and industrial manslaughter provisions.'
+                },
+                {
+                  title: 'Workers Compensation Act 1951 (ACT)',
+                  citation: 'ACT Act No. A1951-2',
+                  date: 'Consolidated Statute',
+                  link: 'https://www.legislation.act.gov.au/a/1951-2/',
+                  desc: 'Governs private sector workers compensation insurance and statutory benefits in the ACT.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Work Health and Safety Regulation 2011 (ACT)',
+                  citation: 'ACT Subordinate Law SL2011-36',
+                  link: 'https://www.legislation.act.gov.au/sl/2011-36/',
+                  desc: 'Operational safety provisions including silica dust controls, high-risk work, and construction requirements.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'WHS Act 2011 (ACT) s. 19: A PCBU must ensure, so far as is reasonably practicable, the health and safety of workers and other persons.',
+                specificDuties: [
+                  'Provide safe plant, structures, and work systems.',
+                  'Comply with ACT crystalline silica exposure controls and mandatory safety induction training.',
+                  'Notify WorkSafe ACT immediately of notifiable incidents under Section 38.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'PCBU', ref: 'WHS Act 2011 (ACT) s. 19', notes: 'Primary duty holder.' },
+                { role: 'Officer', ref: 'WHS Act 2011 (ACT) s. 27', notes: 'Positive due diligence obligations.' },
+                { role: 'Worker', ref: 'WHS Act 2011 (ACT) s. 28', notes: 'Must take reasonable care.' },
+                { role: 'Supplier', ref: 'WHS Act 2011 (ACT) s. 25', notes: 'EXPLICIT SUPPLIER DUTY: Must ensure supplied plant, substances, or structures are safe.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole trader PCBU under Section 5.',
+                treatment: 'Section 19(5).',
+                obligations: 'Must ensure own safety and that others are not harmed by the undertaking.'
+              },
+              sources: [
+                { name: 'WorkSafe ACT Official Portal', url: 'https://www.worksafe.act.gov.au/' },
+                { name: 'ACT Legislation Register', url: 'https://www.legislation.act.gov.au/' }
+              ]
+            }
+          ]
+        },
+
+        'au-nt': {
+          country: 'australia',
+          name: 'Northern Territory (NT WorkSafe)',
+          code: 'AU-NT',
+          type: 'Harmonised Model WHS Framework (Adopted 2011)',
+          hierarchyType: 'Work Health and Safety (National Uniform Legislation) Act 2011 (NT) + Regulations',
+          primaryStatute: 'Work Health and Safety (National Uniform Legislation) Act 2011 (NT)',
+          primaryAgency: 'NT WorkSafe (Department of Attorney-General and Justice)',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 25 of the WHS (NUL) Act imposes explicit duties on suppliers of plant, substances, or structures.',
+          selfEmployedStatus: 'Classified as a PCBU under Section 5 with primary duty of care under Section 19(5).',
+          bodies: [
+            {
+              id: 'nt-worksafe',
+              name: 'NT WorkSafe',
+              role: 'Territory WHS & Workers’ Compensation Regulator, Inspectorate & Major Hazard Facilities Authority',
+              framework: {
+                model: 'Harmonised Territory Model: NT harmonised on 1 January 2012, administering WHS, dangerous goods, electrical safety, and workers compensation across remote and regional territory operations.',
+                irsPrinciple: 'PCBU primary duty; HSRs with PIN powers; positive officer due diligence (s. 27).',
+                hierarchy: '1. Work Health and Safety (National Uniform Legislation) Act 2011 (NT)\n2. Work Health and Safety (National Uniform Legislation) Regulations 2011 (NT)\n3. Approved Codes of Practice.',
+                administrativeQuirk: 'Enacted industrial manslaughter in late 2019 under Section 34B, with maximum penalties of life imprisonment for individuals and multimillion-dollar corporate fines. Regulates remote worksites, crocodile safety, and extreme heat.'
+              },
+              acts: [
+                {
+                  title: 'Work Health and Safety (National Uniform Legislation) Act 2011 (NT)',
+                  citation: 'NT Act No. 39 of 2011',
+                  date: 'In force 1 Jan 2012',
+                  link: 'https://legislation.nt.gov.au/en/Legislation/WORK-HEALTH-AND-SAFETY-NATIONAL-UNIFORM-LEGISLATION-ACT-2011',
+                  desc: 'Territory harmonised statute establishing PCBU primary duties, officer duties, and industrial manslaughter.'
+                },
+                {
+                  title: 'Return to Work Act 1986 (NT)',
+                  citation: 'NT Act No. 49 of 1986',
+                  date: 'Consolidated Statute',
+                  link: 'https://legislation.nt.gov.au/en/Legislation/RETURN-TO-WORK-ACT-1986',
+                  desc: 'Governs workers compensation, injury management, and rehabilitation in the Northern Territory.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Work Health and Safety (National Uniform Legislation) Regulations 2011 (NT)',
+                  citation: 'NT Subordinate Legislation No. 60 of 2011',
+                  link: 'https://legislation.nt.gov.au/en/Legislation/WORK-HEALTH-AND-SAFETY-NATIONAL-UNIFORM-LEGISLATION-REGULATIONS-2011',
+                  desc: 'Operational safety provisions including major hazard facilities, hazardous chemicals, and remote work safety.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'WHS (NUL) Act s. 19: A PCBU must ensure, so far as is reasonably practicable, the health and safety of workers and other persons.',
+                specificDuties: [
+                  'Provide safe plant, structures, and systems of work.',
+                  'Provide adequate facilities, training, instruction, and supervision.',
+                  'Report notifiable incidents immediately to NT WorkSafe under Section 38.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'PCBU', ref: 'WHS (NUL) Act s. 19', notes: 'Primary duty holder.' },
+                { role: 'Officer', ref: 'WHS (NUL) Act s. 27', notes: 'Positive due diligence obligations.' },
+                { role: 'Worker', ref: 'WHS (NUL) Act s. 28', notes: 'Reasonable care.' },
+                { role: 'Supplier', ref: 'WHS (NUL) Act s. 25', notes: 'EXPLICIT SUPPLIER DUTY: Must ensure supplied plant, substances, or structures are safe.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole trader PCBU under Section 5.',
+                treatment: 'Section 19(5).',
+                obligations: 'Must ensure own health and safety and that others are not endangered by the undertaking.'
+              },
+              sources: [
+                { name: 'NT WorkSafe Official Portal', url: 'https://worksafe.nt.gov.au/' },
+                { name: 'Northern Territory Legislation Register', url: 'https://legislation.nt.gov.au/' }
               ]
             }
           ]
