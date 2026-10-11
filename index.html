@@ -93,12 +93,6 @@
           </svg>
           Compare 2 Jurisdictions
         </button>
-        <button id="openExportBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-700 hover:bg-emerald-600 text-white shadow-sm transition-all">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-          </svg>
-          Course Helper / Cite Export
-        </button>
       </div>
     </div>
   </header>
@@ -525,12 +519,6 @@
                   citation: 'Alta Reg 62/2003 (with amendments up to AR 183/2021)',
                   link: 'https://kings-printer.alberta.ca/1266.cfm?page=2003_062.cfm&leg_type=Regs&isbncln=9780779828555',
                   desc: 'Specifies designated occupations, general safety administration, licenses, and qualification standards.'
-                },
-                {
-                  title: 'Occupational Health and Safety Code 2009 (Consolidated Dec 2023)',
-                  citation: 'Alta Reg 87/2009 / Dec 2023 Update',
-                  link: 'https://open.alberta.ca/publications/ohs-code-2009',
-                  desc: 'Binding technical rules covering Part 2 (Hazard Assessment), Part 7 (Emergency Preparedness), Part 9 (Fall Protection), Part 11 (First Aid), Part 18 (Personal Protective Equipment), Part 27 (Violence and Harassment).'
                 }
               ],
               employerDuties: {
@@ -732,24 +720,6 @@
                   citation: 'R.R.O. 1990, Reg. 851',
                   link: 'https://www.ontario.ca/laws/regulation/900851',
                   desc: 'Applies to factories, manufacturing, warehouses, offices, and general industry.'
-                },
-                {
-                  title: 'Construction Projects Regulation',
-                  citation: 'O. Reg. 213/91',
-                  link: 'https://www.ontario.ca/laws/regulation/910213',
-                  desc: 'Regulates civil construction, commercial builds, excavation, scaffolding, and cranes.'
-                },
-                {
-                  title: 'Mines and Mining Plants Regulation',
-                  citation: 'R.R.O. 1990, Reg. 854',
-                  link: 'https://www.ontario.ca/laws/regulation/900854',
-                  desc: 'Governs surface and underground mining safety and vent requirements.'
-                },
-                {
-                  title: 'Occupational Health and Safety Awareness and Training',
-                  citation: 'O. Reg. 297/13',
-                  link: 'https://www.ontario.ca/laws/regulation/130297',
-                  desc: 'Mandates basic safety awareness training for every worker and supervisor.'
                 }
               ],
               employerDuties: {
@@ -2326,16 +2296,16 @@
                   date: '7 August 1996 (transposed Directive 89/391/EEC)',
                   link: 'https://www.gesetze-im-internet.de/arbschg/',
                   desc: 'Core federal statute establishing employer obligations, Gefährdungsbeurteilung (Risk Assessment), and employee duties.'
-                },
+                }
+              ],
+              regulations: [
                 {
                   title: 'Arbeitssicherheitsgesetz (ASiG)',
                   citation: 'BGBl. I S. 3363',
                   date: '12 December 1973',
                   link: 'https://www.gesetze-im-internet.de/asig/',
                   desc: 'Mandates appointment of Occupational Safety Specialists (Fachkräfte für Arbeitssicherheit) and Company Doctors (Betriebsärzte).'
-                }
-              ],
-              regulations: [
+                },
                 {
                   title: 'Betriebssicherheitsverordnung (BetrSichV)',
                   citation: 'BGBl. I S. 49',
@@ -2937,14 +2907,6 @@
             </div>
           </div>
 
-          <div class="bg-amber-50/70 border border-amber-200/80 rounded-xl p-4">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-amber-900 mb-1 flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              Key Comparative Quirks & Jurisdictional Distinctiveness
-            </h4>
-            <p class="text-xs sm:text-sm text-amber-950 leading-relaxed">${fw.administrativeQuirk}</p>
-          </div>
-
           <div class="p-4 bg-slate-900 text-white rounded-xl text-xs space-y-2">
             <div class="flex items-center justify-between">
               <span class="font-bold text-sky-300">Supplier Statutory Duty Inclusion:</span>
@@ -3205,6 +3167,10 @@
         </tr>
       `).join('');
 
+      if (filteredLinks.length === 0) {
+        rowsHtml = `<tr><td colspan="5" class="py-8 text-center text-slate-400">No official documents match your search criteria.</td></tr>`;
+      }
+
       subtabContentArea.innerHTML = `
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
           <div class="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -3446,8 +3412,10 @@ Generated via Global OHS Jurisdictional Regulatory Knowledge Base
       compareSelect1.addEventListener('change', renderComparisonMatrix);
       compareSelect2.addEventListener('change', renderComparisonMatrix);
 
-      // Export Modal triggers
-      openExportBtn.addEventListener('click', openExportModalHandler);
+      // Export Modal triggers (guarded in case button is removed)
+      if (openExportBtn) {
+        openExportBtn.addEventListener('click', openExportModalHandler);
+      }
       closeExportModal.addEventListener('click', () => {
         exportModal.classList.add('hidden');
       });
