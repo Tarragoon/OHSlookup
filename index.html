@@ -4628,6 +4628,97 @@
           ]
         },
 
+        'au-nsw': {
+          country: 'australia',
+          name: 'New South Wales (SafeWork NSW)',
+          code: 'AU-NSW',
+          type: 'Harmonised Model State (WHS Act 2011)',
+          hierarchyType: 'Work Health and Safety Act 2011 (NSW) + WHS Regulation 2017',
+          primaryStatute: 'Work Health and Safety Act 2011 (NSW)',
+          primaryAgency: 'SafeWork NSW (Department of Customer Service)',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 25 of the Work Health and Safety Act 2011 (NSW) explicitly imposes positive primary duties on suppliers of plant, substances, or structures.',
+          selfEmployedStatus: 'Classified as a Person Conducting a Business or Undertaking (PCBU) under Section 5, owing a primary duty of care under Section 19(5).',
+          bodies: [
+            {
+              id: 'nsw-safework',
+              name: 'SafeWork NSW',
+              role: 'State Work Health and Safety Regulator & Compliance Inspectorate',
+              framework: {
+                model: 'Harmonised State Model: Enforces the nationally harmonised WHS laws across NSW workplaces, incorporating Part 2A Industrial Manslaughter provisions enacted in 2024.',
+                irsPrinciple: 'Primary duty of care anchored on the PCBU (s. 19), positive due diligence for officers (s. 27), and statutory consultation with Health and Safety Representatives (HSRs).',
+                hierarchy: '1. Primary Statute: Work Health and Safety Act 2011 (NSW)\n2. Operational Regulations: Work Health and Safety Regulation 2017 (NSW)\n3. Approved Codes of Practice (including Managing Psychosocial Hazards at Work Code 2021).',
+                administrativeQuirk: 'SafeWork NSW operates within the Department of Customer Service alongside the State Insurance Regulatory Authority (SIRA) and icare (Insurance and Care NSW), separating prevention from claims administration.'
+              },
+              acts: [
+                {
+                  title: 'Work Health and Safety Act 2011 (NSW)',
+                  citation: 'Act No. 10 of 2011 (NSW)',
+                  date: 'Consolidated State Statute',
+                  link: 'https://legislation.nsw.gov.au/view/html/inforce/current/act-2011-010',
+                  desc: 'Enabling state statute establishing duties of care, incident notification, inspector powers, enforceable undertakings, and criminal penalties including industrial manslaughter.'
+                },
+                {
+                  title: 'Workers Compensation Act 1987 (NSW)',
+                  citation: 'Act No. 70 of 1987 (NSW)',
+                  date: 'Consolidated Statute',
+                  link: 'https://legislation.nsw.gov.au/view/html/inforce/current/act-1987-070',
+                  desc: 'Governs no-fault statutory injury compensation, weekly income replacement, and medical expenses.'
+                },
+                {
+                  title: 'Workplace Injury Management and Workers Compensation Act 1998 (NSW)',
+                  citation: 'Act No. 86 of 1998 (NSW)',
+                  date: 'Consolidated Statute',
+                  link: 'https://legislation.nsw.gov.au/view/html/inforce/current/act-1998-086',
+                  desc: 'Establishes return-to-work programs, injury management plans, and premium regulations.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Work Health and Safety Regulation 2017',
+                  citation: 'NSW Reg 404/2017',
+                  link: 'https://legislation.nsw.gov.au/view/html/inforce/current/sl-2017-0404',
+                  desc: 'Detailed provisions on high-risk licensing, construction, hazardous chemicals, asbestos, and the 2024 engineered stone prohibition.'
+                },
+                {
+                  title: 'Code of Practice: Managing Psychosocial Hazards at Work',
+                  citation: 'NSW Code 2021',
+                  link: 'https://www.safework.nsw.gov.au/resource-library/list-of-all-codes-of-practice/codes-of-practice/managing-psychosocial-hazards-at-work',
+                  desc: 'Mandatory code providing practical guidance on identifying and eliminating psychological hazards, work design, and fatigue.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'WHS Act s. 19: A person conducting a business or undertaking (PCBU) must ensure, so far as is reasonably practicable, the health and safety of workers and other persons affected by the conduct of the business or undertaking.',
+                specificDuties: [
+                  'Section 19(3): Provide and maintain a work environment without risks, safe plant and structures, safe systems of work, and safe handling of substances.',
+                  'Section 16: Duty to consult, cooperate and coordinate activities with all other persons who have a duty in relation to the same matter.',
+                  'Section 38: Immediately notify SafeWork NSW of any notifiable incident (fatality, serious illness/injury, or dangerous incident) by calling 13 10 50.',
+                  'Section 47-49: Duty to consult with workers and their health and safety representatives (HSRs) on matters directly affecting their health and safety.',
+                  'Implement effective controls against psychosocial risks in compliance with the WHS Regulation 2017 Part 3.2 Division 11.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'PCBU (Person Conducting a Business or Undertaking)', ref: 'WHS Act s. 5, s. 19', notes: 'Core legal duty holder bearing primary duty of care.' },
+                { role: 'Officer (Directors & Executives)', ref: 'WHS Act s. 27', notes: 'Positive individual duty of proactive due diligence.' },
+                { role: 'Worker', ref: 'WHS Act s. 28', notes: 'Must take reasonable care for own safety and that of others.' },
+                { role: 'Other Persons at the Workplace', ref: 'WHS Act s. 29', notes: 'Visitors and customers must comply with safety instructions.' },
+                { role: 'Suppliers of Plant, Substances or Structures', ref: 'WHS Act s. 25', notes: 'EXPLICIT SUPPLIER DUTY: Must ensure supplied items are without risks when used properly.' },
+                { role: 'Designers, Manufacturers, Importers', ref: 'WHS Act ss. 22-24', notes: 'Upstream duty holders ensuring safety in design and manufacturing.' }
+              ],
+              selfEmployed: {
+                defined: 'Section 5(1)(b): An individual who conducts a business or undertaking alone (sole trader / independent contractor).',
+                treatment: 'Treated comprehensively as a PCBU (Person Conducting a Business or Undertaking).',
+                obligations: 'Section 19(5): A self-employed person must ensure, so far as is reasonably practicable, their own health and safety, and ensure that other persons are not put at risk from work carried out as part of the conduct of the business or undertaking.'
+              },
+              sources: [
+                { name: 'SafeWork NSW Official Portal', url: 'https://www.safework.nsw.gov.au/' },
+                { name: 'NSW Legislation Portal WHS Act', url: 'https://legislation.nsw.gov.au/view/html/inforce/current/act-2011-010' },
+                { name: 'State Insurance Regulatory Authority (SIRA)', url: 'https://www.sira.nsw.gov.au/' }
+              ]
+            }
+          ]
+        },
+
         'au-vic': {
           country: 'australia',
           name: 'Victoria (WorkSafe Victoria)',
@@ -4820,6 +4911,96 @@
               sources: [
                 { name: 'Electrical Safety Office (ESO) Portal', url: 'https://www.worksafe.qld.gov.au/laws-and-compliance/electrical-safety-laws' },
                 { name: 'Resources Safety and Health Queensland (RSHQ)', url: 'https://www.rshq.qld.gov.au/' }
+              ]
+            }
+          ]
+        },
+
+        'au-wa': {
+          country: 'australia',
+          name: 'Western Australia (WorkSafe WA)',
+          code: 'AU-WA',
+          type: 'Harmonised Modern Consolidated Model (WHS Act 2020)',
+          hierarchyType: 'Work Health and Safety Act 2020 (WA) + WHS (General, Mines, Petroleum) Regulations 2022',
+          primaryStatute: 'Work Health and Safety Act 2020 (WA)',
+          primaryAgency: 'WorkSafe Western Australia (Department of Energy, Mines, Industry Regulation and Safety - DEMIRS)',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 25 of the Work Health and Safety Act 2020 (WA) explicitly imposes positive primary duties on suppliers of plant, substances, or structures.',
+          selfEmployedStatus: 'Classified as a Person Conducting a Business or Undertaking (PCBU) under Section 5, owing a primary duty of care under Section 19(5).',
+          bodies: [
+            {
+              id: 'wa-worksafe',
+              name: 'WorkSafe Western Australia (DEMIRS)',
+              role: 'Consolidated State Regulator for General Industry, Mining, and Petroleum Operations',
+              framework: {
+                model: 'Harmonised Modern Consolidated Model: Western Australia harmonised its laws in March 2022, uniquely unifying general industry, mining, and petroleum/geothermal operations under a single primary statute.',
+                irsPrinciple: 'Primary duty of care on the PCBU (s. 19), proactive due diligence for officers (s. 27), and extensive worker participation through Health and Safety Representatives.',
+                hierarchy: '1. Primary Statute: Work Health and Safety Act 2020 (WA)\n2. Sector Operational Regulations: WHS (General) Regulations 2022, WHS (Mines) Regulations 2022, WHS (Petroleum and Geothermal Energy Operations) Regulations 2022\n3. Approved Codes of Practice.',
+                administrativeQuirk: 'WorkSafe WA consolidates previously separate inspectorates (general safety, mines safety, petroleum safety) under the Department of Energy, Mines, Industry Regulation and Safety (DEMIRS), enforcing statutory industrial manslaughter under s. 30A.'
+              },
+              acts: [
+                {
+                  title: 'Work Health and Safety Act 2020 (WA)',
+                  citation: 'Act No. 36 of 2020 (WA)',
+                  date: 'Consolidated State Statute',
+                  link: 'https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_14470_homepage.html',
+                  desc: 'Comprehensive statute establishing duty of care, inspector powers, industrial manslaughter (s. 30A/30B), and prohibiting insurance against WHS penalties.'
+                },
+                {
+                  title: 'Workers’ Compensation and Injury Management Act 2023 (WA)',
+                  citation: 'Act No. 21 of 2023 (WA)',
+                  date: 'Consolidated Statute',
+                  link: 'https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_14717_homepage.html',
+                  desc: 'Modern compensation statute replacing the 1981 Act, governing injury compensation, medical expenses, and WorkCover WA.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Work Health and Safety (General) Regulations 2022',
+                  citation: 'SL 2022/25 (WA)',
+                  link: 'https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_14624_homepage.html',
+                  desc: 'Applies to general commercial and industrial operations, high-risk work, and hazardous chemicals.'
+                },
+                {
+                  title: 'Work Health and Safety (Mines) Regulations 2022',
+                  citation: 'SL 2022/26 (WA)',
+                  link: 'https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_14625_homepage.html',
+                  desc: 'Regulates surface and underground mining, mine safety management systems, and statutory mine positions.'
+                },
+                {
+                  title: 'Work Health and Safety (Petroleum and Geothermal Energy Operations) Regulations 2022',
+                  citation: 'SL 2022/27 (WA)',
+                  link: 'https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_14626_homepage.html',
+                  desc: 'Regulates onshore and territorial water oil, gas, and geothermal energy drilling and facilities.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'WHS Act 2020 s. 19: A person conducting a business or undertaking (PCBU) must ensure, so far as is reasonably practicable, the health and safety of workers and other persons affected by the business or undertaking.',
+                specificDuties: [
+                  'Section 19(3): Provide safe work environments, safe plant and structures, safe systems of work, and appropriate welfare facilities.',
+                  'Section 16: Duty to consult, cooperate and coordinate with all other duty holders having concurrent responsibility.',
+                  'Section 38: Immediately notify WorkSafe WA of notifiable deaths, serious injuries, or dangerous incidents.',
+                  'Section 272A: Prohibition on entering into contracts of insurance or indemnity to cover WHS civil penalties.',
+                  'Establish and resource mine safety management systems (MSMS) where operating designated mining operations.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'PCBU', ref: 'WHS Act s. 19', notes: 'Primary legal duty holder.' },
+                { role: 'Officer', ref: 'WHS Act s. 27', notes: 'Positive duty of proactive due diligence.' },
+                { role: 'Worker', ref: 'WHS Act s. 28', notes: 'Must take reasonable care.' },
+                { role: 'Site Senior Executive (SSE)', ref: 'WHS (Mines) Regs', notes: 'Statutory individual with operational control over mine safety.' },
+                { role: 'Suppliers of Plant, Substances or Structures', ref: 'WHS Act s. 25', notes: 'EXPLICIT SUPPLIER DUTY.' },
+                { role: 'Designers, Manufacturers, Importers', ref: 'WHS Act ss. 22-24', notes: 'Upstream duty holders.' }
+              ],
+              selfEmployed: {
+                defined: 'Section 5(1)(b): An individual who conducts a business or undertaking alone (sole trader / contractor).',
+                treatment: 'Classified and regulated as a PCBU.',
+                obligations: 'Section 19(5): Must ensure, so far as is reasonably practicable, their own health and safety, and ensure that others are not endangered by the conduct of their undertaking.'
+              },
+              sources: [
+                { name: 'WorkSafe WA Official Portal (DEMIRS)', url: 'https://www.commerce.wa.gov.au/worksafe' },
+                { name: 'WA Legislation Portal WHS Act 2020', url: 'https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_14470_homepage.html' },
+                { name: 'WorkCover WA', url: 'https://www.workcover.wa.gov.au/' }
               ]
             }
           ]
