@@ -375,7 +375,7 @@
     const ohsDatabase = {
       countries: [
         { id: 'canada', name: 'Canada', countLabel: '14 Jurisdictions', flag: '🇨🇦' },
-        { id: 'usa', name: 'United States', countLabel: 'Federal + 10 States', flag: '🇺🇸' },
+        { id: 'usa', name: 'United States', countLabel: 'Federal + 22 State Plans', flag: '🇺🇸' },
         { id: 'australia', name: 'Australia', countLabel: '10 Jurisdictions', flag: '🇦🇺' },
         { id: 'eu', name: 'European Union', countLabel: 'Framework + 6 States', flag: '🇪🇺' }
       ],
@@ -519,6 +519,12 @@
                   citation: 'Alta Reg 62/2003 (with amendments up to AR 183/2021)',
                   link: 'https://kings-printer.alberta.ca/1266.cfm?page=2003_062.cfm&leg_type=Regs&isbncln=9780779828555',
                   desc: 'Specifies designated occupations, general safety administration, licenses, and qualification standards.'
+                },
+                {
+                  title: 'Occupational Health and Safety Code 2009 (Consolidated Dec 2023)',
+                  citation: 'Alta Reg 87/2009 / Dec 2023 Update',
+                  link: 'https://open.alberta.ca/publications/ohs-code-2009',
+                  desc: 'Binding technical rules covering Part 2 (Hazard Assessment), Part 7 (Emergency Preparedness), Part 9 (Fall Protection), Part 11 (First Aid), Part 18 (Personal Protective Equipment), Part 27 (Violence and Harassment).'
                 }
               ],
               employerDuties: {
@@ -720,6 +726,24 @@
                   citation: 'R.R.O. 1990, Reg. 851',
                   link: 'https://www.ontario.ca/laws/regulation/900851',
                   desc: 'Applies to factories, manufacturing, warehouses, offices, and general industry.'
+                },
+                {
+                  title: 'Construction Projects Regulation',
+                  citation: 'O. Reg. 213/91',
+                  link: 'https://www.ontario.ca/laws/regulation/910213',
+                  desc: 'Regulates civil construction, commercial builds, excavation, scaffolding, and cranes.'
+                },
+                {
+                  title: 'Mines and Mining Plants Regulation',
+                  citation: 'R.R.O. 1990, Reg. 854',
+                  link: 'https://www.ontario.ca/laws/regulation/900854',
+                  desc: 'Governs surface and underground mining safety and vent requirements.'
+                },
+                {
+                  title: 'Occupational Health and Safety Awareness and Training',
+                  citation: 'O. Reg. 297/13',
+                  link: 'https://www.ontario.ca/laws/regulation/130297',
+                  desc: 'Mandates basic safety awareness training for every worker and supervisor.'
                 }
               ],
               employerDuties: {
@@ -1862,6 +1886,1133 @@
           ]
         },
 
+        'us-ak': {
+          country: 'usa',
+          name: 'Alaska (AKOSH)',
+          code: 'US-AK',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'Alaska Stat. Title 18 + 8 AAC Chapter 61',
+          primaryStatute: 'Alaska Occupational Safety and Health Act (AS 18.60.010 - 18.60.105)',
+          primaryAgency: 'Alaska Occupational Safety and Health (AKOSH) / Department of Labor and Workforce Development',
+          hasSupplierDuties: false,
+          supplierNote: 'Suppliers are not independent general duty holders under AS 18.60; federal HazCom rules apply to chemical distributors.',
+          selfEmployedStatus: 'Sole proprietors with no employees are exempt from AKOSH enforcement citations.',
+          bodies: [
+            {
+              id: 'ak-akosh',
+              name: 'Alaska OSH Division (AKOSH)',
+              role: 'State Plan Administration, Enforcement & Voluntary Consultation',
+              framework: {
+                model: 'Comprehensive State Plan covering private businesses and state/local government entities across Alaska.',
+                irsPrinciple: 'Promotes joint safety committees and voluntary compliance partnerships.',
+                hierarchy: 'AS 18.60 (Statute) + Alaska Administrative Code Title 8 Chapter 61 (8 AAC 61).',
+                administrativeQuirk: 'Maintains state-specific cold-temperature, remote worksite, logging, and petroleum-refining safety regulations.'
+              },
+              acts: [
+                {
+                  title: 'Alaska Occupational Safety and Health Act',
+                  citation: 'AS 18.60.010 et seq.',
+                  date: 'Enacted 1973',
+                  link: 'https://www.akleg.gov/basis/statutes.asp#18.60.010',
+                  desc: 'Core state statute establishing safety mandates, inspectorate access, and citation authority.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Occupational Safety and Health Standards (8 AAC 61)',
+                  citation: '8 AAC 61.010 - 61.960',
+                  link: 'https://www.akleg.gov/basis/aac.asp#08.61',
+                  desc: 'State administrative standards adopting and supplementing 29 CFR standards.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'AS 18.60.075: Every employer shall furnish employment and a place of employment that are free from recognized hazards.',
+                specificDuties: [
+                  'Comply with all state safety standards promulgated under 8 AAC 61.',
+                  'Maintain injury and illness records parallel to OSHA 300 logs.',
+                  'Report fatalities within 8 hours and hospitalizations/amputations within 24 hours.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'AS 18.60.105', notes: 'Person employing one or more individuals.' },
+                { role: 'Employee', ref: 'AS 18.60.075(b)', notes: 'Must comply with safety rules.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from direct AKOSH citations.',
+                obligations: 'Subject to contractual safety requirements on remote client sites.'
+              },
+              sources: [
+                { name: 'Alaska AKOSH Official Portal', url: 'https://labor.alaska.gov/lss/osh.htm' }
+              ]
+            }
+          ]
+        },
+
+        'us-az': {
+          country: 'usa',
+          name: 'Arizona (ADOSH)',
+          code: 'US-AZ',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'A.R.S. Title 23, Chapter 2 + A.A.C. Title 20, Chapter 5',
+          primaryStatute: 'Arizona Occupational Safety and Health Act (A.R.S. § 23-401 et seq.)',
+          primaryAgency: 'Arizona Division of Occupational Safety and Health (ADOSH) / Industrial Commission of Arizona (ICA)',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed under commercial and tort law rather than direct ADOSH citations.',
+          selfEmployedStatus: 'Self-employed individuals with no employees are exempt from ADOSH enforcement jurisdiction.',
+          bodies: [
+            {
+              id: 'az-adosh',
+              name: 'Arizona Division of Occupational Safety and Health (ADOSH)',
+              role: 'Enforcement Bureau & Consultation Services',
+              framework: {
+                model: 'State Plan State administering safety regulations under the Industrial Commission of Arizona.',
+                irsPrinciple: 'Voluntary Protection Programs (VPP) and workplace safety committee guidance.',
+                hierarchy: 'Arizona Revised Statutes (A.R.S. Title 23) + Arizona Administrative Code (A.A.C. R20-5).',
+                administrativeQuirk: 'Arizona enforces unique state-specific standards regarding compressed gases and agriculture.'
+              },
+              acts: [
+                {
+                  title: 'Arizona Occupational Safety and Health Act',
+                  citation: 'A.R.S. § 23-401 et seq.',
+                  date: 'Enacted 1972',
+                  link: 'https://www.azleg.gov/arsDetail/?title=23',
+                  desc: 'Primary state statute providing regulatory authority to the Industrial Commission.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'ADOSH Safety and Health Standards',
+                  citation: 'A.A.C. R20-5-601 et seq.',
+                  link: 'https://azsos.gov/rules/arizona-administrative-code',
+                  desc: 'Administrative regulations incorporating federal 29 CFR 1910 and 1926 standards with state amendments.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'A.R.S. § 23-403: Each employer shall furnish to each of his employees employment and a place of employment free from recognized hazards.',
+                specificDuties: [
+                  'Comply with occupational safety and health standards prescribed by the Commission.',
+                  'Post required workplace safety notices and OSHA Form 300A annual summaries.',
+                  'Provide required personal protective equipment at no cost to workers.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'A.R.S. § 23-401(6)', notes: 'Any person who has one or more employees.' },
+                { role: 'Employee', ref: 'A.R.S. § 23-403(B)', notes: 'Must follow state safety instructions.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without staff.',
+                treatment: 'Exempt from ADOSH jurisdiction.',
+                obligations: 'Governed by general contractor oversight.'
+              },
+              sources: [
+                { name: 'Industrial Commission of Arizona ADOSH Portal', url: 'https://www.azica.gov/adosh' }
+              ]
+            }
+          ]
+        },
+
+        'us-hi': {
+          country: 'usa',
+          name: 'Hawaii (HIOSH)',
+          code: 'US-HI',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'HRS Chapter 396 + HAR Title 12, Subtitle 8',
+          primaryStatute: 'Hawaii Occupational Safety and Health Law (HRS Chapter 396)',
+          primaryAgency: 'Hawaii Occupational Safety and Health Division (HIOSH) / DLIR',
+          hasSupplierDuties: false,
+          supplierNote: 'Suppliers are not an independent citation category under HRS 396.',
+          selfEmployedStatus: 'Sole proprietors without employees are exempt from HIOSH citations.',
+          bodies: [
+            {
+              id: 'hi-hiosh',
+              name: 'Hawaii OSH Division (HIOSH)',
+              role: 'State Plan Enforcement & Consultation Agency',
+              framework: {
+                model: 'State Plan covering public and private employers across the Hawaiian islands.',
+                irsPrinciple: 'Mandates written safety and health programs for construction and high-hazard industries.',
+                hierarchy: 'Hawaii Revised Statutes (HRS 396) + Hawaii Administrative Rules (HAR Title 12).',
+                administrativeQuirk: 'Enforces state standards covering hoisting equipment operators and island-specific maritime and tourism hazards.'
+              },
+              acts: [
+                {
+                  title: 'Hawaii Occupational Safety and Health Law',
+                  citation: 'HRS Chapter 396',
+                  date: 'Enacted 1972',
+                  link: 'https://www.capitol.hawaii.gov/hrscurrent/Vol07_Ch0346-0398/HRS0396/',
+                  desc: 'State statutory authority for setting standards and assessing penalties.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Hawaii Occupational Safety and Health Standards',
+                  citation: 'HAR Title 12, Subtitle 8',
+                  link: 'https://labor.hawaii.gov/hiosh/standards/',
+                  desc: 'State administrative rules governing General Industry, Construction, and Agriculture.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'HRS § 396-6: Every employer shall furnish to each employee employment and a place of employment that are safe and healthful.',
+                specificDuties: [
+                  'Implement engineering and administrative safety controls.',
+                  'Provide safety training in languages understood by workers.',
+                  'Report serious injuries and fatalities to HIOSH immediately.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'HRS § 396-3', notes: 'Includes any person with one or more employees.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from HIOSH citations.',
+                obligations: 'Subject to commercial site requirements.'
+              },
+              sources: [
+                { name: 'Hawaii DLIR HIOSH Portal', url: 'https://labor.hawaii.gov/hiosh/' }
+              ]
+            }
+          ]
+        },
+
+        'us-in': {
+          country: 'usa',
+          name: 'Indiana (IOSHA)',
+          code: 'US-IN',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'Indiana Code Title 22, Art. 8 + 610 IAC',
+          primaryStatute: 'Indiana Occupational Safety and Health Act (IC 22-8-1.1)',
+          primaryAgency: 'Indiana Occupational Safety and Health Administration (IOSHA) / Department of Labor',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are enforced via commercial product liability codes rather than direct IOSHA enforcement.',
+          selfEmployedStatus: 'Self-employed individuals with no payroll employees are exempt from IOSHA jurisdiction.',
+          bodies: [
+            {
+              id: 'in-iosha',
+              name: 'Indiana Department of Labor (IOSHA)',
+              role: 'Enforcement Bureau (General Industry & Construction)',
+              framework: {
+                model: 'State Plan administering safety for private and public sector workplaces.',
+                irsPrinciple: 'Safety education via INSafe voluntary consultation.',
+                hierarchy: 'Indiana Code (IC 22-8-1.1) + Indiana Administrative Code (610 IAC).',
+                administrativeQuirk: 'Operates separate compliance divisions for Industrial and Construction safety.'
+              },
+              acts: [
+                {
+                  title: 'Indiana Occupational Safety and Health Act',
+                  citation: 'IC 22-8-1.1',
+                  date: 'Enacted 1973',
+                  link: 'https://iga.in.gov/laws/current/ic/title/22/article/8/chapter/1.1/',
+                  desc: 'Statute establishing IOSHA inspection authority and civil penalty schedules.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'IOSHA Administrative Rules',
+                  citation: '610 IAC Title 4',
+                  link: 'https://www.in.gov/dol/iosha/',
+                  desc: 'Rules governing inspection protocol, recording requirements, and variance applications.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'IC 22-8-1.1-2: Each employer shall establish and maintain conditions of work which are reasonably safe and healthful.',
+                specificDuties: [
+                  'Comply with all occupational safety and health standards adopted by the board.',
+                  'Provide required protective gear and employee hazard training.',
+                  'Maintain accurate records of work-related deaths, injuries, and illnesses.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'IC 22-8-1.1-1', notes: 'Person or entity employing employees.' },
+                { role: 'Employee', ref: 'IC 22-8-1.1-3.1', notes: 'Must comply with safety standards.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from IOSHA citations.',
+                obligations: 'Subject to facility rules where work is performed.'
+              },
+              sources: [
+                { name: 'Indiana Department of Labor IOSHA Portal', url: 'https://www.in.gov/dol/iosha/' }
+              ]
+            }
+          ]
+        },
+
+        'us-ia': {
+          country: 'usa',
+          name: 'Iowa (Iowa OSHA)',
+          code: 'US-IA',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'Iowa Code Chapter 88 + 875 IAC Chapters 1-30',
+          primaryStatute: 'Iowa Occupational Safety and Health Act (Iowa Code Chapter 88)',
+          primaryAgency: 'Iowa OSHA / Division of Labor (Iowa Workforce Development)',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are not directly cited under Iowa Code 88.',
+          selfEmployedStatus: 'Sole proprietors without employees are exempt from Iowa OSHA jurisdiction.',
+          bodies: [
+            {
+              id: 'ia-osha',
+              name: 'Iowa Division of Labor (Iowa OSHA)',
+              role: 'Enforcement & Consultation Division',
+              framework: {
+                model: 'State Plan covering public and private employers throughout Iowa.',
+                irsPrinciple: 'Promotes joint employer-worker safety accountability.',
+                hierarchy: 'Iowa Code Chapter 88 + Iowa Administrative Code 875.',
+                administrativeQuirk: 'Iowa maintains dedicated state standards for grain elevators and agricultural storage facilities.'
+              },
+              acts: [
+                {
+                  title: 'Iowa Occupational Safety and Health Act',
+                  citation: 'Iowa Code § 88.1 - 88.21',
+                  date: 'Enacted 1972',
+                  link: 'https://www.legis.iowa.gov/law/statutory/code?chapter=88',
+                  desc: 'Comprehensive statute creating the state safety inspection agency.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Iowa Occupational Safety and Health Rules',
+                  citation: '875 IAC Chapters 10, 26, 28',
+                  link: 'https://www.iowadivisionoflabor.gov/iowa-osha',
+                  desc: 'Incorporates 29 CFR 1910, 1926, and 1928 with Iowa-specific amendments.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Iowa Code § 88.4: Each employer shall furnish to each employee employment and a place of employment which are free from recognized hazards.',
+                specificDuties: [
+                  'Comply with applicable safety and health standards.',
+                  'Maintain accurate records of toxic substance exposure.',
+                  'Report fatalities within 8 hours and serious hospitalizations within 24 hours.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Iowa Code § 88.3(4)', notes: 'Any person who employs workers in Iowa.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from Iowa OSHA oversight.',
+                obligations: 'Subject to commercial contractor agreements.'
+              },
+              sources: [
+                { name: 'Iowa Division of Labor Portal', url: 'https://www.iowadivisionoflabor.gov/iowa-osha' }
+              ]
+            }
+          ]
+        },
+
+        'us-ky': {
+          country: 'usa',
+          name: 'Kentucky (KY OSH)',
+          code: 'US-KY',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'KRS Chapter 338 + 803 KAR Chapter 2',
+          primaryStatute: 'Kentucky Occupational Safety and Health Act (KRS Chapter 338)',
+          primaryAgency: 'Kentucky Occupational Safety and Health (KY OSH) / Labor Cabinet',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed by commercial product liability standards rather than KY OSH citations.',
+          selfEmployedStatus: 'Self-employed individuals with no employees are exempt from KY OSH enforcement.',
+          bodies: [
+            {
+              id: 'ky-kyosh',
+              name: 'KY OSH Division of Compliance / Education & Training',
+              role: 'State Enforcement and Education Authority',
+              framework: {
+                model: 'State Plan administering safety standards across the Commonwealth of Kentucky.',
+                irsPrinciple: 'Internal workplace responsibility emphasized via Labor-Management safety committees.',
+                hierarchy: 'Kentucky Revised Statutes (KRS 338) + Kentucky Administrative Regulations (803 KAR 2).',
+                administrativeQuirk: 'Enforces state-specific standards for fall protection in residential construction and industrial electrical work.'
+              },
+              acts: [
+                {
+                  title: 'Kentucky Occupational Safety and Health Act',
+                  citation: 'KRS 338.011 - 338.991',
+                  date: 'Enacted 1972',
+                  link: 'https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=38871',
+                  desc: 'State statutory authority for occupational safety standards and judicial review.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'KY OSH General Industry and Construction Rules',
+                  citation: '803 KAR 2:010 - 2:600',
+                  link: 'https://apps.legislature.ky.gov/law/kar/titles/803/002/',
+                  desc: 'State regulations adopting and modifying Title 29 CFR standards.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'KRS 338.031(1)(a): Each employer shall furnish to each of his employees employment and a place of employment which are free from recognized hazards.',
+                specificDuties: [
+                  'Comply with occupational safety and health standards and regulations.',
+                  'Provide suitable protective clothing and respiratory gear without cost.',
+                  'Furnish employees with results of exposure monitoring.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'KRS 338.015(1)', notes: 'Any entity employing one or more persons.' },
+                { role: 'Employee', ref: 'KRS 338.031(2)', notes: 'Must comply with safety rules.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from KY OSH citations.',
+                obligations: 'Subject to general safety rules on host premises.'
+              },
+              sources: [
+                { name: 'Kentucky Labor Cabinet KY OSH Portal', url: 'https://kysafer.ky.gov/' }
+              ]
+            }
+          ]
+        },
+
+        'us-md': {
+          country: 'usa',
+          name: 'Maryland (MOSH)',
+          code: 'US-MD',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'Labor and Employment Art. Title 5 + COMAR 09.12',
+          primaryStatute: 'Maryland Occupational Safety and Health Act (LE Title 5)',
+          primaryAgency: 'Maryland Occupational Safety and Health (MOSH) / Maryland Department of Labor',
+          hasSupplierDuties: false,
+          supplierNote: 'Suppliers are not independent duty holders under Title 5.',
+          selfEmployedStatus: 'Sole proprietors with no payroll workers are exempt from MOSH citations.',
+          bodies: [
+            {
+              id: 'md-mosh',
+              name: 'Maryland Occupational Safety and Health (MOSH)',
+              role: 'Enforcement and Outreach Division',
+              framework: {
+                model: 'State Plan administering safety for all private and public work environments in Maryland.',
+                irsPrinciple: 'Mandatory joint safety programs for high-injury industries.',
+                hierarchy: 'Maryland Code, Labor & Employment Article + Code of Maryland Regulations (COMAR 09.12).',
+                administrativeQuirk: 'Maintains state-specific standards for heat stress prevention, lead in construction, and tree-trimming operations.'
+              },
+              acts: [
+                {
+                  title: 'Maryland Occupational Safety and Health Act',
+                  citation: 'Md. Code, Lab. & Empl. § 5-101 et seq.',
+                  date: 'Enacted 1973',
+                  link: 'https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gle&section=5-101',
+                  desc: 'Comprehensive statute establishing MOSH inspection authority and remedies.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'COMAR 09.12 - MOSH Regulations',
+                  citation: 'COMAR 09.12.20 - 09.12.37',
+                  link: 'https://dsd.maryland.gov/Pages/COMARToggle.aspx',
+                  desc: 'State regulations implementing safety requirements and exposure standards.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'LE § 5-104(a): Each employer shall furnish to each employee employment and a place of employment that are safe and healthful.',
+                specificDuties: [
+                  'Comply with MOSH standards and all adopted federal standards.',
+                  'Implement written Heat Stress Illness Prevention Plans (COMAR 09.12.32).',
+                  'Maintain logs of occupational injuries and illnesses.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'LE § 5-101(e)', notes: 'Person engaged in commerce with employees.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from MOSH citations.',
+                obligations: 'Subject to host employer contractual site safety rules.'
+              },
+              sources: [
+                { name: 'Maryland Department of Labor MOSH Portal', url: 'https://www.labor.maryland.gov/labor/mosh/' }
+              ]
+            }
+          ]
+        },
+
+        'us-mn': {
+          country: 'usa',
+          name: 'Minnesota (MNOSHA)',
+          code: 'US-MN',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'Minn. Stat. Chapter 182 + Minn. Rules Chapters 5205-5207',
+          primaryStatute: 'Minnesota Occupational Safety and Health Act of 1973 (Minn. Stat. § 182.65 - 182.676)',
+          primaryAgency: 'Minnesota OSHA (MNOSHA) / Department of Labor and Industry (DLI)',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed by commercial product liability law rather than MNOSHA citations.',
+          selfEmployedStatus: 'Sole proprietors without employees are exempt from MNOSHA citations.',
+          bodies: [
+            {
+              id: 'mn-mnosha',
+              name: 'Minnesota OSHA Compliance (MNOSHA)',
+              role: 'Enforcement and Workplace Safety Consultation',
+              framework: {
+                model: 'State Plan administering workplace safety across Minnesota.',
+                irsPrinciple: 'Mandatory joint safety committees for employers with more than 25 employees (Minn. Stat. § 182.676).',
+                hierarchy: 'Minnesota Statutes (Chapter 182) + Minnesota Rules (Chapters 5205 to 5208).',
+                administrativeQuirk: 'Enforces mandatory AWAIR (A Workplace Accident and Injury Reduction Act) written programs and Employee Right-to-Know standards.'
+              },
+              acts: [
+                {
+                  title: 'Minnesota Occupational Safety and Health Act',
+                  citation: 'Minn. Stat. § 182.65 et seq.',
+                  date: 'Enacted 1973',
+                  link: 'https://www.revisor.mn.gov/statutes/cite/182',
+                  desc: 'Primary statute establishing MNOSHA enforcement and safety committee requirements.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'MNOSHA Rules and Standards',
+                  citation: 'Minn. Rules Chapters 5205, 5206, 5207',
+                  link: 'https://www.revisor.mn.gov/rules/5205/',
+                  desc: 'Comprehensive rules covering AWAIR programs, Right-to-Know, and general industry standards.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Minn. Stat. § 182.653, subd. 2: Each employer shall furnish to each of its employees conditions of employment and a place of employment free from recognized hazards.',
+                specificDuties: [
+                  'Develop and implement a written AWAIR program if classified in designated NAICS codes.',
+                  'Establish a joint safety committee if employing more than 25 workers.',
+                  'Provide Employee Right-to-Know training regarding hazardous substances, harmful physical agents, and infectious agents.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Minn. Stat. § 182.651, subd. 7', notes: 'Any person who has one or more employees.' },
+                { role: 'Joint Safety Committee', ref: 'Minn. Stat. § 182.676', notes: 'Mandatory for 25+ workers.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without staff.',
+                treatment: 'Exempt from MNOSHA citations.',
+                obligations: 'Subject to commercial site requirements.'
+              },
+              sources: [
+                { name: 'Minnesota DLI MNOSHA Portal', url: 'https://www.dli.mn.gov/business/workplace-safety-and-health/mnosha-compliance' }
+              ]
+            }
+          ]
+        },
+
+        'us-nv': {
+          country: 'usa',
+          name: 'Nevada (Nevada OSHA)',
+          code: 'US-NV',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'NRS Chapter 618 + NAC Chapter 618',
+          primaryStatute: 'Nevada Occupational Safety and Health Act (NRS Chapter 618)',
+          primaryAgency: 'Nevada Occupational Safety and Health Administration (Nevada OSHA) / DIR',
+          hasSupplierDuties: false,
+          supplierNote: 'Suppliers are not independent statutory duty holders under NRS 618.',
+          selfEmployedStatus: 'Sole proprietors without employees are exempt from Nevada OSHA citations.',
+          bodies: [
+            {
+              id: 'nv-osha',
+              name: 'Nevada Division of Industrial Relations (Nevada OSHA)',
+              role: 'Enforcement Bureau & Safety Consultation (SCATS)',
+              framework: {
+                model: 'State Plan administering safety across all private businesses and public agencies in Nevada.',
+                irsPrinciple: 'Mandatory Written Safety Programs (WRAP) for employers with 11+ employees.',
+                hierarchy: 'Nevada Revised Statutes (NRS 618) + Nevada Administrative Code (NAC 618).',
+                administrativeQuirk: 'Enforces mandatory 10-hour / 30-hour OSHA card certification for all construction and entertainment industry workers.'
+              },
+              acts: [
+                {
+                  title: 'Nevada Occupational Safety and Health Act',
+                  citation: 'NRS 618.005 - 618.990',
+                  date: 'Enacted 1973',
+                  link: 'https://www.leg.state.nv.us/nrs/NRS-618.html',
+                  desc: 'Comprehensive statute establishing inspection protocols and construction safety training requirements.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Nevada Administrative Code Chapter 618',
+                  citation: 'NAC 618.010 - 618.950',
+                  link: 'https://www.leg.state.nv.us/nac/nac-618.html',
+                  desc: 'State rules covering Written Safety Programs, crane operator certifications, and safety committees.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'NRS 618.375: Every employer shall furnish employment and a place of employment which are free from recognized hazards.',
+                specificDuties: [
+                  'Establish a written safety program if employing more than 10 workers (NRS 618.383).',
+                  'Establish a joint safety committee if employing more than 25 workers.',
+                  'Verify that construction workers hold valid OSHA 10/30 cards.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'NRS 618.095', notes: 'Entity employing any person.' },
+                { role: 'Employee', ref: 'NRS 618.385', notes: 'Must comply with safety rules and wear PPE.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from Nevada OSHA citations.',
+                obligations: 'Subject to commercial site safety protocols.'
+              },
+              sources: [
+                { name: 'State of Nevada OSHA Portal', url: 'https://dir.nv.gov/OSHA/' }
+              ]
+            }
+          ]
+        },
+
+        'us-nm': {
+          country: 'usa',
+          name: 'New Mexico (NM OSHA)',
+          code: 'US-NM',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'NMSA 1978 Chapter 50, Art. 9 + NMAC Title 11 Chapter 5',
+          primaryStatute: 'Occupational Health and Safety Act (NMSA 1978 § 50-9-1 to 50-9-25)',
+          primaryAgency: 'New Mexico Occupational Health and Safety Bureau (NM OSHA) / Environment Department',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed under product safety standards rather than direct NM OSHA citations.',
+          selfEmployedStatus: 'Sole proprietors without employees are exempt from NM OSHA citations.',
+          bodies: [
+            {
+              id: 'nm-ohsb',
+              name: 'Occupational Health and Safety Bureau (NM OSHA)',
+              role: 'Enforcement Bureau & Consultation Services',
+              framework: {
+                model: 'State Plan administered within the New Mexico Environment Department.',
+                irsPrinciple: 'Workplace safety education and cooperative compliance programs.',
+                hierarchy: 'New Mexico Statutes Annotated (NMSA 50-9) + New Mexico Administrative Code (11 NMAC 5).',
+                administrativeQuirk: 'Enforces state standards covering oil and gas drilling, logging, and convenience store worker safety.'
+              },
+              acts: [
+                {
+                  title: 'New Mexico Occupational Health and Safety Act',
+                  citation: 'NMSA 1978 § 50-9-1 et seq.',
+                  date: 'Enacted 1972',
+                  link: 'https://nmonesource.com/nmos/nmsa/en/item/4397/index.do',
+                  desc: 'State statutory authority for safety standards and penalty enforcement.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Occupational Health and Safety Regulations',
+                  citation: '11.5.1 - 11.5.4 NMAC',
+                  link: 'https://www.env.nm.gov/occupational_health_safety/',
+                  desc: 'State regulations adopting 29 CFR standards with New Mexico specific additions.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'NMSA 1978 § 50-9-5: Every employer shall furnish to each employee employment and a place of employment which are free from recognized hazards.',
+                specificDuties: [
+                  'Comply with all health and safety regulations adopted by the Environmental Improvement Board.',
+                  'Provide employees with safety training and required protective gear.',
+                  'Maintain accurate occupational injury logs.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'NMSA 1978 § 50-9-3', notes: 'Person employing one or more employees.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without staff.',
+                treatment: 'Exempt from NM OSHA citations.',
+                obligations: 'Subject to facility owner rules.'
+              },
+              sources: [
+                { name: 'New Mexico Environment Department NM OSHA', url: 'https://www.env.nm.gov/occupational_health_safety/' }
+              ]
+            }
+          ]
+        },
+
+        'us-nc': {
+          country: 'usa',
+          name: 'North Carolina (NC OSH)',
+          code: 'US-NC',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'NCGS Chapter 95, Art. 16 + 13 NCAC 07',
+          primaryStatute: 'Occupational Safety and Health Act of North Carolina (OSHANC - NCGS § 95-126 et seq.)',
+          primaryAgency: 'Occupational Safety and Health Division (NC OSH) / North Carolina Department of Labor (NCDOL)',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed by commercial product liability rather than OSHANC citations.',
+          selfEmployedStatus: 'Sole proprietors with no payroll employees are exempt from NC OSH citations.',
+          bodies: [
+            {
+              id: 'nc-ncdol',
+              name: 'NCDOL Occupational Safety and Health Division',
+              role: 'Enforcement Bureau & Bureau of Consultative Services',
+              framework: {
+                model: 'State Plan covering private and public employers across North Carolina.',
+                irsPrinciple: 'Star Program partnerships and workplace safety committee guidelines.',
+                hierarchy: 'North Carolina General Statutes (NCGS Chapter 95) + North Carolina Administrative Code (13 NCAC 07).',
+                administrativeQuirk: 'Enforces state-specific standards covering communication towers, migrant housing, and bloodborne pathogens.'
+              },
+              acts: [
+                {
+                  title: 'Occupational Safety and Health Act of North Carolina',
+                  citation: 'NCGS § 95-126 - 95-155',
+                  date: 'Enacted 1973',
+                  link: 'https://www.ncleg.gov/Laws/GeneralStatuteSections/Chapter95',
+                  desc: 'Comprehensive statute establishing NCDOL inspection rights and citation authority.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'North Carolina Occupational Safety and Health Standards',
+                  citation: '13 NCAC 07F .0101 et seq.',
+                  link: 'https://www.labor.nc.gov/safety-and-health/occupational-safety-and-health',
+                  desc: 'State rules covering General Industry, Construction, and Tower Climbing.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'NCGS § 95-129(1): Each employer shall furnish to each of his employees conditions of employment and a place of employment free from recognized hazards.',
+                specificDuties: [
+                  'Comply with all occupational safety and health standards adopted by the Commissioner.',
+                  'Provide required personal protective equipment at no cost.',
+                  'Report workplace deaths within 8 hours and hospitalizations within 24 hours.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'NCGS § 95-127(10)', notes: 'Person engaged in business who has employees.' },
+                { role: 'Employee', ref: 'NCGS § 95-130', notes: 'Must comply with safety rules.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from NC OSH citations.',
+                obligations: 'Subject to commercial contractor agreements.'
+              },
+              sources: [
+                { name: 'North Carolina Department of Labor Portal', url: 'https://www.labor.nc.gov/' }
+              ]
+            }
+          ]
+        },
+
+        'us-or': {
+          country: 'usa',
+          name: 'Oregon (Oregon OSHA)',
+          code: 'US-OR',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'ORS Chapter 654 + OAR Chapter 437',
+          primaryStatute: 'Oregon Safe Employment Act (OSEA - ORS Chapter 654)',
+          primaryAgency: 'Oregon OSHA / Department of Consumer and Business Services (DCBS)',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed by commercial product liability rather than direct OR-OSHA citations.',
+          selfEmployedStatus: 'Sole proprietors without employees are exempt from Oregon OSHA enforcement.',
+          bodies: [
+            {
+              id: 'or-osha',
+              name: 'Oregon Occupational Safety and Health Division (Oregon OSHA)',
+              role: 'Enforcement, Consultation, and Standards Development',
+              framework: {
+                model: 'State Plan known for having some of the most rigorous and independent safety standards in the United States.',
+                irsPrinciple: 'Mandatory Safety Committees or Safety Meetings for ALL Oregon employers (OAR 437-001-0765).',
+                hierarchy: 'Oregon Revised Statutes (ORS 654) + Oregon Administrative Rules (OAR 437 Divisions 1 through 7).',
+                administrativeQuirk: 'Enforces independent rules on Wildfire Smoke, Extreme Heat, Forestry Operations, and Fall Protection (6-foot trigger across all trades).'
+              },
+              acts: [
+                {
+                  title: 'Oregon Safe Employment Act (OSEA)',
+                  citation: 'ORS 654.001 - 654.991',
+                  date: 'Enacted 1973',
+                  link: 'https://www.oregonlegislature.gov/bills_laws/ors/ors654.html',
+                  desc: 'Comprehensive statute establishing employer safety duties, employee rights, and penalty structures.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Oregon Administrative Rules Chapter 437 (Divisions 1 - 7)',
+                  citation: 'OAR 437-001 through 437-007',
+                  link: 'https://osha.oregon.gov/rules/Pages/default.aspx',
+                  desc: 'Div 1 (General Admin), Div 2 (General Industry), Div 3 (Construction), Div 4 (Agriculture), Div 7 (Forest Activities).'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'ORS 654.010: Every employer shall furnish employment and a place of employment which are safe and healthful for employees therein.',
+                specificDuties: [
+                  'Establish a Safety Committee (11+ workers) or hold regular Safety Meetings (OAR 437-001-0765).',
+                  'Comply with Oregon Heat Illness Prevention and Wildfire Smoke Protection standards.',
+                  'Maintain a fall protection plan with a strict 6-foot trigger height in general industry and construction.',
+                  'Provide and maintain required PPE at employer expense.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'ORS 654.005(5)', notes: 'Any person who contracts for the services of one or more workers.' },
+                { role: 'Employee', ref: 'ORS 654.062', notes: 'Must comply with safety rules and use provided PPE.' },
+                { role: 'Safety Committee', ref: 'OAR 437-001-0765', notes: 'Mandatory joint committee with equal representation.' }
+              ],
+              selfEmployed: {
+                defined: 'Independent contractor without employees.',
+                treatment: 'Exempt from direct OR-OSHA citations.',
+                obligations: 'Subject to prime contractor safety rules.'
+              },
+              sources: [
+                { name: 'Oregon OSHA Official Portal', url: 'https://osha.oregon.gov/' }
+              ]
+            }
+          ]
+        },
+
+        'us-sc': {
+          country: 'usa',
+          name: 'South Carolina (SC OSHA)',
+          code: 'US-SC',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'SC Code Ann. Title 41, Chapter 15 + SC Reg. Chapter 71',
+          primaryStatute: 'South Carolina Occupational Health and Safety Act (SC Code Ann. § 41-15-10 et seq.)',
+          primaryAgency: 'South Carolina Occupational Safety and Health (SC OSHA) / Department of Labor, Licensing and Regulation (LLR)',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed under commercial law rather than direct SC OSHA citations.',
+          selfEmployedStatus: 'Sole proprietors with no payroll employees are exempt from SC OSHA oversight.',
+          bodies: [
+            {
+              id: 'sc-scosha',
+              name: 'South Carolina OSHA (LLR)',
+              role: 'Enforcement and Voluntary Outreach Services',
+              framework: {
+                model: 'State Plan administering safety for private and public workplaces in South Carolina.',
+                irsPrinciple: 'Palmetto Voluntary Protection Programs and cooperative safety management.',
+                hierarchy: 'South Carolina Code of Laws (Title 41 Chapter 15) + South Carolina Regulations (Chapter 71).',
+                administrativeQuirk: 'Enforces state standards covering textile manufacturing, agricultural operations, and maritime facilities.'
+              },
+              acts: [
+                {
+                  title: 'South Carolina Occupational Health and Safety Act',
+                  citation: 'SC Code Ann. § 41-15-10 - 41-15-520',
+                  date: 'Enacted 1971',
+                  link: 'https://www.scstatehouse.gov/code/t41c015.php',
+                  desc: 'State statutory authority for workplace inspections, penalties, and appeals.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'South Carolina OSHA Regulations (Chapter 71)',
+                  citation: 'SC Reg. 71-100 et seq.',
+                  link: 'https://llr.sc.gov/osha/',
+                  desc: 'State administrative standards adopting 29 CFR General Industry and Construction.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'SC Code Ann. § 41-15-80: Each employer shall furnish to each of his employees employment and a place of employment which are free from recognized hazards.',
+                specificDuties: [
+                  'Comply with all state occupational safety and health standards.',
+                  'Provide employees with safety training and required PPE.',
+                  'Report workplace fatalities within 8 hours and inpatient hospitalizations within 24 hours.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'SC Code Ann. § 41-15-10', notes: 'Person employing one or more employees.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without staff.',
+                treatment: 'Exempt from SC OSHA citations.',
+                obligations: 'Subject to commercial site requirements.'
+              },
+              sources: [
+                { name: 'South Carolina LLR SC OSHA Portal', url: 'https://llr.sc.gov/osha/' }
+              ]
+            }
+          ]
+        },
+
+        'us-tn': {
+          country: 'usa',
+          name: 'Tennessee (TOSHA)',
+          code: 'US-TN',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'TCA Title 50, Chapter 3 + TDEC Rules Chapter 0800-01',
+          primaryStatute: 'Tennessee Occupational Safety and Health Act of 1972 (TCA § 50-3-101 et seq.)',
+          primaryAgency: 'Tennessee Occupational Safety and Health Administration (TOSHA) / Department of Labor and Workforce Development',
+          hasSupplierDuties: false,
+          supplierNote: 'Suppliers are not an independent duty holder under TCA Title 50.',
+          selfEmployedStatus: 'Sole proprietors without employees are exempt from TOSHA jurisdiction.',
+          bodies: [
+            {
+              id: 'tn-tosha',
+              name: 'TOSHA Compliance and Consultation',
+              role: 'Enforcement Bureau & Consultative Services',
+              framework: {
+                model: 'State Plan administering safety across Tennessee private businesses and local governments.',
+                irsPrinciple: 'Volunteer Star Program and cooperative safety management.',
+                hierarchy: 'Tennessee Code Annotated (TCA Title 50 Chapter 3) + Rules of Tennessee Dept of Labor (Chapter 0800-01).',
+                administrativeQuirk: 'Enforces state-specific rules for sharps injury prevention and emergency response personnel.'
+              },
+              acts: [
+                {
+                  title: 'Tennessee Occupational Safety and Health Act',
+                  citation: 'TCA § 50-3-101 - 50-3-919',
+                  date: 'Enacted 1972',
+                  link: 'https://www.tn.gov/workforce/employees/safety-health.html',
+                  desc: 'Comprehensive statute establishing TOSHA inspection authority and variance procedures.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'TOSHA Administrative Rules (Chapter 0800-01)',
+                  citation: 'TN Rules Chapter 0800-01-01 through 0800-01-09',
+                  link: 'https://publications.tnsosfiles.com/rules/0800/0800-01/0800-01.htm',
+                  desc: 'State rules adopting and modifying federal 29 CFR standards.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'TCA § 50-3-105(1): Each employer shall furnish to each of the employer’s employees conditions of employment and a place of employment free from recognized hazards.',
+                specificDuties: [
+                  'Comply with occupational safety and health standards adopted by the commissioner.',
+                  'Provide safety instruction and personal protective gear without employee cost.',
+                  'Maintain accurate records of employee exposure to potentially toxic materials.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'TCA § 50-3-103(7)', notes: 'Person employing one or more individuals.' },
+                { role: 'Employee', ref: 'TCA § 50-3-106', notes: 'Must comply with safety rules.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from TOSHA citations.',
+                obligations: 'Subject to contractual safety rules.'
+              },
+              sources: [
+                { name: 'Tennessee TOSHA Official Portal', url: 'https://www.tn.gov/workforce/employees/safety-health.html' }
+              ]
+            }
+          ]
+        },
+
+        'us-ut': {
+          country: 'usa',
+          name: 'Utah (UOSH)',
+          code: 'US-UT',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'UCA Title 34A, Chapter 6 + Utah Admin. Code R614',
+          primaryStatute: 'Utah Occupational Safety and Health Act (UCA § 34A-6-101 et seq.)',
+          primaryAgency: 'Utah Occupational Safety and Health Division (UOSH) / Labor Commission',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed under product liability rather than direct UOSH citations.',
+          selfEmployedStatus: 'Sole proprietors without employees are exempt from UOSH oversight.',
+          bodies: [
+            {
+              id: 'ut-uosh',
+              name: 'Utah Labor Commission (UOSH)',
+              role: 'Enforcement Bureau & Consultation Services',
+              framework: {
+                model: 'State Plan administering safety under the Utah Labor Commission.',
+                irsPrinciple: 'Promotes workplace safety programs and cooperative hazard abatement.',
+                hierarchy: 'Utah Code Annotated (UCA Title 34A Chapter 6) + Utah Administrative Code (R614).',
+                administrativeQuirk: 'Enforces state standards covering coal and metal non-metal surface operations in conjunction with state mining oversight.'
+              },
+              acts: [
+                {
+                  title: 'Utah Occupational Safety and Health Act',
+                  citation: 'UCA § 34A-6-101 - 34A-6-307',
+                  date: 'Enacted 1973',
+                  link: 'https://le.utah.gov/xcode/Title34A/Chapter6/34A-6.html',
+                  desc: 'Comprehensive statute establishing inspection rights, citations, and civil penalties.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Utah Administrative Code R614 - Labor Commission, OSH',
+                  citation: 'Utah Admin. Code R614-1 through R614-7',
+                  link: 'https://rules.utah.gov/publicat/code/r614/r614.htm',
+                  desc: 'State rules covering General Industry, Construction, and administrative appeals.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'UCA § 34A-6-201(1): Each employer shall furnish to each employee employment and a place of employment free from recognized hazards.',
+                specificDuties: [
+                  'Comply with occupational safety and health standards adopted by the commission.',
+                  'Provide employees with safety training and required protective equipment.',
+                  'Report fatalities within 8 hours and serious injuries within 24 hours.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'UCA § 34A-6-103', notes: 'Person employing one or more workers.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without staff.',
+                treatment: 'Exempt from UOSH citations.',
+                obligations: 'Subject to commercial site safety rules.'
+              },
+              sources: [
+                { name: 'Utah Labor Commission UOSH Portal', url: 'https://laborcommission.utah.gov/divisions/uosh/' }
+              ]
+            }
+          ]
+        },
+
+        'us-vt': {
+          country: 'usa',
+          name: 'Vermont (VOSHA)',
+          code: 'US-VT',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: '21 V.S.A. Chapter 3, Subchapter 5 + VOSHA Rules',
+          primaryStatute: 'Vermont Occupational Safety and Health Act (21 V.S.A. § 201 - 232)',
+          primaryAgency: 'Vermont Occupational Safety and Health Administration (VOSHA) / Department of Labor',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed under commercial law rather than direct VOSHA citations.',
+          selfEmployedStatus: 'Sole proprietors with no employees are exempt from VOSHA enforcement.',
+          bodies: [
+            {
+              id: 'vt-vosha',
+              name: 'Vermont Department of Labor (VOSHA)',
+              role: 'Enforcement Division & Project WorkSAFE Consultation',
+              framework: {
+                model: 'State Plan administering safety for private and public sector workplaces across Vermont.',
+                irsPrinciple: 'Safety partnerships via Project WorkSAFE.',
+                hierarchy: 'Vermont Statutes Annotated (21 V.S.A. Chapter 3) + Vermont Safety and Health Regulations.',
+                administrativeQuirk: 'Enforces state standards covering permissible exposure limits for chemicals, logging operations, and electrical safety.'
+              },
+              acts: [
+                {
+                  title: 'Vermont Occupational Safety and Health Act',
+                  citation: '21 V.S.A. § 201 et seq.',
+                  date: 'Enacted 1973',
+                  link: 'https://legislature.vermont.gov/statutes/chapter/21/003',
+                  desc: 'Core statute establishing inspection authority and employer duties.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'VOSHA Safety and Health Standards',
+                  citation: 'Code of Vermont Rules 24-050-001',
+                  link: 'https://labor.vermont.gov/vosha',
+                  desc: 'State rules adopting 29 CFR standards with Vermont chemical exposure modifications.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: '21 V.S.A. § 223(a): Each employer shall furnish to each employee employment and a place of employment which are free from recognized hazards.',
+                specificDuties: [
+                  'Comply with all safety and health standards adopted by the commissioner.',
+                  'Provide required protective gear and exposure monitoring.',
+                  'Maintain accurate records of workplace injuries and illnesses.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: '21 V.S.A. § 203', notes: 'Person employing one or more individuals.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without payroll employees.',
+                treatment: 'Exempt from VOSHA citations.',
+                obligations: 'Subject to host facility safety rules.'
+              },
+              sources: [
+                { name: 'Vermont Department of Labor VOSHA Portal', url: 'https://labor.vermont.gov/vosha' }
+              ]
+            }
+          ]
+        },
+
+        'us-va': {
+          country: 'usa',
+          name: 'Virginia (VOSH)',
+          code: 'US-VA',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'Va. Code Title 40.1 + 16 VAC 25',
+          primaryStatute: 'Virginia Occupational Safety and Health Law (Va. Code § 40.1-1 to 40.1-51.4:5)',
+          primaryAgency: 'Virginia Occupational Safety and Health (VOSH) / Department of Labor and Industry (DOLI)',
+          hasSupplierDuties: false,
+          supplierNote: 'Suppliers are not independent duty holders under Title 40.1.',
+          selfEmployedStatus: 'Sole proprietors with no payroll employees are exempt from VOSH citations.',
+          bodies: [
+            {
+              id: 'va-vosh',
+              name: 'Virginia Department of Labor and Industry (VOSH)',
+              role: 'Enforcement Bureau & Consultation Services',
+              framework: {
+                model: 'State Plan administering safety across Virginia public and private employers.',
+                irsPrinciple: 'Voluntary Protection Programs and cooperative compliance.',
+                hierarchy: 'Code of Virginia (Title 40.1) + Virginia Administrative Code (16 VAC 25).',
+                administrativeQuirk: 'Pioneered the first comprehensive Infectious Disease Prevention standard in the United States (16 VAC 25-220).'
+              },
+              acts: [
+                {
+                  title: 'Virginia Occupational Safety and Health Law',
+                  citation: 'Va. Code § 40.1-1 et seq.',
+                  date: 'Enacted 1973',
+                  link: 'https://law.lis.virginia.gov/vacode/title40.1/',
+                  desc: 'Comprehensive statute establishing DOLI inspection authority and safety standards.'
+                }
+              ],
+              regulations: [
+                {
+                  title: '16 VAC 25 - VOSH Administrative Regulations',
+                  citation: '16 VAC 25-60 through 25-175',
+                  link: 'https://law.lis.virginia.gov/admincode/title16/agency25/',
+                  desc: 'State regulations adopting 29 CFR standards with Virginia-specific modifications.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Va. Code § 40.1-51.1(a): It shall be the duty of every employer to furnish to each of his employees safe employment and a place of employment which is free from recognized hazards.',
+                specificDuties: [
+                  'Comply with all safety standards adopted by the Safety and Health Codes Board.',
+                  'Provide employees with safety training and protective equipment.',
+                  'Report fatalities within 8 hours and hospitalizations within 24 hours.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Va. Code § 40.1-2', notes: 'Individual or entity employing workers.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without staff.',
+                treatment: 'Exempt from VOSH citations.',
+                obligations: 'Subject to commercial site safety rules.'
+              },
+              sources: [
+                { name: 'Virginia DOLI VOSH Portal', url: 'https://www.doli.virginia.gov/vosh-programs/' }
+              ]
+            }
+          ]
+        },
+
+        'us-wy': {
+          country: 'usa',
+          name: 'Wyoming (Wyoming OSHA)',
+          code: 'US-WY',
+          type: 'OSHA-Approved State Plan (Private & Public)',
+          hierarchyType: 'Wyo. Stat. § 27-11-101 et seq. + W.A.R. 025.0003',
+          primaryStatute: 'Wyoming Occupational Health and Safety Act (Wyo. Stat. § 27-11-101 - 27-11-114)',
+          primaryAgency: 'Wyoming OSHA / Department of Workforce Services (DWS)',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed under commercial product liability rather than Wyoming OSHA citations.',
+          selfEmployedStatus: 'Sole proprietors with no payroll workers are exempt from Wyoming OSHA oversight.',
+          bodies: [
+            {
+              id: 'wy-osha',
+              name: 'Wyoming OSHA (Department of Workforce Services)',
+              role: 'Enforcement Bureau & Consultation Division',
+              framework: {
+                model: 'State Plan administering safety for private and public sector workplaces across Wyoming.',
+                irsPrinciple: 'Safety consultation and employer safety discount programs.',
+                hierarchy: 'Wyoming Statutes (Title 27 Chapter 11) + Wyoming Administrative Rules (Chapter 025.0003).',
+                administrativeQuirk: 'Enforces state-specific standards for oil and gas well drilling and servicing, mining exploration, and remote operations.'
+              },
+              acts: [
+                {
+                  title: 'Wyoming Occupational Health and Safety Act',
+                  citation: 'Wyo. Stat. § 27-11-101 et seq.',
+                  date: 'Enacted 1969 (Amended 1973)',
+                  link: 'https://wyoleg.gov/statutes/compress/title27.pdf',
+                  desc: 'Comprehensive statute establishing inspection protocols and safety commission authority.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Wyoming Occupational Health and Safety Rules',
+                  citation: 'W.A.R. 025.0003 Chapters 1 - 20',
+                  link: 'https://dws.wyo.gov/dws-division/osha/',
+                  desc: 'State rules covering General Industry, Construction, and Oil & Gas Well Servicing.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Wyo. Stat. § 27-11-105: Each employer shall furnish to each of his employees employment and a place of employment which are free from recognized hazards.',
+                specificDuties: [
+                  'Comply with occupational health and safety rules adopted by the commission.',
+                  'Provide employees with safety training and required protective gear.',
+                  'Maintain accurate records of injuries, illnesses, and toxic substance exposure.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Wyo. Stat. § 27-11-103', notes: 'Person employing one or more individuals.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees.',
+                treatment: 'Exempt from Wyoming OSHA citations.',
+                obligations: 'Subject to client facility and oilfield safety rules.'
+              },
+              sources: [
+                { name: 'Wyoming Department of Workforce Services OSHA', url: 'https://dws.wyo.gov/dws-division/osha/' }
+              ]
+            }
+          ]
+        },
+
         'au-cth': {
           country: 'australia',
           name: 'Australia Commonwealth (Comcare / Cth)',
@@ -2296,16 +3447,16 @@
                   date: '7 August 1996 (transposed Directive 89/391/EEC)',
                   link: 'https://www.gesetze-im-internet.de/arbschg/',
                   desc: 'Core federal statute establishing employer obligations, Gefährdungsbeurteilung (Risk Assessment), and employee duties.'
-                }
-              ],
-              regulations: [
+                },
                 {
                   title: 'Arbeitssicherheitsgesetz (ASiG)',
                   citation: 'BGBl. I S. 3363',
                   date: '12 December 1973',
                   link: 'https://www.gesetze-im-internet.de/asig/',
                   desc: 'Mandates appointment of Occupational Safety Specialists (Fachkräfte für Arbeitssicherheit) and Company Doctors (Betriebsärzte).'
-                },
+                }
+              ],
+              regulations: [
                 {
                   title: 'Betriebssicherheitsverordnung (BetrSichV)',
                   citation: 'BGBl. I S. 49',
@@ -2876,8 +4027,45 @@
       }
     }
 
+    // Citation Resolution Helpers: link legal references to official legislation
+    function getPrimaryActLink(bodyData) {
+      if (bodyData && bodyData.acts && bodyData.acts.length > 0 && bodyData.acts[0].link) {
+        return bodyData.acts[0].link;
+      }
+      if (bodyData && bodyData.sources && bodyData.sources.length > 0 && bodyData.sources[0].url) {
+        return bodyData.sources[0].url;
+      }
+      return '#';
+    }
+
+    function resolveCitationLink(refText, bodyData) {
+      const actLink = getPrimaryActLink(bodyData);
+      if (!refText || !bodyData) return actLink;
+      const lower = refText.toLowerCase();
+      if (bodyData.regulations && bodyData.regulations.length > 0) {
+        for (const reg of bodyData.regulations) {
+          const regCitation = (reg.citation || '').toLowerCase();
+          const regTitle = (reg.title || '').toLowerCase();
+          if ((regCitation && lower.includes(regCitation)) || (regTitle && lower.includes(regTitle))) {
+            return reg.link;
+          }
+        }
+      }
+      return actLink;
+    }
+
+    function formatClaimWithCitations(text, bodyData) {
+      if (!text) return '';
+      // Regex matches section markers: s. 123, Section 123, Part IV, Art. L123, § 123, 29 CFR 1910, Alta Reg 62/2003, etc.
+      return text.replace(/\b(s\.\s*\d+[\w\.\(\)\-]*|Section\s*\d+[\w\.\(\)\-]*|Part\s+[IVXLCDM\d]+|Art\.\s*[A-Z\d\.\-]+|§\s*\d+[\w\.\-]*|\d+\s+CFR\s+[\d\.]+|\bAR\s+\d+\/\d+|\bAlta Reg\s+\d+\/\d+|\bO\.\s*Reg\.\s*[\d\/]+|\bBC\s*Reg\s*[\d\/]+|\bSOR\/[\d\-]+)/gi, (match) => {
+        const link = resolveCitationLink(match, bodyData);
+        return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-0.5 px-1.5 py-0.5 mx-0.5 rounded text-[11px] font-semibold bg-sky-100 hover:bg-sky-600 hover:text-white text-sky-800 border border-sky-300 transition-all font-mono shadow-2xs" title="Statutory Citation: ${match}"><span>${match}</span><svg class="w-2.5 h-2.5 inline shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>`;
+      });
+    }
+
     function renderFrameworkTab(jData, bodyData, filter) {
       const fw = bodyData.framework;
+      const actLink = getPrimaryActLink(bodyData);
       const html = `
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 gap-2">
@@ -2886,24 +4074,35 @@
               <h3 class="text-xl font-bold text-slate-900">${bodyData.name}</h3>
               <p class="text-xs text-slate-500 mt-0.5">${bodyData.role}</p>
             </div>
-            <span class="badge-pill bg-sky-50 text-sky-700 border border-sky-200 text-xs self-start sm:self-auto">${fw.model}</span>
+            <div class="flex items-center gap-2">
+              <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold text-center transition-all shadow-sm">
+                Access Statute Portal
+              </a>
+              <span class="badge-pill bg-sky-50 text-sky-700 border border-sky-200 text-xs">${fw.model}</span>
+            </div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
-              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5">
-                <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                Legal Hierarchy & Legislative Structure
-              </h4>
-              <p class="text-xs sm:text-sm text-slate-700 whitespace-pre-line leading-relaxed">${fw.hierarchy}</p>
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                  Legal Hierarchy & Legislative Structure
+                </h4>
+                <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 whitespace-pre-line leading-relaxed">${formatClaimWithCitations(fw.hierarchy, bodyData)}</p>
             </div>
 
             <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
-              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center gap-1.5">
-                <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                Internal Responsibility System (IRS)
-              </h4>
-              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">${fw.irsPrinciple}</p>
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                  Internal Responsibility System (IRS)
+                </h4>
+                <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-emerald-700 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">${formatClaimWithCitations(fw.irsPrinciple, bodyData)}</p>
             </div>
           </div>
 
@@ -2914,7 +4113,7 @@
                 ${jData.hasSupplierDuties ? 'Explicit Statutory Duty Imposed' : 'Omitted / Not an Independent Duty Category'}
               </span>
             </div>
-            <p class="text-slate-300">${jData.supplierNote}</p>
+            <p class="text-slate-300">${formatClaimWithCitations(jData.supplierNote, bodyData)}</p>
           </div>
         </div>
       `;
@@ -2933,10 +4132,13 @@
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="badge-pill bg-sky-100 text-sky-800 font-bold text-[10px]">Statute</span>
-                <span class="text-xs font-semibold text-slate-500">${a.citation}</span>
+                <a href="${a.link}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sky-700 hover:underline flex items-center gap-1 font-mono">
+                  <span>${a.citation}</span>
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
               </div>
               <h4 class="text-base font-bold text-slate-900">${a.title}</h4>
-              <p class="text-xs text-slate-600 mt-1 leading-relaxed">${a.desc}</p>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">${formatClaimWithCitations(a.desc, bodyData)}</p>
               <div class="text-[11px] text-slate-400 mt-2">Status / Notes: <span class="text-slate-600">${a.date}</span></div>
             </div>
             <a href="${a.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xs rounded-lg transition-all shrink-0 self-start sm:self-auto shadow-sm">
@@ -2974,10 +4176,13 @@
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="badge-pill bg-indigo-50 text-indigo-700 font-bold text-[10px]">Regulation / Code</span>
-                <span class="text-xs font-mono text-slate-500">${r.citation}</span>
+                <a href="${r.link}" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-indigo-700 hover:underline flex items-center gap-1 font-semibold">
+                  <span>${r.citation}</span>
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
               </div>
               <h4 class="text-base font-bold text-slate-900">${r.title}</h4>
-              <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">${r.desc}</p>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">${formatClaimWithCitations(r.desc, bodyData)}</p>
             </div>
             <a href="${r.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-lg transition-all shrink-0 self-start sm:self-auto shadow-sm">
               <span>Official Regulation</span>
@@ -3004,13 +4209,23 @@
 
     function renderEmployerTab(jData, bodyData, filter) {
       const emp = bodyData.employerDuties || { generalDuty: 'N/A', specificDuties: [] };
+      const actLink = getPrimaryActLink(bodyData);
 
-      const specificList = emp.specificDuties.map(d => `
-        <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
-          <span class="text-sky-600 font-bold shrink-0 mt-0.5">•</span>
-          <span>${d}</span>
-        </li>
-      `).join('');
+      const specificList = emp.specificDuties.map(d => {
+        const itemLink = resolveCitationLink(d, bodyData);
+        return `
+          <li class="flex items-start justify-between gap-3 text-xs sm:text-sm text-slate-700 leading-relaxed bg-white/70 p-3 rounded-lg border border-slate-200/60 group hover:border-sky-300 transition-all">
+            <div class="flex items-start gap-2.5 flex-grow">
+              <span class="text-sky-600 font-bold shrink-0 mt-0.5">•</span>
+              <div>${formatClaimWithCitations(d, bodyData)}</div>
+            </div>
+            <a href="${itemLink}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-sky-50 hover:bg-sky-600 hover:text-white text-sky-700 border border-sky-200 text-[10px] font-semibold transition-all inline-flex items-center gap-1 shrink-0 ml-2 shadow-2xs" title="Open statutory provision">
+              <span>Citation</span>
+              <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </li>
+        `;
+      }).join('');
 
       subtabContentArea.innerHTML = `
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
@@ -3021,18 +4236,24 @@
           </div>
 
           <div class="bg-sky-50/70 border border-sky-200 rounded-xl p-5">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-sky-900 mb-2 flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-sky-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-              Core General Duty Clause (Statutory Mandate)
-            </h4>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-sky-900 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-sky-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                Core General Duty Clause (Statutory Mandate)
+              </h4>
+              <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-sky-600 hover:bg-sky-700 text-white text-[10px] font-semibold transition-all inline-flex items-center gap-1 shadow-xs">
+                <span>General Duty Citation</span>
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
             <p class="text-sm font-semibold text-slate-800 leading-relaxed bg-white/80 p-3.5 rounded-lg border border-sky-200/60 font-serif">
-              "${emp.generalDuty}"
+              "${formatClaimWithCitations(emp.generalDuty, bodyData)}"
             </p>
           </div>
 
           <div>
             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">Itemized Employer Statutory Obligations:</h4>
-            <ul class="space-y-3 bg-slate-50 p-5 rounded-xl border border-slate-200">
+            <ul class="space-y-2.5 bg-slate-50 p-4 rounded-xl border border-slate-200">
               ${specificList}
             </ul>
           </div>
@@ -3046,17 +4267,23 @@
         !filter || h.role.toLowerCase().includes(filter) || h.ref.toLowerCase().includes(filter) || h.notes.toLowerCase().includes(filter)
       );
 
-      let gridHtml = filtered.map(h => `
-        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <h4 class="text-sm font-bold text-slate-900">${h.role}</h4>
-              <span class="badge-pill bg-slate-100 text-slate-700 text-[10px] font-mono">${h.ref}</span>
+      let gridHtml = filtered.map(h => {
+        const link = resolveCitationLink(h.ref, bodyData);
+        return `
+          <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:border-sky-300 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-sm font-bold text-slate-900">${h.role}</h4>
+                <a href="${link}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-sky-50 hover:bg-sky-600 hover:text-white text-sky-700 border border-sky-200 text-[10px] font-mono transition-all inline-flex items-center gap-1 shadow-2xs" title="Statutory Provision Citation: ${h.ref}">
+                  <span>${h.ref}</span>
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">${formatClaimWithCitations(h.notes, bodyData)}</p>
             </div>
-            <p class="text-xs text-slate-600 leading-relaxed">${h.notes}</p>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
 
       if (filtered.length === 0) {
         gridHtml = `<div class="p-8 text-center text-slate-400 bg-white rounded-xl border border-slate-200 col-span-2">No duty holders match your filter.</div>`;
@@ -3088,44 +4315,69 @@
 
     function renderSelfEmployedTab(jData, bodyData, filter) {
       const se = bodyData.selfEmployed || { defined: 'N/A', treatment: 'N/A', obligations: 'N/A' };
+      const actLink = getPrimaryActLink(bodyData);
 
       subtabContentArea.innerHTML = `
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
-          <div class="border-b border-slate-100 pb-4">
-            <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Independent Operators & Sole Proprietors</span>
-            <h3 class="text-xl font-bold text-slate-900">Statutory Treatment of the Self-Employed</h3>
-            <p class="text-xs text-slate-500 mt-0.5">Classification, terminology, and legal liabilities in ${jData.name}</p>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-2">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Independent Operators & Sole Proprietors</span>
+              <h3 class="text-xl font-bold text-slate-900">Statutory Treatment of the Self-Employed</h3>
+              <p class="text-xs text-slate-500 mt-0.5">Classification, terminology, and legal liabilities in ${jData.name}</p>
+            </div>
+            <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold inline-flex items-center gap-1 transition-all shadow-xs self-start sm:self-auto">
+              <span>View Self-Employed Statute</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block mb-1">1. Statutory Definition</span>
-              <p class="text-xs text-slate-800 leading-relaxed font-semibold">${se.defined}</p>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">1. Statutory Definition</span>
+                <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
+              </div>
+              <p class="text-xs text-slate-800 leading-relaxed font-semibold">${formatClaimWithCitations(se.defined, bodyData)}</p>
             </div>
 
             <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block mb-1">2. Classification / Treatment</span>
-              <p class="text-xs text-slate-800 leading-relaxed">${se.treatment}</p>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">2. Classification / Treatment</span>
+                <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
+              </div>
+              <p class="text-xs text-slate-800 leading-relaxed">${formatClaimWithCitations(se.treatment, bodyData)}</p>
             </div>
 
             <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block mb-1">3. Governing Status</span>
-              <p class="text-xs text-slate-800 leading-relaxed">${jData.selfEmployedStatus}</p>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">3. Governing Status</span>
+                <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
+              </div>
+              <p class="text-xs text-slate-800 leading-relaxed">${formatClaimWithCitations(jData.selfEmployedStatus, bodyData)}</p>
             </div>
           </div>
 
           <div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-5">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-900 mb-2 flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              Specific Statutory Responsibilities of Self-Employed Persons
-            </h4>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Specific Statutory Responsibilities of Self-Employed Persons
+              </h4>
+              <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-emerald-700 hover:bg-emerald-800 text-white text-[10px] font-semibold inline-flex items-center gap-1 shadow-xs">
+                <span>Statutory Citation</span>
+                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
             <p class="text-xs sm:text-sm text-emerald-950 leading-relaxed bg-white/80 p-4 rounded-lg border border-emerald-200/60 font-sans">
-              ${se.obligations}
+              ${formatClaimWithCitations(se.obligations, bodyData)}
             </p>
           </div>
 
           <div class="bg-slate-900 text-slate-200 rounded-xl p-4 text-xs space-y-1.5">
-            <span class="text-sky-300 font-bold block">Course Analysis Note:</span>
+            <div class="flex items-center justify-between">
+              <span class="text-sky-300 font-bold block">Course Analysis Note:</span>
+              <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold text-[10px] flex items-center gap-0.5">Statute Reference ↗</a>
+            </div>
             <p>Some jurisdictions (e.g. Alberta s.6, Saskatchewan s.3-11, Ontario s.12, Victoria s.24, Ireland s.12) explicitly define "self-employed person" with standalone duties parallel to employers and workers. Others (Australia Commonwealth/NSW/QLD) group them under the broader umbrella of a "PCBU", while US Federal OSHA generally excludes sole proprietors without employees from statutory citations.</p>
           </div>
         </div>
@@ -3166,10 +4418,6 @@
           </td>
         </tr>
       `).join('');
-
-      if (filteredLinks.length === 0) {
-        rowsHtml = `<tr><td colspan="5" class="py-8 text-center text-slate-400">No official documents match your search criteria.</td></tr>`;
-      }
 
       subtabContentArea.innerHTML = `
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
@@ -3412,7 +4660,7 @@ Generated via Global OHS Jurisdictional Regulatory Knowledge Base
       compareSelect1.addEventListener('change', renderComparisonMatrix);
       compareSelect2.addEventListener('change', renderComparisonMatrix);
 
-      // Export Modal triggers (guarded in case button is removed)
+      // Export Modal triggers
       if (openExportBtn) {
         openExportBtn.addEventListener('click', openExportModalHandler);
       }
