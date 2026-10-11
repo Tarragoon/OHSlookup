@@ -64,6 +64,43 @@
       font-size: 0.75rem;
       font-weight: 500;
     }
+
+    /* Strict Dropdown Locking & Clean Border Rendering */
+    select.dropdown-fixed, #jurisdictionSelect, #compareSelect1, #compareSelect2 {
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      appearance: none !important;
+      background-image: none !important;
+      height: 44px !important;
+      min-height: 44px !important;
+      max-height: 44px !important;
+      line-height: 1.5 !important;
+      box-sizing: border-box !important;
+      white-space: nowrap !important;
+      border-radius: 0.75rem !important; /* rounded-xl */
+      border: 1px solid #cbd5e1 !important; /* border-slate-300 */
+      background-color: #f8fafc !important; /* bg-slate-50 */
+      outline: none !important;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease !important;
+    }
+
+    select.dropdown-fixed:hover, #jurisdictionSelect:hover, #compareSelect1:hover, #compareSelect2:hover {
+      border-color: #94a3b8 !important; /* border-slate-400 */
+      background-color: #ffffff !important;
+    }
+
+    select.dropdown-fixed:focus, #jurisdictionSelect:focus, #compareSelect1:focus, #compareSelect2:focus {
+      border-color: #0284c7 !important; /* sky-600 */
+      background-color: #ffffff !important;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2) !important; /* smooth, unified focus ring */
+    }
+
+    select option {
+      font-size: 13px;
+      padding: 8px 12px;
+      background-color: #ffffff;
+      color: #1e293b;
+    }
   </style>
 </head>
 <body class="min-h-full flex flex-col text-slate-800 antialiased font-sans">
@@ -125,11 +162,11 @@
             <span id="jurisdictionCountBadge" class="badge-pill bg-slate-100 text-slate-700 font-semibold text-[11px]">14 Options</span>
           </div>
           <div class="relative">
-            <select id="jurisdictionSelect" class="w-full pl-3.5 pr-10 py-2.5 text-sm font-semibold bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-sky-500 focus:bg-white text-slate-900 transition-all cursor-pointer">
+            <select id="jurisdictionSelect" class="dropdown-fixed w-full truncate pl-3.5 pr-10 text-sm font-semibold text-slate-900 cursor-pointer">
               <!-- Options populated dynamically -->
             </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-500">
+              <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </div>
@@ -137,7 +174,7 @@
         </div>
       </div>
 
-      <!-- Quick Search / Filter Bar inside current view -->
+      <!-- Verified Statutory Notice Bar -->
       <div class="mt-4 pt-3.5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
         <div class="flex items-center gap-2 text-slate-600">
           <span class="font-medium text-slate-700">Quick Filter:</span>
@@ -275,17 +312,21 @@
 
       <div class="p-6 overflow-y-auto space-y-5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
-          <div>
+          <div class="min-w-0">
             <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Select Jurisdiction 1</label>
-            <select id="compareSelect1" class="w-full p-2.5 bg-white border border-slate-300 rounded-lg text-sm font-semibold text-slate-800">
-              <!-- JS Populated -->
-            </select>
+            <div class="relative w-full min-w-0 overflow-hidden rounded-lg">
+              <select id="compareSelect1" class="w-full h-11 px-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold text-slate-800 truncate box-border">
+                <!-- JS Populated -->
+              </select>
+            </div>
           </div>
-          <div>
+          <div class="min-w-0">
             <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Select Jurisdiction 2</label>
-            <select id="compareSelect2" class="w-full p-2.5 bg-white border border-slate-300 rounded-lg text-sm font-semibold text-slate-800">
-              <!-- JS Populated -->
-            </select>
+            <div class="relative w-full min-w-0 overflow-hidden rounded-lg">
+              <select id="compareSelect2" class="w-full h-11 px-3 bg-white border border-slate-300 rounded-lg text-sm font-semibold text-slate-800 truncate box-border">
+                <!-- JS Populated -->
+              </select>
+            </div>
           </div>
         </div>
 
@@ -377,7 +418,7 @@
         { id: 'canada', name: 'Canada', countLabel: '14 Jurisdictions', flag: '🇨🇦' },
         { id: 'usa', name: 'United States', countLabel: 'Federal + 22 State Plans', flag: '🇺🇸' },
         { id: 'australia', name: 'Australia', countLabel: '10 Jurisdictions', flag: '🇦🇺' },
-        { id: 'eu', name: 'European Union', countLabel: 'Framework + 6 States', flag: '🇪🇺' }
+        { id: 'eu', name: 'European Union', countLabel: 'Framework + 27 Member States', flag: '🇪🇺' }
       ],
       jurisdictions: {
         /* ==========================================================
@@ -3813,6 +3854,1411 @@
               ]
             }
           ]
+        },
+
+        'eu-at': {
+          country: 'eu',
+          name: 'Austria (AT)',
+          code: 'EU-AT',
+          type: 'Harmonised EU Transposition (Labour Inspectorate & Statutory Accident Insurance AUVA)',
+          hierarchyType: 'Employee Protection Act (ASchG) + Federal Ordinances',
+          primaryStatute: 'Employee Protection Act (Federal Law Gazette No. 450/1994 as amended - ASchG)',
+          primaryAgency: 'Central Labour Inspectorate (Federal Ministry of Labour and Economy) & AUVA',
+          hasSupplierDuties: true,
+          supplierNote: 'Sections 13 to 15 of the ASchG, combined with the Product Safety Act 2004, impose direct obligations on manufacturers, importers, and suppliers to ensure work equipment and substances are safe and conform to EU standards.',
+          selfEmployedStatus: 'Self-employed individuals are covered under Section 8 of the ASchG regarding coordinated workplace safety on shared premises and can voluntarily insure under statutory accident insurance.',
+          bodies: [
+            {
+              id: 'at-arbeitsinspektion',
+              name: 'Austrian Labour Inspectorate (Arbeitsinspektion)',
+              role: 'National Sovereign Inspectorate, Workplace Monitoring & Compliance',
+              framework: {
+                model: 'National Labour Inspectorate Model: The Central Labour Inspectorate within the Ministry of Labour enforces statutory employee protection, while the General Accident Insurance Institution (AUVA) administers compensation and voluntary workplace prevention programs.',
+                irsPrinciple: 'Safety Vertrauenspersonen (Safety Representatives) mandatory for 11+ workers; Safety Committee (Arbeitsschutzausschuss - ASA) required for 100+ workers.',
+                hierarchy: '1. Primary Statute: Employee Protection Act (ASchG, BGBl. Nr. 450/1994)\n2. Operational Ordinances: Workplace Ordinance (AStV), Work Equipment Ordinance (AM-VO)\n3. Technical standards and Austrian Standards Institute (ASI) guidelines.'
+              },
+              acts: [
+                {
+                  title: 'Employee Protection Act',
+                  citation: 'BGBl. Nr. 450/1994 (ASchG)',
+                  date: 'Federal Statute',
+                  link: 'https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10008910',
+                  desc: 'Comprehensive Austrian statute establishing the employer general duty of protection, workplace risk assessment, and appointment of preventive specialists.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Work Equipment Ordinance',
+                  citation: 'BGBl. II Nr. 164/2000 (AM-VO)',
+                  link: 'https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20000787',
+                  desc: 'Operational safety requirements for testing, maintenance, and safe operation of machinery.'
+                },
+                {
+                  title: 'Workplace Ordinance',
+                  citation: 'BGBl. II Nr. 368/1998 (AStV)',
+                  link: 'https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10009109',
+                  desc: 'Technical workplace standards including ventilation, lighting, emergency exits, and sanitary facilities.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'ASchG Section 3: Employers are obliged to take the necessary measures for the safety and health protection of workers, taking into account the principles of prevention.',
+                specificDuties: [
+                  'Section 4: Systematic risk assessment (Arbeitsplatzevaluierung) for all workstations and work activities.',
+                  'Section 73: Appoint certified safety specialists (Sicherheitsfachkräfte) and occupational physicians (Arbeitsmediziner).',
+                  'Provide workers with clear instruction and training before starting work and periodically thereafter.',
+                  'Cooperate and coordinate safety measures on multi-employer worksites under Section 8.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'ASchG Section 3', notes: 'Primary legal duty holder for worker safety and health.' },
+                { role: 'Safety Specialists', ref: 'ASchG Section 73', notes: 'Certified safety engineers providing preventive advice.' },
+                { role: 'Occupational Physicians', ref: 'ASchG Section 79', notes: 'Medical surveillance and workplace ergonomic consulting.' },
+                { role: 'Safety Representatives', ref: 'ASchG Section 10', notes: 'Worker safety representatives designated in workplaces with 11+ workers.' },
+                { role: 'Equipment & Chemical Suppliers', ref: 'ASchG Section 13', notes: 'Must ensure supplied machines and substances comply with safety specifications.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor without employees (Selbständige).',
+                treatment: 'Bound by Section 8 when executing activities on shared worksites alongside other employers.',
+                obligations: 'Must coordinate hazard prevention and ensure their tools and machinery do not create hazards for others.'
+              },
+              sources: [
+                { name: 'Austrian Labour Inspectorate Official Portal', url: 'https://www.arbeitsinspektion.gv.at/' },
+                { name: 'Federal Legal Information System (RIS)', url: 'https://www.ris.bka.gv.at/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-be': {
+          country: 'eu',
+          name: 'Belgium (BE)',
+          code: 'EU-BE',
+          type: 'Integrated Multi-Branch Model (FPS Employment & Well-being at Work Code)',
+          hierarchyType: 'Well-being Act of 1996 + Code on Well-being at Work (Books I-X)',
+          primaryStatute: 'Act of 4 August 1996 on the Well-being of Workers in the Performance of their Work (Well-being Act)',
+          primaryAgency: 'Federal Public Service (FPS) Employment, Labour and Social Dialogue',
+          hasSupplierDuties: true,
+          supplierNote: 'Articles 8 and 9 of the Well-being Act, along with European machinery regulations, impose statutory obligations on designers, manufacturers, and suppliers of work equipment and chemical products.',
+          selfEmployedStatus: 'Self-employed individuals operating on shared establishments are explicitly governed under Articles 8 and 9 of the Well-being Act regarding multi-party coordination.',
+          bodies: [
+            {
+              id: 'be-employment',
+              name: 'Supervision of Well-being at Work (FPS Employment)',
+              role: 'Federal Inspectorate, Policy Directorate & Regulatory Supervision',
+              framework: {
+                model: 'Consolidated Well-being Code Model: Belgium structures all occupational safety under the umbrella concept of "Well-being at Work" (covering safety, health, psychosocial aspects, ergonomics, and hygiene), regulated via the comprehensive 10-Book Code on Well-being at Work.',
+                irsPrinciple: 'Committee for Prevention and Protection at Work (CPPT) mandatory for workplaces with 50+ workers.',
+                hierarchy: '1. Primary Statute: Well-being Act of 4 August 1996\n2. Codified Regulation: Code on Well-being at Work (Books I to X, Royal Decree of 28 April 2017)\n3. Internal and External Prevention Services (EDPB/IDPB).'
+              },
+              acts: [
+                {
+                  title: 'Act of 4 August 1996 on the Well-being of Workers',
+                  citation: 'Belgian Official Gazette, 18.09.1996',
+                  date: 'Federal Statute',
+                  link: 'https://employment.belgium.be/en/themes/well-being-work',
+                  desc: 'Core Belgian law defining the general obligation of the employer to guarantee well-being, internal responsibility systems, and committee mandates.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Code on Well-being at Work (Book I: General Principles)',
+                  citation: 'Royal Decree of 28 April 2017',
+                  link: 'https://employment.belgium.be/en/themes/well-being-work/code-well-being-work',
+                  desc: 'Codified administrative requirements for dynamic risk management, internal prevention services, and worker consultation.'
+                },
+                {
+                  title: 'Code on Well-being at Work (Book IV: Work Equipment)',
+                  citation: 'Royal Decree of 28 April 2017',
+                  link: 'https://employment.belgium.be/en/themes/well-being-work/work-equipment',
+                  desc: 'Technical safety requirements for purchasing, maintenance, and periodic inspection of machinery.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Well-being Act Article 5: The employer shall take the necessary measures to promote the well-being of workers in the performance of their work, applying the general principles of prevention.',
+                specificDuties: [
+                  'Establish and document a dynamic risk management system (Dynamic Risk Assessment).',
+                  'Establish an Internal Service for Prevention and Protection at Work (IDPB) and contract an accredited External Service (EDPB).',
+                  'Consult and collaborate with the Committee for Prevention and Protection at Work (CPPT).',
+                  'Provide workers with adequate information and practical training on health, safety, and psychosocial risks.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Well-being Act Article 5', notes: 'Ultimate legal duty holder for workplace well-being.' },
+                { role: 'Prevention Advisor', ref: 'Book II of the Code', notes: 'Certified internal or external expert directing risk mitigation.' },
+                { role: 'Line Management (Supervisors)', ref: 'Book I of the Code', notes: 'Hierarchical superiors executing prevention policies daily.' },
+                { role: 'Committee for Prevention and Protection (CPPT)', ref: 'Well-being Act Article 48', notes: 'Joint worker-employer committee.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed worker (Zelfstandige / Travailleur indépendant).',
+                treatment: 'Articles 8 and 9 of the Well-being Act apply when working on an establishment where other workers are active.',
+                obligations: 'Must exchange information on risks and observe site safety instructions issued by the host employer.'
+              },
+              sources: [
+                { name: 'FPS Employment Official Well-being Portal', url: 'https://employment.belgium.be/en/themes/well-being-work' },
+                { name: 'Code on Well-being at Work Official Portal', url: 'https://employment.belgium.be/en/themes/well-being-work/code-well-being-work' }
+              ]
+            }
+          ]
+        },
+
+        'eu-bg': {
+          country: 'eu',
+          name: 'Bulgaria (BG)',
+          code: 'EU-BG',
+          type: 'Harmonised EU Transposition (General Labour Inspectorate Executive Agency)',
+          hierarchyType: 'Health and Safety at Work Act + Council of Ministers Ordinances',
+          primaryStatute: 'Health and Safety at Work Act (State Gazette No. 124/1997, as amended)',
+          primaryAgency: 'General Labour Inspectorate Executive Agency (GLI EA)',
+          hasSupplierDuties: true,
+          supplierNote: 'Technical product safety laws and Ordinance No. 7 require manufacturers and suppliers to provide compliant machinery with complete safety documentation.',
+          selfEmployedStatus: 'Article 14 of the Health and Safety at Work Act directly extends basic health and safety prevention obligations to self-employed individuals.',
+          bodies: [
+            {
+              id: 'bg-gli',
+              name: 'General Labour Inspectorate Executive Agency (GLI EA)',
+              role: 'National State Inspectorate, Enforcement & Compliance Orders',
+              framework: {
+                model: 'Unitary State Labour Inspectorate Model: The GLI EA operates under the Ministry of Labour and Social Policy to oversee compliance across all industry sectors.',
+                irsPrinciple: 'Health and Safety Working Conditions Committees mandatory for 50+ workers; Working Conditions Groups for smaller enterprises.',
+                hierarchy: '1. Primary Statute: Health and Safety at Work Act (SG No. 124/1997)\n2. Operational Regulations: Ordinance No. 7 on Minimum Requirements for Health and Safety at Workplaces\n3. Industry-specific ministerial ordinances.'
+              },
+              acts: [
+                {
+                  title: 'Health and Safety at Work Act',
+                  citation: 'State Gazette No. 124/1997',
+                  date: 'National Statute',
+                  link: 'https://www.gli.government.bg/en',
+                  desc: 'Comprehensive statute establishing employer general obligations, risk evaluation rules, and occupational health services.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Ordinance No. 7 on Minimum Requirements for Workplaces',
+                  citation: 'SG No. 88/1999',
+                  link: 'https://www.gli.government.bg/en',
+                  desc: 'Technical workplace standards including physical agents, emergency exits, and maintenance.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Article 16: The employer is obliged to ensure health and safety in all aspects related to the work of all workers and persons on the work territory.',
+                specificDuties: [
+                  'Conduct systematic risk assessments and develop written mitigation programs.',
+                  'Contract an accredited Occupational Health Service (OHS).',
+                  'Establish a Working Conditions Committee or Group and consult employee representatives.',
+                  'Provide workers with mandatory periodic safety training and instructions.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article 16', notes: 'Primary duty holder.' },
+                { role: 'Occupational Health Services', ref: 'Article 25a', notes: 'External licensed consulting bodies.' },
+                { role: 'Working Conditions Committee', ref: 'Article 27', notes: 'Joint worker-management consultation body.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed person (Самостоятелно заето лице).',
+                treatment: 'Covered under Article 14 of the Act.',
+                obligations: 'Must apply safety measures to protect themselves and others who might be affected by their activities.'
+              },
+              sources: [
+                { name: 'General Labour Inspectorate Bulgaria', url: 'https://www.gli.government.bg/en' }
+              ]
+            }
+          ]
+        },
+
+        'eu-hr': {
+          country: 'eu',
+          name: 'Croatia (HR)',
+          code: 'EU-HR',
+          type: 'Harmonised EU Transposition (State Inspectorate - Labour Inspection)',
+          hierarchyType: 'Occupational Health and Safety Act + Ministry Ordinances',
+          primaryStatute: 'Occupational Health and Safety Act (Official Gazette NN 71/14, 118/14, 154/14, 94/18, 96/18)',
+          primaryAgency: 'State Inspectorate of the Republic of Croatia (Labour Inspection)',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 16 of the Act imposes strict statutory duties on manufacturers, importers, and suppliers to supply only tested, certified, and compliant work equipment.',
+          selfEmployedStatus: 'Article 6 of the Occupational Health and Safety Act directly extends legal duties to self-employed persons carrying out activities on their own account.',
+          bodies: [
+            {
+              id: 'hr-inspektorat',
+              name: 'State Inspectorate (Labour Inspection Division)',
+              role: 'Unified State Inspectorate, Workplace Supervision & Sanctions',
+              framework: {
+                model: 'Unified State Inspectorate Model: Since 2019, Croatia consolidated all inspection activities under the central State Inspectorate (Državni inspektorat).',
+                irsPrinciple: 'Workers’ Safety Commissioner (Povjerenik radnika za zaštitu na radu) and Safety Committee mandatory for 50+ workers.',
+                hierarchy: '1. Primary Statute: Occupational Health and Safety Act (NN 71/14 as amended)\n2. Ministerial Ordinances: Ordinance on the Assessment of Occupational Risks (NN 112/14)\n3. Equipment and PPE rules.'
+              },
+              acts: [
+                {
+                  title: 'Occupational Health and Safety Act',
+                  citation: 'NN 71/14, 94/18, 96/18',
+                  date: 'National Statute',
+                  link: 'https://narodne-novine.nn.hr/clanci/sluzbeni/2014_06_71_1334.html',
+                  desc: 'Establishes employer duties, employee safety commissioners, risk assessments, and prohibition orders.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Ordinance on the Assessment of Occupational Risks',
+                  citation: 'NN 112/14, 129/19',
+                  link: 'https://narodne-novine.nn.hr/clanci/sluzbeni/2014_09_112_2148.html',
+                  desc: 'Mandatory methodology for drafting workplace risk assessments.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Article 17: The employer is obliged to organise and implement occupational health and safety, taking into account the prevention of occupational risks.',
+                specificDuties: [
+                  'Draft and continuously update a written Risk Assessment (Procjena rizika).',
+                  'Appoint an internal occupational safety specialist or engage an authorized legal person.',
+                  'Provide workers with theoretical and practical safety training before work commences.',
+                  'Ensure mandatory preventive medical examinations for workers in high-risk roles.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article 17', notes: 'Primary duty holder.' },
+                { role: 'Safety Specialist', ref: 'Article 20', notes: 'Internal expert managing safety systems.' },
+                { role: 'Workers’ Safety Commissioner', ref: 'Article 70', notes: 'Elected worker representative.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed person (Osoba koja samostalno obavlja djelatnost).',
+                treatment: 'Regulated under Article 6 of the Act.',
+                obligations: 'Must carry out work safely and use compliant work equipment to protect themselves and others.'
+              },
+              sources: [
+                { name: 'State Inspectorate of Croatia', url: 'https://dirh.gov.hr/' },
+                { name: 'Official Gazette (Narodne novine)', url: 'https://narodne-novine.nn.hr/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-cy': {
+          country: 'eu',
+          name: 'Cyprus (CY)',
+          code: 'EU-CY',
+          type: 'Harmonised Common-Law Influenced Framework (Department of Labour Inspection)',
+          hierarchyType: 'Safety and Health at Work Laws 1996 to 2020 + General Regulations',
+          primaryStatute: 'Safety and Health at Work Laws 1996 to 2020 (Law 89(I)/1996 as amended)',
+          primaryAgency: 'Department of Labour Inspection (DLI - Ministry of Labour and Social Insurance)',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 16 of Law 89(I)/1996 explicitly imposes positive legal duties on designers, manufacturers, importers, and suppliers of articles and substances for use at work.',
+          selfEmployedStatus: 'Section 14 of Law 89(I)/1996 explicitly creates dedicated statutory duties for self-employed persons to ensure they and others are protected from risks.',
+          bodies: [
+            {
+              id: 'cy-dli',
+              name: 'Department of Labour Inspection (DLI)',
+              role: 'Government Department executing Inspections, Investigations & Safety Policy',
+              framework: {
+                model: 'British Common-Law Influenced Statute Model: Reflecting its legal traditions, Cyprus combines the UK Robens-style primary duty structure with direct transposition of Directive 89/391/EEC.',
+                irsPrinciple: 'Safety Committees (Safety Representatives and Safety Committees Regulations 1997) required for 10+ employees.',
+                hierarchy: '1. Primary Statute: Safety and Health at Work Laws 1996 to 2020 (Law 89(I)/1996)\n2. Operational Regulations: Management of Safety and Health at Work Regulations 2002\n3. Sectoral regulations (construction, asbestos, chemicals).'
+              },
+              acts: [
+                {
+                  title: 'Safety and Health at Work Law',
+                  citation: 'Law 89(I)/1996 (Consolidated)',
+                  date: 'National Statute',
+                  link: 'http://www.mlsi.gov.cy/dli',
+                  desc: 'Core statute setting employer duties (s. 13), self-employed duties (s. 14), supplier duties (s. 16), and inspectorate powers.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Management of Safety and Health at Work Regulations',
+                  citation: 'P.I. 173/2002',
+                  link: 'http://www.mlsi.gov.cy/dli',
+                  desc: 'Mandates written risk assessments, appointment of safety officers, and emergency planning.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Section 13: Every employer must ensure, so far as is reasonably practicable, the safety, health and welfare at work of all his employees and persons not in his employment who may be affected.',
+                specificDuties: [
+                  'Prepare and maintain a written risk assessment and implement preventive controls.',
+                  'Appoint competent safety officers or engage external protection services (EXYPP).',
+                  'Establish a Safety Committee where 10 or more workers are employed.',
+                  'Provide workers with comprehensible information and practical training.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Section 13', notes: 'Primary duty holder.' },
+                { role: 'Self-Employed Person', ref: 'Section 14', notes: 'Standalone statutory duties.' },
+                { role: 'Designers & Suppliers', ref: 'Section 16', notes: 'Explicit duties on plant, tool, and chemical suppliers.' },
+                { role: 'Safety Representative', ref: 'P.I. 134/1997', notes: 'Worker elected representative.' }
+              ],
+              selfEmployed: {
+                defined: 'Section 2: A person who works for gain or reward otherwise than under an employment contract.',
+                treatment: 'Explicitly detailed in Section 14.',
+                obligations: 'Section 14: Must conduct their undertaking in such a manner as to ensure, so far as reasonably practicable, that they and other persons are not exposed to health and safety hazards.'
+              },
+              sources: [
+                { name: 'Department of Labour Inspection Cyprus', url: 'http://www.mlsi.gov.cy/dli' }
+              ]
+            }
+          ]
+        },
+
+        'eu-cz': {
+          country: 'eu',
+          name: 'Czechia (CZ)',
+          code: 'EU-CZ',
+          type: 'Codified Dual-Act Framework (State Labour Inspection Office - SÚIP)',
+          hierarchyType: 'Labour Code (Act No. 262/2006 Coll.) + Act No. 309/2006 Coll.',
+          primaryStatute: 'Labour Code (Act No. 262/2006 Coll., Part Five) & Act No. 309/2006 Coll. on Further Requirements for OHS',
+          primaryAgency: 'State Labour Inspection Office (SÚIP) / Ministry of Labour and Social Affairs',
+          hasSupplierDuties: true,
+          supplierNote: 'Act No. 22/1997 Coll. on Technical Requirements for Products and Act No. 309/2006 Coll. require suppliers and manufacturers to supply compliant machinery.',
+          selfEmployedStatus: 'Section 12 of Act No. 309/2006 Coll. explicitly extends fundamental health and safety obligations to self-employed individuals (OSVČ).',
+          bodies: [
+            {
+              id: 'cz-suip',
+              name: 'State Labour Inspection Office (SÚIP)',
+              role: 'National Regulatory Inspectorate, Workplace Audits & Fines',
+              framework: {
+                model: 'Codified Dual-Act Model: General employer obligations are set in Part Five of the Labour Code, while technical requirements, prevention officers, and construction site coordinators are governed by Act No. 309/2006 Coll.',
+                irsPrinciple: 'Trade Union OHS Representatives and Employee Representatives for OHS participate in risk management.',
+                hierarchy: '1. Primary Statutes: Labour Code (Act No. 262/2006 Coll.) and Act No. 309/2006 Coll.\n2. Government Regulations: Gov Reg No. 101/2005 Coll. (Workplace Safety Detailed Rules)\n3. Occupational hygiene decrees.'
+              },
+              acts: [
+                {
+                  title: 'Labour Code (Part Five: OHS)',
+                  citation: 'Act No. 262/2006 Coll., Part Five',
+                  date: 'National Code',
+                  link: 'https://www.zakonyprolidi.cz/cs/2006-262#cast5',
+                  desc: 'Comprehensive provisions on prevention of risks, employer duties (Sections 101-108), and worker rights.'
+                },
+                {
+                  title: 'Act on Further Requirements for OHS',
+                  citation: 'Act No. 309/2006 Coll.',
+                  date: 'National Statute',
+                  link: 'https://www.zakonyprolidi.cz/cs/2006-309',
+                  desc: 'Governs workplace ergonomics, chemical safety, construction coordinators, and self-employed responsibilities.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Government Regulation on Workplace Requirements',
+                  citation: 'Gov Reg No. 101/2005 Coll.',
+                  link: 'https://www.zakonyprolidi.cz/cs/2005-101',
+                  desc: 'Technical workplace standards including escape routes, traffic routes, and floor safety.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Labour Code Section 101(1): The employer is obliged to ensure occupational safety and health for employees with regard to the risks to their life and health.',
+                specificDuties: [
+                  'Section 102: Systematically identify hazards, evaluate risks, and adopt collective preventive measures.',
+                  'Appoint a professionally qualified person for risk prevention (OZO v prevenci rizik).',
+                  'Provide personal protective equipment free of charge where hazards cannot be eliminated.',
+                  'Provide workers with clear safety instructions and training in a language they comprehend.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Labour Code Section 101', notes: 'Core statutory duty holder.' },
+                { role: 'Professionally Qualified Person (OZO)', ref: 'Act No. 309/2006 s. 9', notes: 'Certified health and safety officer.' },
+                { role: 'Construction Coordinator', ref: 'Act No. 309/2006 s. 14', notes: 'Coordinating multi-contractor construction sites.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed person (Osoba samostatně výdělečně činná - OSVČ).',
+                treatment: 'Explicitly detailed in Section 12 of Act No. 309/2006 Coll.',
+                obligations: 'Section 12: Must ensure that their work equipment and tools meet technical safety requirements and do not endanger other persons.'
+              },
+              sources: [
+                { name: 'State Labour Inspection Office Czechia (SÚIP)', url: 'https://www.suip.cz/' },
+                { name: 'Zákony pro lidi Legislation Portal', url: 'https://www.zakonyprolidi.cz/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-dk': {
+          country: 'eu',
+          name: 'Denmark (DK)',
+          code: 'EU-DK',
+          type: 'Nordic Tripartite Dialogue Model (Danish Working Environment Authority - Arbejdstilsynet)',
+          hierarchyType: 'Working Environment Act + Executive Orders (Bekendtgørelser)',
+          primaryStatute: 'Working Environment Act (Consolidated Act No. 2062 of 16 November 2021, as amended - Arbejdsmiljøloven)',
+          primaryAgency: 'Danish Working Environment Authority (Arbejdstilsynet - AT)',
+          hasSupplierDuties: true,
+          supplierNote: 'Chapter 5 of the Working Environment Act explicitly establishes strict statutory duties for manufacturers, suppliers, fitters, repairers, and hirers of machinery and substances.',
+          selfEmployedStatus: 'Section 2(2) of the Working Environment Act provides that specific chapters (including machinery safety, dangerous substances, and worksite coordination) apply to self-employed individuals.',
+          bodies: [
+            {
+              id: 'dk-at',
+              name: 'Danish Working Environment Authority (Arbejdstilsynet)',
+              role: 'National Regulatory Agency, Workplace Audits & Green/Yellow Smiley Ratings',
+              framework: {
+                model: 'Nordic Tripartite Cooperation Model: Workplace safety is built on strong cooperation between the government, employers’ confederations, and trade unions. Focuses on physical and psychosocial working environments.',
+                irsPrinciple: 'Workplace Health and Safety Organisation (AMO) mandatory for enterprises with 10+ employees; Safety Committee required for 35+ workers.',
+                hierarchy: '1. Primary Statute: Working Environment Act (LBK No. 2062/2021)\n2. Executive Orders: Executive Order on Systematic Health and Safety Work (APV / BEK No. 65)\n3. WEA Guidelines (Arbejdstilsynets Vejledninger).'
+              },
+              acts: [
+                {
+                  title: 'Working Environment Act',
+                  citation: 'LBK No. 2062 of 16/11/2021',
+                  date: 'Consolidated Statute',
+                  link: 'https://at.dk/en/regulations/acts/working-environment-act-2062/',
+                  desc: 'Foundational Danish statute governing the general duty, systematic safety, supplier duties (Chapter 5), and penalties.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Executive Order on Systematic Health and Safety Work (APV)',
+                  citation: 'BEK No. 65 of 24/01/2024',
+                  link: 'https://at.dk/en/',
+                  desc: 'Mandates a written Workplace Assessment (Arbejdspladsvurdering - APV) covering physical and psychological safety.'
+                },
+                {
+                  title: 'Executive Order on the Performance of Work',
+                  citation: 'BEK No. 1234 of 29/10/2018',
+                  link: 'https://at.dk/en/',
+                  desc: 'Operational safety requirements for ergonomics, noise, and hazard mitigation.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Section 15: The employer shall ensure that the working environment is fully safe and healthy in every respect.',
+                specificDuties: [
+                  'Prepare and maintain a written Workplace Assessment (APV) in consultation with workers.',
+                  'Establish a formal Health and Safety Organisation (AMO) in workplaces with 10 or more employees.',
+                  'Ensure that work is planned and executed without health and ergonomic risks.',
+                  'Provide workers with comprehensive instructions and safety training.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Section 15', notes: 'Primary duty holder.' },
+                { role: 'Supervisors (Foremen)', ref: 'Section 23', notes: 'Must oversee daily execution of safety measures.' },
+                { role: 'Suppliers, Manufacturers & Hirers', ref: 'Sections 30-37', notes: 'Explicit duties to ensure delivered machinery and materials are safe.' },
+                { role: 'Health and Safety Representative', ref: 'Section 5', notes: 'Worker representative in the AMO.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed person without employees (Selvstændig virksomhedsdrivende).',
+                treatment: 'Governed under Section 2(2) of the Act.',
+                obligations: 'Must comply with safety standards for technical equipment, dangerous substances, and multi-employer coordination.'
+              },
+              sources: [
+                { name: 'Danish Working Environment Authority (Arbejdstilsynet)', url: 'https://at.dk/en/' },
+                { name: 'Retsinformation Official Danish Legislation', url: 'https://www.retsinformation.dk/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-ee': {
+          country: 'eu',
+          name: 'Estonia (EE)',
+          code: 'EU-EE',
+          type: 'Harmonised EU Transposition (Labour Inspectorate - Tööinspektsioon)',
+          hierarchyType: 'Occupational Health and Safety Act (TTOS) + Government Regulations',
+          primaryStatute: 'Occupational Health and Safety Act (RT I 1999, 60, 616, as amended - TTOS)',
+          primaryAgency: 'Labour Inspectorate (Tööinspektsioon) / Ministry of Social Affairs',
+          hasSupplierDuties: true,
+          supplierNote: 'The Product Conformity Act and TTOS Chapter 2 impose statutory duties on machinery manufacturers and suppliers to supply safe equipment.',
+          selfEmployedStatus: 'Section 12(1) of the TTOS explicitly governs self-employed workers (FIE), requiring them to ensure safe work equipment and protect others.',
+          bodies: [
+            {
+              id: 'ee-ti',
+              name: 'Labour Inspectorate (Tööinspektsioon)',
+              role: 'National State Inspectorate, Digital Working Life Portal & Enforcement',
+              framework: {
+                model: 'Digital Public Service Model: Estonia combines state labour inspections with the modern digital "Working Life Portal" (Tööelu), allowing companies to manage digital risk assessments and accident notifications.',
+                irsPrinciple: 'Working Environment Representative mandatory for 10+ workers; Working Environment Council for 24+ workers.',
+                hierarchy: '1. Primary Statute: Occupational Health and Safety Act (TTOS)\n2. Government Regulations: Reg No. 80 (Work Equipment Safety)\n3. Occupational hygiene limits.'
+              },
+              acts: [
+                {
+                  title: 'Occupational Health and Safety Act',
+                  citation: 'RT I 1999, 60, 616 (TTOS)',
+                  date: 'National Statute',
+                  link: 'https://www.riigiteataja.ee/en/eli/512012023004/consolide',
+                  desc: 'Core Estonian statute establishing employer duties, risk assessments, working environment specialists, and fines.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Requirements for the Use of Work Equipment',
+                  citation: 'Gov Reg No. 80 of 11/04/2000',
+                  link: 'https://www.riigiteataja.ee/en/',
+                  desc: 'Technical safety requirements for testing, protective guarding, and operating machinery.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'TTOS Section 12: An employer shall ensure the implementation of occupational health and safety requirements in all work-related aspects.',
+                specificDuties: [
+                  'Conduct a comprehensive written Risk Assessment (Töökeskkonna riskianalüüs) and register it in the state portal.',
+                  'Appoint a qualified Working Environment Specialist (Töökeskkonnaspetsialist).',
+                  'Arrange mandatory medical examinations for workers exposed to health hazards.',
+                  'Provide workers with necessary PPE, instruction, and safety training.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'TTOS Section 12', notes: 'Primary duty holder.' },
+                { role: 'Working Environment Specialist', ref: 'TTOS Section 16', notes: 'Internal expert appointed by the employer.' },
+                { role: 'Working Environment Representative', ref: 'TTOS Section 17', notes: 'Elected worker representative for 10+ employees.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor / Self-employed person (FIE).',
+                treatment: 'Specifically governed under Section 12(1) of the TTOS.',
+                obligations: 'Section 12(1): A self-employed person shall ensure that their work equipment, personal protective equipment, and working methods comply with safety requirements and do not endanger others.'
+              },
+              sources: [
+                { name: 'Estonian Labour Inspectorate (Tööinspektsioon)', url: 'https://www.ti.ee/en' },
+                { name: 'Riigi Teataja State Gazette', url: 'https://www.riigiteataja.ee/en/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-fi': {
+          country: 'eu',
+          name: 'Finland (FI)',
+          code: 'EU-FI',
+          type: 'Nordic Tripartite Model (Occupational Safety and Health Administration - AVI)',
+          hierarchyType: 'Occupational Safety and Health Act (738/2002) + Government Decrees',
+          primaryStatute: 'Occupational Safety and Health Act (738/2002 - Työturvallisuuslaki)',
+          primaryAgency: 'Occupational Safety and Health Administration (Regional State Administrative Agencies - AVI)',
+          hasSupplierDuties: true,
+          supplierNote: 'Chapter 6 (Sections 56 to 62) of the Occupational Safety and Health Act explicitly establishes comprehensive positive statutory duties for designers, manufacturers, importers, and suppliers of machinery, tools, and chemicals.',
+          selfEmployedStatus: 'Section 5 of the Occupational Safety and Health Act explicitly applies the provisions of the Act to self-employed persons working in a shared workplace.',
+          bodies: [
+            {
+              id: 'fi-tyosuojelu',
+              name: 'Occupational Safety and Health Administration (Työsuojeluhallinto)',
+              role: 'Regional State Inspectorates (AVI), Enforcement & Preventive Guidance',
+              framework: {
+                model: 'Nordic Well-being & Tripartite Model: Administered through the Regional State Administrative Agencies (AVI) and the Ministry of Social Affairs and Health. Places high statutory priority on ergonomic and psychological workload.',
+                irsPrinciple: 'Occupational Safety and Health Representative mandatory for 10+ workers; Safety Committee for 20+ workers.',
+                hierarchy: '1. Primary Statute: Occupational Safety and Health Act (738/2002)\n2. Operational Decrees: Gov Decree on the Safe Use of Work Equipment (400/2008)\n3. Occupational Health Care Act (1383/2001).'
+              },
+              acts: [
+                {
+                  title: 'Occupational Safety and Health Act',
+                  citation: 'Act No. 738/2002',
+                  date: 'National Statute',
+                  link: 'https://www.finlex.fi/en/laki/kaannokset/2002/en20020738',
+                  desc: 'Comprehensive Finnish statute setting the employer general duty of care (Section 8), hazard identification (Section 10), and supplier obligations (Sections 56-62).'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Government Decree on the Safe Use of Work Equipment',
+                  citation: 'Decree No. 400/2008',
+                  link: 'https://www.finlex.fi/fi/laki/alkup/2008/20080400',
+                  desc: 'Technical safety requirements for machine guarding, commissioning, and maintenance inspections.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Section 8: Employers are required to take care of the safety and health of their employees while at work. For this purpose, employers shall consider the circumstances related to the work, working conditions, and the working environment.',
+                specificDuties: [
+                  'Section 10: Continuously identify and assess hazards (Risk Assessment).',
+                  'Organize preventive occupational healthcare under the Occupational Health Care Act (1383/2001).',
+                  'Establish an Occupational Safety and Health Committee in workplaces with 20 or more employees.',
+                  'Provide workers with necessary induction, guidance, and personal protective equipment.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Section 8', notes: 'Primary duty holder.' },
+                { role: 'Designers, Manufacturers & Suppliers', ref: 'Sections 56-62', notes: 'Explicit duties on plant, tool, and chemical suppliers.' },
+                { role: 'Safety Representative', ref: 'Act 44/2006', notes: 'Worker representative in the OHS committee.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed worker (Itsenäinen työnsuorittaja).',
+                treatment: 'Specifically governed under Section 5 and Section 54.',
+                obligations: 'When operating in a shared workplace, must observe site safety regulations, use certified machinery, and ensure their work does not endanger others.'
+              },
+              sources: [
+                { name: 'Occupational Safety and Health Administration Finland', url: 'https://www.tyosuojelu.fi/en/' },
+                { name: 'Finlex Legal Data Bank', url: 'https://www.finlex.fi/en/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-gr': {
+          country: 'eu',
+          name: 'Greece (EL)',
+          code: 'EU-GR',
+          type: 'Harmonised Codified Model (Independent Labour Inspectorate - SEPE)',
+          hierarchyType: 'Code of Laws on Health and Safety at Work (Law 3850/2010) + Presidential Decrees',
+          primaryStatute: 'Code of Laws on Health and Safety at Work (Law 3850/2010)',
+          primaryAgency: 'Independent Labour Inspectorate Authority (SEPE) / Ministry of Labour',
+          hasSupplierDuties: true,
+          supplierNote: 'Article 26 of Law 3850/2010 establishes explicit statutory duties for manufacturers, importers, and suppliers of work machinery, tools, and chemical agents.',
+          selfEmployedStatus: 'Article 2 of Law 3850/2010 applies general preventive obligations to self-employed individuals, with strict coordination duties on shared construction sites.',
+          bodies: [
+            {
+              id: 'gr-sepe',
+              name: 'Independent Labour Inspectorate Authority (SEPE)',
+              role: 'Independent Constitutional Authority, Worksite Inspections & Fines',
+              framework: {
+                model: 'Codified Independent Authority Model: Regulated through the unified Code of Laws on Health and Safety at Work (Law 3850/2010), enforced by the independent inspection authority SEPE.',
+                irsPrinciple: 'Safety Technicians (Technikos Asfaleias) and Occupational Physicians mandatory based on risk classification; Safety Committees for 50+ workers.',
+                hierarchy: '1. Primary Statute: Law 3850/2010 (Ratification of the Code of OHS Laws)\n2. Presidential Decrees: PD 17/1996 (transposing Directive 89/391/EEC)\n3. Industry-specific ministerial decrees.'
+              },
+              acts: [
+                {
+                  title: 'Code of Laws for Health and Safety at Work',
+                  citation: 'Law 3850/2010 (Government Gazette 84/A)',
+                  date: 'National Codification',
+                  link: 'https://hli.gov.gr/',
+                  desc: 'Comprehensive codification of Greek health and safety law, setting employer obligations, safety technician roles, and supplier duties.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Presidential Decree on the Measures for Worker Safety',
+                  citation: 'PD 17/1996',
+                  link: 'https://hli.gov.gr/',
+                  desc: 'Implements the general principles of prevention and risk assessment documents.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Law 3850/2010 Article 42: The employer is obliged to ensure the health and safety of workers in every aspect related to the work.',
+                specificDuties: [
+                  'Draft and update a written Occupational Risk Assessment Document (MEKY).',
+                  'Appoint a certified Safety Technician (Technikos Asfaleias) and Occupational Physician.',
+                  'Provide workers with appropriate training, instruction, and personal protective equipment at no cost.',
+                  'Establish an Occupational Health and Safety Committee (EYAE) in enterprises with 50+ workers.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article 42', notes: 'Primary duty holder.' },
+                { role: 'Safety Technician', ref: 'Articles 4-9', notes: 'Mandatory technical consultant.' },
+                { role: 'Occupational Physician', ref: 'Articles 16-19', notes: 'Medical surveillance doctor.' },
+                { role: 'Suppliers & Manufacturers', ref: 'Article 26', notes: 'Explicit duties on tool and machinery suppliers.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed worker (Αυτοαπασχολούμενος).',
+                treatment: 'Covered under Article 2 and presidential decrees.',
+                obligations: 'Must observe general safety principles and comply with site safety coordinators on shared worksites.'
+              },
+              sources: [
+                { name: 'Independent Labour Inspectorate Authority Greece (SEPE)', url: 'https://hli.gov.gr/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-hu': {
+          country: 'eu',
+          name: 'Hungary (HU)',
+          code: 'EU-HU',
+          type: 'Harmonised Statutory Framework (Department of Occupational Safety and Health)',
+          hierarchyType: 'Act XCIII of 1993 on OHS + Ministerial Decrees',
+          primaryStatute: 'Act XCIII of 1993 on Occupational Safety and Health (OSH Act)',
+          primaryAgency: 'Department of Occupational Safety and Health / Ministry of National Economy',
+          hasSupplierDuties: true,
+          supplierNote: 'Sections 29 to 33 of the OSH Act impose explicit statutory duties on designers, manufacturers, and suppliers of machinery and chemical substances.',
+          selfEmployedStatus: 'Section 9(2) of the OSH Act explicitly provides that self-employed individuals must conduct their activities without endangering others.',
+          bodies: [
+            {
+              id: 'hu-osh',
+              name: 'Occupational Safety and Health Authority (Ministry of National Economy)',
+              role: 'Government Inspectorate, Workplace Compliance & Technical Audits',
+              framework: {
+                model: 'National Statutory Inspectorate Model: Operating under the Ministry of National Economy to enforce occupational safety and hygiene across all enterprises.',
+                irsPrinciple: 'Occupational Safety Representative (Munkavédelmi képviselő) mandatory for enterprises with 20+ workers.',
+                hierarchy: '1. Primary Statute: Act XCIII of 1993 on Occupational Safety and Health\n2. Ministerial Decrees: Decree 5/1993. (XII. 26.) MüM on the Implementation of OSH\n3. Sectoral safety decrees.'
+              },
+              acts: [
+                {
+                  title: 'Act XCIII of 1993 on Occupational Safety and Health',
+                  citation: 'Act XCIII of 1993 (Consolidated)',
+                  date: 'National Statute',
+                  link: 'https://njt.hu/jogszabaly/1993-93-00-00',
+                  desc: 'Comprehensive statute establishing employer duties, risk assessments, safety qualifications, and supplier obligations.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Decree on the Implementation of Certain Provisions of the OSH Act',
+                  citation: 'Decree 5/1993. (XII. 26.) MüM',
+                  link: 'https://njt.hu/',
+                  desc: 'Operational safety rules for technical qualification, medical checks, and hazard categorization.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Section 2(1): The employer is responsible for ensuring that work is performed in a safe and healthy manner.',
+                specificDuties: [
+                  'Section 54: Prepare and maintain a documented Risk Assessment (Kockázatértékelés).',
+                  'Employ or contract certified occupational safety and occupational healthcare specialists.',
+                  'Provide workers with theoretical and practical safety training upon hiring and annually.',
+                  'Elect and cooperate with Occupational Safety Representatives (20+ workers).'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Section 2(1)', notes: 'Primary duty holder.' },
+                { role: 'Safety Specialists', ref: 'Section 57', notes: 'Certified OHS experts.' },
+                { role: 'Occupational Safety Representative', ref: 'Section 70', notes: 'Elected worker representative.' },
+                { role: 'Designers & Suppliers', ref: 'Sections 29-33', notes: 'Explicit duties on tool and machinery suppliers.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor / Self-employed person (Egyéni vállalkozó).',
+                treatment: 'Specifically governed under Section 9(2) of the Act.',
+                obligations: 'Section 9(2): A person who performs work independently must organize and carry out work in such a manner as not to endanger themselves or other persons.'
+              },
+              sources: [
+                { name: 'National Labour Office Hungary', url: 'http://www.ommf.gov.hu/' },
+                { name: 'National Legislation Database (Nemzeti Jogszabálytár)', url: 'https://njt.hu/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-lv': {
+          country: 'eu',
+          name: 'Latvia (LV)',
+          code: 'EU-LV',
+          type: 'Harmonised EU Transposition (State Labour Inspectorate - VDI)',
+          hierarchyType: 'Labour Protection Law + Cabinet Regulations',
+          primaryStatute: 'Labour Protection Law (Adopted 20 June 2001, in force 1 Jan 2002)',
+          primaryAgency: 'State Labour Inspectorate (Valsts darba inspekcija - VDI) / Ministry of Welfare',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed through general European CE conformity legislation rather than dedicated general duty clauses in the Labour Protection Law.',
+          selfEmployedStatus: 'Section 1(10) and Section 20 of the Labour Protection Law explicitly govern self-employed persons, obliging them to observe basic safety norms.',
+          bodies: [
+            {
+              id: 'lv-vdi',
+              name: 'State Labour Inspectorate (Valsts darba inspekcija - VDI)',
+              role: 'National State Inspectorate, Supervision & European Integration',
+              framework: {
+                model: 'National Inspectorate Model: The VDI operates under the Ministry of Welfare to supervise compliance with labour protection laws across Latvia.',
+                irsPrinciple: 'Labour Protection Trusted Representatives (Uzticības personas) mandatory for 10+ workers.',
+                hierarchy: '1. Primary Statute: Labour Protection Law\n2. Cabinet Regulations: Cabinet Reg No. 660 (Internal Supervision of the Work Environment)\n3. Industry safety regulations.'
+              },
+              acts: [
+                {
+                  title: 'Labour Protection Law',
+                  citation: 'Latvijas Vēstnesis No. 105 (2492)',
+                  date: 'National Statute',
+                  link: 'https://likumi.lv/ta/en/en/id/26071',
+                  desc: 'Comprehensive statute establishing employer responsibilities, internal supervision, and trusted representatives.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Procedures for the Internal Supervision of the Work Environment',
+                  citation: 'Cabinet Regulation No. 660',
+                  link: 'https://likumi.lv/ta/id/164348',
+                  desc: 'Mandates internal supervision, work environment risk evaluation, and preventive action plans.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Section 4: The employer has an obligation to organize the labour protection system, ensuring that the work environment is safe and harmless to health.',
+                specificDuties: [
+                  'Section 7: Evaluate work environment risks and compile a documented preventive plan.',
+                  'Appoint a labour protection specialist or engage a competent authority.',
+                  'Ensure mandatory health examinations for workers exposed to harmful factors.',
+                  'Provide workers with protective equipment, instruction, and training.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Section 4', notes: 'Primary duty holder.' },
+                { role: 'Labour Protection Specialist', ref: 'Section 9', notes: 'Internal expert appointed by the employer.' },
+                { role: 'Trusted Representative', ref: 'Section 16', notes: 'Elected worker representative.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed person (Pašnodarbinātais).',
+                treatment: 'Specifically governed under Section 20.',
+                obligations: 'Section 20: A self-employed person has a duty to ensure their own safety and health, as well as the safety of other persons affected by their work.'
+              },
+              sources: [
+                { name: 'State Labour Inspectorate Latvia (VDI)', url: 'https://www.vdi.gov.lv/en' },
+                { name: 'Likumi.lv Official Legislation Portal', url: 'https://likumi.lv/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-lt': {
+          country: 'eu',
+          name: 'Lithuania (LT)',
+          code: 'EU-LT',
+          type: 'Harmonised EU Transposition (State Labour Inspectorate - VDI)',
+          hierarchyType: 'Law on OHS + Ministry Orders',
+          primaryStatute: 'Law on Occupational Safety and Health of the Republic of Lithuania (No. IX-1672 as amended)',
+          primaryAgency: 'State Labour Inspectorate (Valstybinė darbo inspekcija - VDI)',
+          hasSupplierDuties: false,
+          supplierNote: 'Supplier duties are governed under product conformity and consumer safety laws rather than direct VDI employer-citation sections.',
+          selfEmployedStatus: 'Article 4(3) of the Law on OHS extends safety requirements to self-employed individuals when operating in shared business environments.',
+          bodies: [
+            {
+              id: 'lt-vdi',
+              name: 'State Labour Inspectorate of Lithuania (VDI)',
+              role: 'National State Inspectorate, Workplace Inspections & Prevention Advice',
+              framework: {
+                model: 'Unitary State Labour Inspectorate Model: VDI operates under the Ministry of Social Security and Labour to supervise both labour relations and workplace health and safety.',
+                irsPrinciple: 'Workers’ Representative for OHS mandatory for 10+ employees; Occupational Safety and Health Committee for 50+ workers.',
+                hierarchy: '1. Primary Statute: Law on Occupational Safety and Health (No. IX-1672)\n2. Ministerial Orders: General Regulations on the Assessment of Occupational Risks\n3. Work equipment orders.'
+              },
+              acts: [
+                {
+                  title: 'Law on Occupational Safety and Health',
+                  citation: 'Law No. IX-1672 (Consolidated)',
+                  date: 'National Statute',
+                  link: 'https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.214954',
+                  desc: 'Comprehensive statute establishing employer general duties (Article 11), risk assessment, and worker rights.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Regulations on the Assessment of Occupational Risks',
+                  citation: 'Order No. A1-159/V-612',
+                  link: 'https://www.vdi.lt/',
+                  desc: 'Detailed statutory instructions for identifying risks and documenting prevention plans.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Article 11: The employer’s duty is to ensure safe and healthy working conditions for workers in all work-related aspects.',
+                specificDuties: [
+                  'Assess occupational risks and prepare a risk assessment card for each workstation.',
+                  'Establish an internal OHS service or contract an external OHS service.',
+                  'Organize mandatory preliminary and periodic medical examinations.',
+                  'Instruct and train workers in safe working procedures.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article 11', notes: 'Primary duty holder.' },
+                { role: 'OHS Specialist', ref: 'Article 12', notes: 'Internal expert managing safety systems.' },
+                { role: 'Workers’ Representative for OHS', ref: 'Article 13', notes: 'Elected worker representative.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed person (Savarankiškai dirbantis asmuo).',
+                treatment: 'Governed under Article 4(3) of the Law on OHS.',
+                obligations: 'Must ensure that work equipment and methods are safe and do not create hazards for other workers on shared sites.'
+              },
+              sources: [
+                { name: 'State Labour Inspectorate Lithuania (VDI)', url: 'https://www.vdi.lt/' },
+                { name: 'Seimas Legal Acts Database', url: 'https://e-seimas.lrs.lt/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-lu': {
+          country: 'eu',
+          name: 'Luxembourg (LU)',
+          code: 'EU-LU',
+          type: 'Codified Civil Model (Inspectorate of Labour and Mines - ITM)',
+          hierarchyType: 'Labour Code (Book III) + Grand-Ducal Regulations',
+          primaryStatute: 'Labour Code (Code du travail), Book III: Health, Safety and Hygiene at Work',
+          primaryAgency: 'Inspectorate of Labour and Mines (Inspection du Travail et des Mines - ITM)',
+          hasSupplierDuties: true,
+          supplierNote: 'Technical product safety laws and Book III require manufacturers and suppliers to supply only CE-compliant work equipment.',
+          selfEmployedStatus: 'Article L. 314-1 of the Labour Code applies safety provisions to self-employed persons operating on shared construction and industrial sites.',
+          bodies: [
+            {
+              id: 'lu-itm',
+              name: 'Inspectorate of Labour and Mines (ITM)',
+              role: 'National Regulatory Inspectorate, Workplace Authorisations & Fines',
+              framework: {
+                model: 'Integrated Industrial and Mining Inspectorate Model: The ITM exercises sovereign inspection powers across commercial, industrial, and mining enterprises in the Grand Duchy.',
+                irsPrinciple: 'Designated Worker (Travailleur désigné) mandatory for all enterprises; Safety Delegate (Délégué à la sécurité) in the Staff Delegation for 15+ workers.',
+                hierarchy: '1. Primary Statute: Labour Code, Book III (Articles L. 311-1 to L. 327-2)\n2. Grand-Ducal Regulations: Regulation of 17 June 1997 on safety and health\n3. ITM Circulars.'
+              },
+              acts: [
+                {
+                  title: 'Labour Code (Book III: Health, Safety and Hygiene)',
+                  citation: 'Code du travail, Livre III',
+                  date: 'National Codification',
+                  link: 'https://legilux.public.lu/eli/etat/leg/code/travail/20230101',
+                  desc: 'Comprehensive statute setting employer obligations (Art. L. 312-1) and designated worker rules.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Grand-Ducal Regulation on Safety and Health at Work',
+                  citation: 'Mémorial A No. 54 of 1997',
+                  link: 'https://legilux.public.lu/',
+                  desc: 'General principles of prevention and risk evaluation mandates.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Article L. 312-1: The employer is obliged to ensure the safety and health of workers in all aspects related to the work.',
+                specificDuties: [
+                  'Designate one or more qualified "Designated Workers" (Travailleurs désignés).',
+                  'Evaluate occupational risks and document preventive measures.',
+                  'Provide workers with necessary safety instruction and protective gear.',
+                  'Affiliate with an occupational health service (Service de santé au travail).'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article L. 312-1', notes: 'Primary duty holder.' },
+                { role: 'Designated Worker', ref: 'Article L. 312-3', notes: 'Internal qualified safety coordinator.' },
+                { role: 'Safety Delegate', ref: 'Article L. 414-8', notes: 'Worker representative in the Staff Delegation.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed worker (Travailleur indépendant).',
+                treatment: 'Covered under Article L. 314-1.',
+                obligations: 'Must coordinate safety measures and comply with safety coordinators when working alongside other enterprises.'
+              },
+              sources: [
+                { name: 'Inspectorate of Labour and Mines Luxembourg (ITM)', url: 'https://itm.public.lu/en.html' },
+                { name: 'Legilux Official Journal of Luxembourg', url: 'https://legilux.public.lu/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-mt': {
+          country: 'eu',
+          name: 'Malta (MT)',
+          code: 'EU-MT',
+          type: 'Harmonised Common-Law Influenced Framework (OHSA Malta)',
+          hierarchyType: 'Occupational Health and Safety Authority Act + Subsidiary Legislation',
+          primaryStatute: 'Occupational Health and Safety Authority Act (Chapter 424 of the Laws of Malta, Act VII of 2000)',
+          primaryAgency: 'Occupational Health and Safety Authority (OHSA Malta)',
+          hasSupplierDuties: true,
+          supplierNote: 'Section 9 of the Occupational Health and Safety Authority Act imposes positive, explicit statutory duties on designers, manufacturers, importers, and suppliers of articles and substances for use at work.',
+          selfEmployedStatus: 'Section 7 of Chapter 424 explicitly establishes statutory duties of self-employed persons parallel to employers and workers.',
+          bodies: [
+            {
+              id: 'mt-ohsa',
+              name: 'Occupational Health and Safety Authority (OHSA Malta)',
+              role: 'National Statutory Regulatory Authority for OHS & Enforcement',
+              framework: {
+                model: 'Statutory Authority Model: Similar to the UK HSE and Irish HSA, OHSA Malta is an autonomous public authority overseeing inspection, policy development, and prosecutions.',
+                irsPrinciple: 'Workers’ Health and Safety Representative (WSR) mandatory in all enterprises; consultation required on all safety measures.',
+                hierarchy: '1. Primary Statute: Occupational Health and Safety Authority Act (Chapter 424)\n2. Operational Regulations: General Provisions for Health and Safety at Work Places Regulations (S.L. 424.18)\n3. Work equipment subsidiary legislation.'
+              },
+              acts: [
+                {
+                  title: 'Occupational Health and Safety Authority Act',
+                  citation: 'Chapter 424 (Act VII of 2000)',
+                  date: 'National Statute',
+                  link: 'https://legislation.mt/eli/cap/424/eng',
+                  desc: 'Comprehensive statute establishing employer general duties (s. 6), self-employed duties (s. 7), supplier duties (s. 9), and OHSA inspectorate powers.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'General Provisions for Health and Safety at Work Places Regulations',
+                  citation: 'S.L. 424.18',
+                  link: 'https://legislation.mt/eli/sl/424.18/eng',
+                  desc: 'Mandates written risk assessments, appointment of competent persons, and worker training.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Section 6: It shall be the duty of an employer to ensure the health and safety at work of all persons who may be affected by the work being carried out.',
+                specificDuties: [
+                  'Section 6(2): Provide safe plant, machinery, and systems of work without risks to health.',
+                  'Carry out suitable and sufficient assessments of the health and safety risks.',
+                  'Appoint competent persons to assist in undertaking protective measures.',
+                  'Consult workers or their representatives on all matters affecting occupational health and safety.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Section 6', notes: 'Primary duty holder.' },
+                { role: 'Self-Employed Person', ref: 'Section 7', notes: 'Standalone statutory duties.' },
+                { role: 'Designers, Manufacturers & Suppliers', ref: 'Section 9', notes: 'Explicit duties on plant, tool, and chemical suppliers.' },
+                { role: 'Workers’ Health and Safety Representative', ref: 'S.L. 424.18', notes: 'Elected worker representative.' }
+              ],
+              selfEmployed: {
+                defined: 'Section 2: A person who is not an employee and works for gain or reward on their own account.',
+                treatment: 'Specifically governed under Section 7 of Chapter 424.',
+                obligations: 'Section 7: It shall be the duty of every self-employed person to conduct their undertaking in such a way as to ensure, so far as is reasonably practicable, that they and other persons who may be affected are not exposed to risks.'
+              },
+              sources: [
+                { name: 'Occupational Health and Safety Authority Malta', url: 'https://ohsa.mt/' },
+                { name: 'Legislation Malta Official Portal', url: 'https://legislation.mt/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-pl': {
+          country: 'eu',
+          name: 'Poland (PL)',
+          code: 'EU-PL',
+          type: 'Codified Statutory Framework (National Labour Inspectorate - PIP)',
+          hierarchyType: 'Labour Code (Section X) + Ministerial Regulations',
+          primaryStatute: 'Labour Code of 26 June 1974 (Ustawa Kodeks pracy), Section X: Occupational Health and Safety',
+          primaryAgency: 'National Labour Inspectorate (Państwowa Inspekcja Pracy - PIP) / Ministry of Family, Labour and Social Policy',
+          hasSupplierDuties: true,
+          supplierNote: 'Articles 215 to 217 of the Labour Code explicitly impose statutory obligations on manufacturers and suppliers of machinery, technical equipment, and tools to ensure compliance with safety criteria.',
+          selfEmployedStatus: 'Article 304 of the Labour Code explicitly extends employer health and safety obligations to natural persons running a business on their own account or working under civil law contracts.',
+          bodies: [
+            {
+              id: 'pl-pip',
+              name: 'National Labour Inspectorate (Państwowa Inspekcja Pracy - PIP)',
+              role: 'Parliamentary Inspectorate, Workplace Supervision, Orders & Prosecutions',
+              framework: {
+                model: 'Parliamentary State Labour Inspectorate Model: PIP is subordinated directly to the Polish Parliament (Sejm) rather than a government ministry, ensuring independent enforcement.',
+                irsPrinciple: 'Social Labour Inspector (Społeczny Inspektor Pracy) elected by trade unions; OHS Committee (Komisja BHP) mandatory for 250+ workers.',
+                hierarchy: '1. Primary Statute: Labour Code, Section X (Articles 207 to 237(15))\n2. Regulation: General Health and Safety Regulations (Journal of Laws 2003 No. 169 item 1650)\n3. Industry-specific ministerial regulations.'
+              },
+              acts: [
+                {
+                  title: 'Labour Code (Section X: OHS)',
+                  citation: 'Journal of Laws 2023 item 1465, Section X',
+                  date: 'National Code',
+                  link: 'https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU19740240141',
+                  desc: 'Comprehensive Polish statutory provisions on employer duties (Art. 207), risk assessments, machine safety, and OHS services.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'General Health and Safety Regulations',
+                  citation: 'Journal of Laws 2003 No. 169 item 1650',
+                  link: 'https://isap.sejm.gov.pl/',
+                  desc: 'Technical rules on workplace buildings, microclimate, machine guards, and chemical agent controls.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Article 207 § 1: The employer bears responsibility for the state of occupational health and safety in the work establishment.',
+                specificDuties: [
+                  'Article 226: Assess and document occupational risks and inform workers of the results.',
+                  'Establish an internal OHS Service (Służba BHP) or engage external certified specialists (Art. 237(11)).',
+                  'Provide workers with initial and periodic OHS training before allowing work to start.',
+                  'Supply required personal protective equipment free of charge.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article 207', notes: 'Core statutory duty holder.' },
+                { role: 'OHS Service (Służba BHP)', ref: 'Article 237(11)', notes: 'Advisory and inspection body within the enterprise.' },
+                { role: 'Machinery & Tool Suppliers', ref: 'Articles 215-217', notes: 'Explicit duties on manufacturers and suppliers.' },
+                { role: 'Social Labour Inspector', ref: 'Act of 24 June 1983', notes: 'Worker-elected oversight officer.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor / Self-employed person (Osoba prowadząca działalność gospodarczą).',
+                treatment: 'Specifically governed under Article 304 of the Labour Code.',
+                obligations: 'Article 304: The host employer must ensure safe conditions for self-employed persons; in turn, self-employed persons must adhere to workplace safety rules and coordinate hazard mitigation.'
+              },
+              sources: [
+                { name: 'National Labour Inspectorate Poland (PIP)', url: 'https://www.pip.gov.pl/en' },
+                { name: 'Sejm ISAP Legal Acts Database', url: 'https://isap.sejm.gov.pl/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-pt': {
+          country: 'eu',
+          name: 'Portugal (PT)',
+          code: 'EU-PT',
+          type: 'Harmonised Statutory Regime (Working Conditions Authority - ACT)',
+          hierarchyType: 'Law No. 102/2009 + Labour Code (Articles 281-284)',
+          primaryStatute: 'Law No. 102/2009 of 10 September (Legal Regime for the Promotion of Occupational Safety and Health, as amended)',
+          primaryAgency: 'Working Conditions Authority (Autoridade para as Condições de Trabalho - ACT)',
+          hasSupplierDuties: true,
+          supplierNote: 'Article 21 of Law No. 102/2009 establishes explicit statutory duties for manufacturers, importers, and suppliers of work equipment and chemical products.',
+          selfEmployedStatus: 'Article 5 of Law No. 102/2009 specifically provides that the occupational safety and health legal regime applies to self-employed workers (trabalhadores independentes).',
+          bodies: [
+            {
+              id: 'pt-act',
+              name: 'Working Conditions Authority (ACT)',
+              role: 'National Regulatory Inspectorate, Labour Audits & Sanctions',
+              framework: {
+                model: 'National Unified Authority Model: The ACT operates under the Ministry of Labour, Solidarity and Social Security to supervise both employment relations and workplace safety.',
+                irsPrinciple: 'Workers’ Representatives for OHS mandatory; Internal OHS Services, Common Services, or External Services mandatory.',
+                hierarchy: '1. Primary Statute: Law No. 102/2009 of 10 September\n2. Codified Provisions: Labour Code (Articles 281-284)\n3. Technical decrees (Decree-Law No. 50/2005 on Work Equipment).'
+              },
+              acts: [
+                {
+                  title: 'Legal Regime for the Promotion of OHS',
+                  citation: 'Law No. 102/2009 (Diário da República)',
+                  date: 'National Statute',
+                  link: 'https://diariodarepublica.pt/dr/detalhe/lei/102-2009-497873',
+                  desc: 'Comprehensive statute establishing employer general duties (Article 15), supplier duties (Article 21), and OHS organization.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Decree-Law on Minimum Safety Requirements for Work Equipment',
+                  citation: 'Decree-Law No. 50/2005',
+                  link: 'https://www.act.gov.pt/',
+                  desc: 'Operational safety requirements for machinery testing, maintenance, and safe operation.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Article 15: The employer must ensure the worker healthy and safe working conditions in all aspects related to the work, applying the general principles of prevention.',
+                specificDuties: [
+                  'Plan and document risk evaluations and preventive activities.',
+                  'Establish an internal OHS service or contract an authorized external service.',
+                  'Provide workers with adequate health surveillance and periodic medical checks.',
+                  'Ensure that workers receive appropriate information and training on health and safety.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article 15', notes: 'Primary duty holder.' },
+                { role: 'OHS Technician', ref: 'Law No. 42/2012', notes: 'Certified safety specialist.' },
+                { role: 'Suppliers & Manufacturers', ref: 'Article 21', notes: 'Explicit duties on tool, plant, and chemical suppliers.' },
+                { role: 'Workers’ Representative for OHS', ref: 'Articles 23-28', notes: 'Elected worker representative.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed worker (Trabalhador independente).',
+                treatment: 'Specifically governed under Article 5 of Law No. 102/2009.',
+                obligations: 'Article 5: Self-employed workers must observe general health and safety prevention rules, use compliant machinery, and cooperate in multi-employer workplaces.'
+              },
+              sources: [
+                { name: 'Working Conditions Authority Portugal (ACT)', url: 'https://www.act.gov.pt/' },
+                { name: 'Diário da República Official Gazette', url: 'https://diariodarepublica.pt/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-ro': {
+          country: 'eu',
+          name: 'Romania (RO)',
+          code: 'EU-RO',
+          type: 'Harmonised EU Transposition (Labour Inspection - Inspecția Muncii)',
+          hierarchyType: 'Law on OHS No. 319/2006 + Government Decisions',
+          primaryStatute: 'Law on Occupational Health and Safety No. 319/2006 (Legea securității și sănătății în muncă)',
+          primaryAgency: 'Labour Inspection (Inspecția Muncii) / Ministry of Labour and Social Solidarity',
+          hasSupplierDuties: true,
+          supplierNote: 'Article 20 of Law No. 319/2006 and product safety laws require suppliers and manufacturers to supply only certified, compliant machinery and materials.',
+          selfEmployedStatus: 'Article 5(c) of Law No. 319/2006 explicitly includes self-employed individuals (lucrători independenți) within its scope of preventive obligations.',
+          bodies: [
+            {
+              id: 'ro-inspectia',
+              name: 'Labour Inspection (Inspecția Muncii)',
+              role: 'National State Inspectorate, Regional Inspectorates (ITM) & Enforcement',
+              framework: {
+                model: 'National Inspectorate Model: Inspecția Muncii operates under the Ministry of Labour and coordinates territorial labour inspectorates (ITM) across all 41 counties.',
+                irsPrinciple: 'Occupational Health and Safety Committee (CSSM) mandatory for enterprises with 50+ workers.',
+                hierarchy: '1. Primary Statute: Law on OHS No. 319/2006\n2. Methodological Norms: Government Decision No. 1425/2006\n3. Sectoral Government Decisions (e.g., GD No. 1146/2006 on Work Equipment).'
+              },
+              acts: [
+                {
+                  title: 'Law on Occupational Health and Safety',
+                  citation: 'Law No. 319/2006 (Official Gazette No. 646/2006)',
+                  date: 'National Statute',
+                  link: 'https://legislatie.just.ro/Public/DetaliiDocument/73762',
+                  desc: 'Comprehensive statute establishing employer general obligations (Article 6), risk prevention principles, and worker duties.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Methodological Norms for the Application of Law No. 319/2006',
+                  citation: 'Government Decision No. 1425/2006',
+                  link: 'https://legislatie.just.ro/Public/DetaliiDocument/76742',
+                  desc: 'Operational safety provisions on internal and external prevention services and risk assessments.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Article 6: The employer has an obligation to ensure the safety and health of workers in all aspects related to the work.',
+                specificDuties: [
+                  'Article 12: Assess risks to health and safety and prepare an annual prevention and protection plan.',
+                  'Organize internal prevention and protection services or contract accredited external services.',
+                  'Provide workers with comprehensive safety instructions and periodic training.',
+                  'Supply certified personal protective equipment free of charge.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article 6', notes: 'Primary duty holder.' },
+                { role: 'Designated Worker / Internal Service', ref: 'Article 8', notes: 'Internal expert managing safety.' },
+                { role: 'OHS Committee (CSSM)', ref: 'Article 18', notes: 'Joint worker-management consultation committee.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed worker (Lucrător independent).',
+                treatment: 'Specifically governed under Article 5(c) and Article 6(2).',
+                obligations: 'Must observe safety regulations and coordinate with other employers on shared worksites to avoid exposing others to hazards.'
+              },
+              sources: [
+                { name: 'Labour Inspection Romania (Inspecția Muncii)', url: 'https://www.inspectiamuncii.ro/' },
+                { name: 'Portal Legislativ Romania', url: 'https://legislatie.just.ro/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-sk': {
+          country: 'eu',
+          name: 'Slovakia (SK)',
+          code: 'EU-SK',
+          type: 'Harmonised EU Transposition (National Labour Inspectorate - NIP)',
+          hierarchyType: 'Act No. 124/2006 Coll. on OHS + Government Regulations',
+          primaryStatute: 'Act No. 124/2006 Coll. on Occupational Safety and Health (Zákon o BOZP as amended)',
+          primaryAgency: 'National Labour Inspectorate (Národný inšpektorát práce - NIP)',
+          hasSupplierDuties: true,
+          supplierNote: 'Technical product safety laws (Act No. 56/2018 Coll.) and Act No. 124/2006 Coll. require suppliers and manufacturers to ensure delivered technical equipment complies with safety criteria.',
+          selfEmployedStatus: 'Section 2(2)(b) of Act No. 124/2006 Coll. explicitly applies the obligations of the Act to self-employed individuals (SZČO).',
+          bodies: [
+            {
+              id: 'sk-nip',
+              name: 'National Labour Inspectorate (Národný inšpektorát práce - NIP)',
+              role: 'National State Inspectorate, Regional Labour Inspectorates & Enforcement',
+              framework: {
+                model: 'Unitary State Labour Inspectorate Model: NIP operates under the Ministry of Labour, Social Affairs and Family and directs regional labour inspectorates across Slovakia.',
+                irsPrinciple: 'Workers’ Safety Representative (Zástupca zamestnancov pre bezpečnosť) mandatory for 10+ workers; OHS Commission for 100+ workers.',
+                hierarchy: '1. Primary Statute: Act No. 124/2006 Coll. on OHS\n2. Government Regulations: Gov Reg No. 392/2006 Coll. (Use of Work Equipment)\n3. Occupational health service decrees.'
+              },
+              acts: [
+                {
+                  title: 'Act on Occupational Safety and Health',
+                  citation: 'Act No. 124/2006 Coll. (Consolidated)',
+                  date: 'National Statute',
+                  link: 'https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2006/124/',
+                  desc: 'Comprehensive statute establishing employer general duties (Section 6), risk assessments, safety technicians, and self-employed coverage.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Government Regulation on Minimum Safety Requirements for Work Equipment',
+                  citation: 'Gov Reg No. 392/2006 Coll.',
+                  link: 'https://www.slov-lex.sk/',
+                  desc: 'Technical safety requirements for operating, inspecting, and testing machinery.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Section 6: The employer is obliged to continuously ensure the safety and health protection of employees at work and take necessary measures including prevention.',
+                specificDuties: [
+                  'Assess risks and identify hazards for all workstations.',
+                  'Appoint an authorized Safety Technician (Bezpečnostný technik).',
+                  'Contract an Occupational Health Service (Pracovná zdravotná služba - PZS).',
+                  'Regularly instruct workers and verify their knowledge of health and safety rules.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Section 6', notes: 'Primary duty holder.' },
+                { role: 'Safety Technician', ref: 'Section 21', notes: 'Certified OHS expert.' },
+                { role: 'Workers’ Safety Representative', ref: 'Section 19', notes: 'Elected worker representative.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed person (Samostatne zárobkovo činná osoba - SZČO).',
+                treatment: 'Specifically governed under Section 2(2)(b).',
+                obligations: 'Section 2(2)(b): A self-employed person must ensure safe working conditions for themselves and other persons affected by their activities, using compliant machinery and PPE.'
+              },
+              sources: [
+                { name: 'National Labour Inspectorate Slovakia (NIP)', url: 'https://www.ip.gov.sk/' },
+                { name: 'Slov-Lex Legal Information Portal', url: 'https://www.slov-lex.sk/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-si': {
+          country: 'eu',
+          name: 'Slovenia (SI)',
+          code: 'EU-SI',
+          type: 'Harmonised EU Transposition (Labour Inspectorate of the Republic of Slovenia - IRSD)',
+          hierarchyType: 'Health and Safety at Work Act (ZVZD-1) + Rules (Pravilniki)',
+          primaryStatute: 'Health and Safety at Work Act (Official Gazette RS No. 43/11 - ZVZD-1)',
+          primaryAgency: 'Labour Inspectorate of the Republic of Slovenia (Inšpektorat RS za delo - IRSD)',
+          hasSupplierDuties: true,
+          supplierNote: 'Article 26 of the ZVZD-1 explicitly imposes positive statutory duties on designers, manufacturers, importers, and suppliers of work equipment and hazardous substances.',
+          selfEmployedStatus: 'Article 54 of the ZVZD-1 explicitly governs self-employed persons, mandating that they perform risk assessments and use certified equipment.',
+          bodies: [
+            {
+              id: 'si-irsd',
+              name: 'Labour Inspectorate of the Republic of Slovenia (IRSD)',
+              role: 'National Regulatory Inspectorate, Workplace Supervision & Sanctions',
+              framework: {
+                model: 'Unitary State Labour Inspectorate Model: IRSD operates under the Ministry of Labour, Family, Social Affairs and Equal Opportunities to inspect both employment rights and workplace safety.',
+                irsPrinciple: 'Workers’ Representative for Health and Safety (Delavski zaupnik za VZD) mandatory; Workers’ Council consultation.',
+                hierarchy: '1. Primary Statute: Health and Safety at Work Act (ZVZD-1)\n2. Ministerial Rules: Rules on the Safety and Health in the Use of Work Equipment (OG RS No. 101/04)\n3. Occupational medicine rules.'
+              },
+              acts: [
+                {
+                  title: 'Health and Safety at Work Act',
+                  citation: 'Official Gazette RS No. 43/11 (ZVZD-1)',
+                  date: 'National Statute',
+                  link: 'http://pisrs.si/Pis.web/pregledPredpisa?id=ZAKO5587',
+                  desc: 'Comprehensive Slovenian statute establishing employer obligations (Article 5), safety statement with risk assessment, and self-employed rules.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Rules on Safety and Health in the Use of Work Equipment',
+                  citation: 'Official Gazette RS No. 101/04',
+                  link: 'http://pisrs.si/',
+                  desc: 'Technical safety requirements for testing, protective devices, and operating machinery.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Article 5: The employer must ensure health and safety at work for workers, providing necessary measures including prevention of occupational risks.',
+                specificDuties: [
+                  'Article 17: Adopt and document a Safety Statement with Risk Assessment (Izjava o varnosti z oceno tveganja).',
+                  'Appoint an internal expert worker for safety or engage an authorized external company.',
+                  'Provide workers with preventive medical examinations under authorized occupational physicians.',
+                  'Provide workers with theoretical and practical training upon hiring and periodically.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Article 5', notes: 'Primary duty holder.' },
+                { role: 'Expert Worker for Safety', ref: 'Article 20', notes: 'Certified OHS specialist.' },
+                { role: 'Suppliers & Manufacturers', ref: 'Article 26', notes: 'Explicit duties on tool, plant, and chemical suppliers.' },
+                { role: 'Workers’ Representative for OHS', ref: 'Article 64', notes: 'Elected worker representative.' }
+              ],
+              selfEmployed: {
+                defined: 'Self-employed person (Samozaposlena oseba / Samostojni podjetnik).',
+                treatment: 'Specifically governed under Article 54 of the ZVZD-1.',
+                obligations: 'Article 54: A self-employed person must assess risks, draw up a written Safety Statement with Risk Assessment, use safe work equipment, and ensure they do not endanger others.'
+              },
+              sources: [
+                { name: 'Labour Inspectorate of Slovenia (IRSD)', url: 'https://www.gov.si/drzavni-organi/organi-v-sestavi/inspektorat-za-delo/' },
+                { name: 'Legal Information System of Slovenia (PISRS)', url: 'http://pisrs.si/' }
+              ]
+            }
+          ]
+        },
+
+        'eu-se': {
+          country: 'eu',
+          name: 'Sweden (SE)',
+          code: 'EU-SE',
+          type: 'Nordic Systematic Work Environment Model (Swedish Work Environment Authority - AV)',
+          hierarchyType: 'Work Environment Act + Provisions (AFS)',
+          primaryStatute: 'Work Environment Act (Arbetsmiljölagen, SFS 1977:1160, as amended)',
+          primaryAgency: 'Swedish Work Environment Authority (Arbetsmiljöverket - AV)',
+          hasSupplierDuties: true,
+          supplierNote: 'Chapter 3 Sections 8 to 11 of the Work Environment Act explicitly impose strong statutory duties on manufacturers, importers, suppliers, installers, and hirers of machinery, technical devices, and dangerous substances.',
+          selfEmployedStatus: 'Chapter 3 Section 5 of the Work Environment Act specifically governs self-employed persons (ensamföretagare), establishing direct statutory obligations regarding technical devices, hazardous substances, and shared workplaces.',
+          bodies: [
+            {
+              id: 'se-av',
+              name: 'Swedish Work Environment Authority (Arbetsmiljöverket)',
+              role: 'National Regulatory Agency, Enforcement, Sanction Fees & Rulemaking',
+              framework: {
+                model: 'Nordic Systematic Management Model: Arbetsmiljöverket regulates work environments under the Systematic Work Environment Management (SAM) framework, emphasizing psychological, social, and physical factors in close tripartite partnership with unions and employer federations.',
+                irsPrinciple: 'Safety Delegate (Skyddsombud) mandatory for 5+ workers with unique power to stop dangerous work (Skyddsombudsstopp); Safety Committee (Skyddskommitté) for 50+ workers.',
+                hierarchy: '1. Primary Statute: Work Environment Act (SFS 1977:1160)\n2. Binding Provisions: Systematic Work Environment Management (SAM - AFS 2001:1)\n3. Work Equipment Provisions (AFS 2006:4).'
+              },
+              acts: [
+                {
+                  title: 'Work Environment Act',
+                  citation: 'SFS 1977:1160 (Consolidated)',
+                  date: 'National Statute',
+                  link: 'https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/arbetsmiljolag-19771160_sfs-1977-1160',
+                  desc: 'Core Swedish statute setting the general duty (Ch 3 s 2), systematic management, supplier obligations (Ch 3 s 8-11), safety delegate stop-work rights, and sanction fees.'
+                }
+              ],
+              regulations: [
+                {
+                  title: 'Systematic Work Environment Management (SAM)',
+                  citation: 'AFS 2001:1',
+                  link: 'https://www.av.se/en/work-environment-work-and-inspections/systematic-work-environment-management-sam/',
+                  desc: 'Mandatory standard requiring every employer to continuously investigate, risk-assess, remedy, and follow up on working environment conditions.'
+                },
+                {
+                  title: 'Use of Work Equipment Provisions',
+                  citation: 'AFS 2006:4',
+                  link: 'https://www.av.se/en/',
+                  desc: 'Technical safety requirements for machinery testing, maintenance, and protective devices.'
+                }
+              ],
+              employerDuties: {
+                generalDuty: 'Chapter 3 Section 2: The employer shall take all measures necessary to prevent the employee from being exposed to ill-health or accidents.',
+                specificDuties: [
+                  'Implement Systematic Work Environment Management (SAM) under AFS 2001:1 in regular daily operations.',
+                  'Conduct systematic risk assessments covering physical, ergonomic, organizational, and social factors.',
+                  'Cooperate with Safety Delegates and establish a Safety Committee in workplaces with 50+ employees.',
+                  'Provide workers with clear instruction, training, and certified personal protective equipment.'
+                ]
+              },
+              dutyHolders: [
+                { role: 'Employer', ref: 'Ch 3 Section 2', notes: 'Primary duty holder.' },
+                { role: 'Manufacturers, Importers & Suppliers', ref: 'Ch 3 Sections 8-11', notes: 'Explicit duties on tool, plant, and chemical suppliers.' },
+                { role: 'Safety Delegate (Skyddsombud)', ref: 'Ch 6 Section 2', notes: 'Worker representative empowered to stop dangerous work (s. 7).' },
+                { role: 'Site Safety Coordinator (Bas-P / Bas-U)', ref: 'Ch 3 Section 6', notes: 'Coordinating construction site planning and execution.' }
+              ],
+              selfEmployed: {
+                defined: 'Sole proprietor / Self-employed person (Ensamföretagare).',
+                treatment: 'Specifically governed under Chapter 3 Section 5 of the Act.',
+                obligations: 'Chapter 3 Section 5: A self-employed person must comply with the provisions concerning technical devices and hazardous substances, and must coordinate safety measures in shared workplaces.'
+              },
+              sources: [
+                { name: 'Swedish Work Environment Authority (Arbetsmiljöverket)', url: 'https://www.av.se/en/' },
+                { name: 'Swedish Parliament (Riksdagen) Official Legislation', url: 'https://www.riksdagen.se/sv/' }
+              ]
+            }
+          ]
         }
       }
     };
@@ -3912,7 +5358,9 @@
         const item = ohsDatabase.jurisdictions[key];
         const opt = document.createElement('option');
         opt.value = key;
-        opt.textContent = `${item.name} (${item.code})`;
+        // Avoid duplicate code tags if the item name already includes it
+        const label = item.name.includes(`(${item.code})`) ? item.name : `${item.name} (${item.code})`;
+        opt.textContent = label;
         jurisdictionSelect.appendChild(opt);
       });
 
@@ -3943,8 +5391,22 @@
       badgeHierarchy.textContent = data.hierarchyType;
       jurisdictionTitle.textContent = data.name;
       jurisdictionSubheader.textContent = `${data.primaryStatute} - Regulated by ${data.primaryAgency}`;
-      primaryActCitation.textContent = data.primaryStatute;
-      primaryAgencyName.textContent = data.primaryAgency;
+      
+      const primaryActUrl = getPrimaryActLink(data.bodies && data.bodies[0]);
+      primaryActCitation.innerHTML = `
+        <a href="${primaryActUrl}" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-sky-100 inline-flex items-center gap-1 font-semibold text-sky-200" title="Open primary enabling statute in official government registry">
+          <span>${data.primaryStatute}</span>
+          <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      `;
+
+      const agencyUrl = (data.bodies && data.bodies[0] && data.bodies[0].sources && data.bodies[0].sources[0] && data.bodies[0].sources[0].url) || primaryActUrl;
+      primaryAgencyName.innerHTML = `
+        <a href="${agencyUrl}" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-emerald-100 inline-flex items-center gap-1 font-semibold text-emerald-300" title="Visit official regulating authority portal">
+          <span>${data.primaryAgency}</span>
+          <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      `;
 
       // Render Regulating Body Tabs
       renderRegulatingBodyTabs(data);
@@ -4041,7 +5503,9 @@
     function resolveCitationLink(refText, bodyData) {
       const actLink = getPrimaryActLink(bodyData);
       if (!refText || !bodyData) return actLink;
-      const lower = refText.toLowerCase();
+      const lower = refText.toLowerCase().trim();
+
+      // 1. Check operational regulations and codes
       if (bodyData.regulations && bodyData.regulations.length > 0) {
         for (const reg of bodyData.regulations) {
           const regCitation = (reg.citation || '').toLowerCase();
@@ -4049,17 +5513,64 @@
           if ((regCitation && lower.includes(regCitation)) || (regTitle && lower.includes(regTitle))) {
             return reg.link;
           }
+          // Match standard regulatory numbers (e.g. 1910, 1926, 851, 213/91, 62/2003, 296/97)
+          const numMatch = lower.match(/\b\d+[\/\d\.]*\b/);
+          if (numMatch && (regCitation.includes(numMatch[0]) || regTitle.includes(numMatch[0]))) {
+            return reg.link;
+          }
         }
       }
+
+      // 2. Check enabling statutes
+      if (bodyData.acts && bodyData.acts.length > 0) {
+        for (const act of bodyData.acts) {
+          const actCitation = (act.citation || '').toLowerCase();
+          const actTitle = (act.title || '').toLowerCase();
+          if ((actCitation && lower.includes(actCitation)) || (actTitle && lower.includes(actTitle))) {
+            return act.link;
+          }
+        }
+        return bodyData.acts[0].link || actLink;
+      }
+
       return actLink;
     }
 
     function formatClaimWithCitations(text, bodyData) {
       if (!text) return '';
-      // Regex matches section markers: s. 123, Section 123, Part IV, Art. L123, § 123, 29 CFR 1910, Alta Reg 62/2003, etc.
-      return text.replace(/\b(s\.\s*\d+[\w\.\(\)\-]*|Section\s*\d+[\w\.\(\)\-]*|Part\s+[IVXLCDM\d]+|Art\.\s*[A-Z\d\.\-]+|§\s*\d+[\w\.\-]*|\d+\s+CFR\s+[\d\.]+|\bAR\s+\d+\/\d+|\bAlta Reg\s+\d+\/\d+|\bO\.\s*Reg\.\s*[\d\/]+|\bBC\s*Reg\s*[\d\/]+|\bSOR\/[\d\-]+)/gi, (match) => {
-        const link = resolveCitationLink(match, bodyData);
-        return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-0.5 px-1.5 py-0.5 mx-0.5 rounded text-[11px] font-semibold bg-sky-100 hover:bg-sky-600 hover:text-white text-sky-800 border border-sky-300 transition-all font-mono shadow-2xs" title="Statutory Citation: ${match}"><span>${match}</span><svg class="w-2.5 h-2.5 inline shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>`;
+
+      // Pattern captures legal sections, articles, directives, and codes across CA, US, AU, and EU
+      // Preserves existing HTML anchor tags to avoid duplicate nested wrapping
+      const citationPattern = new RegExp(
+        '(<a\\b[^>]*>.*?<\\/a>)|' +
+        '(' +
+        '\\b(?:Articles?|Art\\.)\\s+[A-Za-z0-9\\.\\-\\(\\)]+|' +
+        '\\bSections?\\s+[0-9]+[A-Za-z0-9\\.\\-\\(\\)]*|' +
+        '\\bs\\.\\s*[0-9]+[A-Za-z0-9\\.\\-\\(\\)]*|' +
+        '\\bPart\\s+[IVXLCDM0-9]+(?:\\s+[A-Za-z]+)?|' +
+        '§§?\\s*[0-9]+[A-Za-z0-9\\.\\-\\(\\)]*|' +
+        '\\b29\\s+CFR\\s+[0-9\\.]+|' +
+        '\\b29\\s+U\\.S\\.C\\.\\s*(?:§\\s*)?[0-9]+|' +
+        '\\b8\\s+CCR\\s*(?:§\\s*)?[0-9\\.]+|' +
+        '\\bWAC\\s+[0-9\\-]+|' +
+        '\\bOAR\\s+[0-9\\-]+|' +
+        '\\bCOMAR\\s+[0-9\\.]+|' +
+        '\\b12\\s+NYCRR\\s+[0-9\\.]+|' +
+        '\\b803\\s+KAR\\s+[0-9\\:]+|' +
+        '\\bMCL\\s+[0-9\\.]+|' +
+        '\\b(?:Alta\\s+Reg|AR|O\\.\\s*Reg\\.|BC\\s*Reg|SOR|Man\\.\\s*Reg\\.|NS\\s*Reg|NB\\s*Reg|NLR|EC|YOIC|SLI|S\\.R\\.\\s*No\\.|SL\\s*No\\.|S\\.I\\.\\s*No\\.)\\s*[0-9\\/\\-]+|' +
+        '\\b(?:Directive|Regulation)\\s+(?:\\(EU\\)\\s*)?[0-9]+\\/[0-9]+(?:\\/[A-Za-z]+)?|' +
+        '\\b(?:Bill\\s+[A-Za-z0-9\\-]+|SB\\s+[0-9]+|Loi\\s+[0-9]+)' +
+        ')',
+        'gi'
+      );
+
+      return text.replace(citationPattern, (match, existingAnchor, legalClaim) => {
+        if (existingAnchor) return existingAnchor;
+        if (!legalClaim) return match;
+
+        const link = resolveCitationLink(legalClaim, bodyData);
+        return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-0.5 px-1.5 py-0.5 mx-0.5 rounded text-[11px] font-semibold bg-sky-50 hover:bg-sky-600 hover:text-white text-sky-800 border border-sky-300 transition-all font-mono shadow-2xs group cursor-pointer inline-citation" title="Verified Statutory Citation: ${legalClaim}"><span>${legalClaim}</span><svg class="w-2.5 h-2.5 inline shrink-0 opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>`;
       });
     }
 
@@ -4325,7 +5836,7 @@
               <h3 class="text-xl font-bold text-slate-900">Statutory Treatment of the Self-Employed</h3>
               <p class="text-xs text-slate-500 mt-0.5">Classification, terminology, and legal liabilities in ${jData.name}</p>
             </div>
-            <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold inline-flex items-center gap-1 transition-all shadow-xs self-start sm:self-auto">
+            <a href="${resolveCitationLink(se.obligations, bodyData)}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold inline-flex items-center gap-1 transition-all shadow-xs self-start sm:self-auto">
               <span>View Self-Employed Statute</span>
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             </a>
@@ -4335,7 +5846,7 @@
             <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">1. Statutory Definition</span>
-                <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
+                <a href="${resolveCitationLink(se.defined, bodyData)}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
               </div>
               <p class="text-xs text-slate-800 leading-relaxed font-semibold">${formatClaimWithCitations(se.defined, bodyData)}</p>
             </div>
@@ -4343,7 +5854,7 @@
             <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">2. Classification / Treatment</span>
-                <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
+                <a href="${resolveCitationLink(se.treatment, bodyData)}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
               </div>
               <p class="text-xs text-slate-800 leading-relaxed">${formatClaimWithCitations(se.treatment, bodyData)}</p>
             </div>
@@ -4351,7 +5862,7 @@
             <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">3. Governing Status</span>
-                <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
+                <a href="${resolveCitationLink(jData.selfEmployedStatus, bodyData)}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-600 hover:underline font-semibold flex items-center gap-0.5">Citation ↗</a>
               </div>
               <p class="text-xs text-slate-800 leading-relaxed">${formatClaimWithCitations(jData.selfEmployedStatus, bodyData)}</p>
             </div>
@@ -4363,7 +5874,7 @@
                 <svg class="w-4 h-4 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 Specific Statutory Responsibilities of Self-Employed Persons
               </h4>
-              <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-emerald-700 hover:bg-emerald-800 text-white text-[10px] font-semibold inline-flex items-center gap-1 shadow-xs">
+              <a href="${resolveCitationLink(se.obligations, bodyData)}" target="_blank" rel="noopener noreferrer" class="badge-pill bg-emerald-700 hover:bg-emerald-800 text-white text-[10px] font-semibold inline-flex items-center gap-1 shadow-xs">
                 <span>Statutory Citation</span>
                 <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
@@ -4378,7 +5889,7 @@
               <span class="text-sky-300 font-bold block">Course Analysis Note:</span>
               <a href="${actLink}" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold text-[10px] flex items-center gap-0.5">Statute Reference ↗</a>
             </div>
-            <p>Some jurisdictions (e.g. Alberta s.6, Saskatchewan s.3-11, Ontario s.12, Victoria s.24, Ireland s.12) explicitly define "self-employed person" with standalone duties parallel to employers and workers. Others (Australia Commonwealth/NSW/QLD) group them under the broader umbrella of a "PCBU", while US Federal OSHA generally excludes sole proprietors without employees from statutory citations.</p>
+            <p>${formatClaimWithCitations('Some jurisdictions (e.g. Alberta s. 6, Saskatchewan s. 3-11, Ontario s. 12, Victoria s. 24, Ireland s. 12) explicitly define "self-employed person" with standalone duties parallel to employers and workers. Others (Australia Commonwealth/NSW/QLD) group them under the broader umbrella of a "PCBU", while US Federal OSHA generally excludes sole proprietors without employees from statutory citations under Section 3(5).', bodyData)}</p>
           </div>
         </div>
       `;
@@ -4457,14 +5968,16 @@
       const allKeys = Object.keys(ohsDatabase.jurisdictions);
       allKeys.forEach(k => {
         const item = ohsDatabase.jurisdictions[k];
+        const label = item.name.includes(`(${item.code})`) ? item.name : `${item.name} (${item.code})`;
+
         const opt1 = document.createElement('option');
         opt1.value = k;
-        opt1.textContent = `${item.name} (${item.code})`;
+        opt1.textContent = label;
         compareSelect1.appendChild(opt1);
 
         const opt2 = document.createElement('option');
         opt2.value = k;
-        opt2.textContent = `${item.name} (${item.code})`;
+        opt2.textContent = label;
         compareSelect2.appendChild(opt2);
       });
 
@@ -4506,24 +6019,34 @@
             </tr>
             <tr class="bg-white">
               <td class="py-3 px-4 font-bold text-slate-800">Primary Governing Statute</td>
-              <td class="py-3 px-4 text-slate-700 border-l border-slate-100 font-mono text-[11px]">${d1.primaryStatute}</td>
-              <td class="py-3 px-4 text-slate-700 border-l border-slate-100 font-mono text-[11px]">${d2.primaryStatute}</td>
+              <td class="py-3 px-4 text-slate-700 border-l border-slate-100 font-mono text-[11px]">
+                <a href="${body1.acts[0] ? body1.acts[0].link : '#'}" target="_blank" rel="noopener noreferrer" class="text-sky-700 hover:underline inline-flex items-center gap-1 font-semibold">
+                  <span>${d1.primaryStatute}</span>
+                  <svg class="w-2.5 h-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </td>
+              <td class="py-3 px-4 text-slate-700 border-l border-slate-100 font-mono text-[11px]">
+                <a href="${body2.acts[0] ? body2.acts[0].link : '#'}" target="_blank" rel="noopener noreferrer" class="text-indigo-700 hover:underline inline-flex items-center gap-1 font-semibold">
+                  <span>${d2.primaryStatute}</span>
+                  <svg class="w-2.5 h-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </td>
             </tr>
             <tr class="bg-amber-50/50">
               <td class="py-3 px-4 font-bold text-slate-900">Supplier Statutory Duties? (Critical Contrast)</td>
               <td class="py-3 px-4 border-l border-slate-100 font-bold ${d1.hasSupplierDuties ? 'text-emerald-700' : 'text-rose-700'}">
                 ${d1.hasSupplierDuties ? 'YES - Explicit Statutory Duties' : 'NO - Omitted as Core Duty Holder'}
-                <div class="text-[11px] font-normal text-slate-600 mt-0.5">${d1.supplierNote}</div>
+                <div class="text-[11px] font-normal text-slate-600 mt-1 leading-relaxed">${formatClaimWithCitations(d1.supplierNote, body1)}</div>
               </td>
               <td class="py-3 px-4 border-l border-slate-100 font-bold ${d2.hasSupplierDuties ? 'text-emerald-700' : 'text-rose-700'}">
                 ${d2.hasSupplierDuties ? 'YES - Explicit Statutory Duties' : 'NO - Omitted as Core Duty Holder'}
-                <div class="text-[11px] font-normal text-slate-600 mt-0.5">${d2.supplierNote}</div>
+                <div class="text-[11px] font-normal text-slate-600 mt-1 leading-relaxed">${formatClaimWithCitations(d2.supplierNote, body2)}</div>
               </td>
             </tr>
             <tr class="bg-white">
               <td class="py-3 px-4 font-bold text-slate-800">Self-Employed Statutory Treatment</td>
-              <td class="py-3 px-4 text-slate-700 border-l border-slate-100">${d1.selfEmployedStatus}</td>
-              <td class="py-3 px-4 text-slate-700 border-l border-slate-100">${d2.selfEmployedStatus}</td>
+              <td class="py-3 px-4 text-slate-700 border-l border-slate-100">${formatClaimWithCitations(d1.selfEmployedStatus, body1)}</td>
+              <td class="py-3 px-4 text-slate-700 border-l border-slate-100">${formatClaimWithCitations(d2.selfEmployedStatus, body2)}</td>
             </tr>
             <tr class="bg-slate-50">
               <td class="py-3 px-4 font-bold text-slate-800">Primary Regulating Body</td>
@@ -4615,6 +6138,15 @@ Generated via Global OHS Jurisdictional Regulatory Knowledge Base
         currentJurisdictionKey = e.target.value;
         activeBodyIndex = 0;
         renderJurisdictionView();
+      });
+
+      // Prevent wheel scrolling over unfocused select elements from cycling options and jittering heights
+      document.querySelectorAll('select').forEach(sel => {
+        sel.addEventListener('wheel', (e) => {
+          if (document.activeElement === sel) {
+            sel.blur();
+          }
+        }, { passive: true });
       });
 
       // Category Subtab Buttons
