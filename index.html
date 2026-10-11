@@ -7928,10 +7928,119 @@ Generated via Global OHS Jurisdictional Regulatory Knowledge Base
       });
     }
 
+    // Auto-detect Country & Province/State by IP
+    async function detectUserLocation() {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3500);
+
+        let geoData = null;
+
+        // Try primary IP geolocation service
+        try {
+          const res = await fetch('https://ipapi.co/json/', { signal: controller.signal });
+          if (res.ok) {
+            geoData = await res.json();
+          }
+        } catch (e) {
+          // Fallback to secondary CORS-friendly service if primary is blocked or throttled
+          try {
+            const fallbackRes = await fetch('https://ipwho.is/', { signal: controller.signal });
+            if (fallbackRes.ok) {
+              const fb = await fallbackRes.json();
+              if (fb.success) {
+                geoData = {
+                  country_code: fb.country_code,
+                  region_code: fb.region_code,
+                  region: fb.region,
+                  country_name: fb.country
+                };
+              }
+            }
+          } catch (err2) {
+            // Geolocation suppressed or offline
+          }
+        }
+
+        clearTimeout(timeoutId);
+        if (!geoData) return;
+
+        const cCode = (geoData.country_code || geoData.country || '').toUpperCase();
+        const rCode = (geoData.region_code || geoData.region || '').toUpperCase();
+
+        let targetCountry = null;
+        let targetJurisdiction = null;
+
+        // 1. Canada Mapping
+        if (cCode === 'CA') {
+          targetCountry = 'canada';
+          const caMap = {
+            'AB': 'ca-ab', 'BC': 'ca-bc', 'ON': 'ca-on', 'SK': 'ca-sk',
+            'MB': 'ca-mb', 'QC': 'ca-qc', 'NS': 'ca-ns', 'NB': 'ca-nb',
+            'NL': 'ca-nl', 'PE': 'ca-pe', 'YT': 'ca-yt', 'NT': 'ca-nt', 'NU': 'ca-nu'
+          };
+          targetJurisdiction = caMap[rCode] || 'ca-fed';
+        }
+        // 2. United States Mapping
+        else if (cCode === 'US') {
+          targetCountry = 'usa';
+          const usMap = {
+            'AK': 'us-ak', 'AZ': 'us-az', 'CA': 'us-ca', 'HI': 'us-hi',
+            'IN': 'us-in', 'IA': 'us-ia', 'KY': 'us-ky', 'MD': 'us-md',
+            'MI': 'us-mi', 'MN': 'us-mn', 'NV': 'us-nv', 'NM': 'us-nm',
+            'NY': 'us-ny', 'NC': 'us-nc', 'OR': 'us-or', 'SC': 'us-sc',
+            'TN': 'us-tn', 'UT': 'us-ut', 'VT': 'us-vt', 'VA': 'us-va',
+            'WA': 'us-wa', 'WY': 'us-wy', 'TX': 'us-tx'
+          };
+          targetJurisdiction = usMap[rCode] || 'us-fed';
+        }
+        // 3. Australia Mapping
+        else if (cCode === 'AU') {
+          targetCountry = 'australia';
+          const auMap = {
+            'NSW': 'au-nsw', 'VIC': 'au-vic', 'QLD': 'au-qld',
+            'WA': 'au-wa', 'SA': 'au-sa', 'TAS': 'au-tas',
+            'ACT': 'au-act', 'NT': 'au-nt'
+          };
+          targetJurisdiction = auMap[rCode] || 'au-model';
+        }
+        // 4. European Union Mapping
+        else {
+          const euCountryMap = {
+            'DE': 'eu-de', 'FR': 'eu-fr', 'IE': 'eu-ie', 'ES': 'eu-es',
+            'IT': 'eu-it', 'NL': 'eu-nl', 'AT': 'eu-at', 'BE': 'eu-be',
+            'BG': 'eu-bg', 'HR': 'eu-hr', 'CY': 'eu-cy', 'CZ': 'eu-cz',
+            'DK': 'eu-dk', 'EE': 'eu-ee', 'FI': 'eu-fi', 'GR': 'eu-gr',
+            'HU': 'eu-hu', 'LV': 'eu-lv', 'LT': 'eu-lt', 'LU': 'eu-lu',
+            'MT': 'eu-mt', 'PL': 'eu-pl', 'PT': 'eu-pt', 'RO': 'eu-ro',
+            'SK': 'eu-sk', 'SI': 'eu-si', 'SE': 'eu-se'
+          };
+          if (euCountryMap[cCode]) {
+            targetCountry = 'eu';
+            targetJurisdiction = euCountryMap[cCode];
+          }
+        }
+
+        // Apply detected country and jurisdiction if resolved
+        if (targetCountry && targetJurisdiction && ohsDatabase.jurisdictions[targetJurisdiction]) {
+          currentCountry = targetCountry;
+          currentJurisdictionKey = targetJurisdiction;
+          activeBodyIndex = 0;
+          renderCountryButtons();
+          populateJurisdictionSelect();
+          showToast(`Location detected: ${ohsDatabase.jurisdictions[targetJurisdiction].name}`);
+        }
+      } catch (err) {
+        // Fail gracefully without interrupting default load
+        console.warn('IP location detection unavailable:', err);
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       renderCountryButtons();
       populateJurisdictionSelect();
       setupEventListeners();
+      detectUserLocation();
     });
   </script>
 </body>
