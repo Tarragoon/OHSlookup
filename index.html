@@ -99,7 +99,7 @@
                         <select id="jurisdictionSelect" 
                                 onchange="handleJurisdictionSelect(this.value)"
                                 class="w-full pl-3.5 pr-10 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 shadow-xs focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 appearance-none cursor-pointer">
-                            <option value="ca-ab" selected>Alberta (AB)</option>
+                            <option value="ca-ab">Alberta (AB)</option>
                             <option value="ca-bc">British Columbia (BC)</option>
                             <option value="ca-mb">Manitoba (MB)</option>
                             <option value="ca-nb">New Brunswick (NB)</option>
@@ -112,7 +112,7 @@
                             <option value="ca-qc">Quebec (QC)</option>
                             <option value="ca-sk">Saskatchewan (SK)</option>
                             <option value="ca-yt">Yukon (YT)</option>
-                            <option value="ca-fed">Federal (Canada Labour Code Part II)</option>
+                            <option value="ca-fed" selected>Federal (Canada Labour Code Part II)</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,17 +142,17 @@
                             <span id="cardCountryDisplay">Canada</span>
                         </span>
                         <span id="cardModelDisplay" class="px-2.5 py-1 rounded-md bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-medium">
-                            Bifurcated Model (OHS Inspectorate Enforces; WCB Alberta Administers Insurance)
+                            Federal Ministry Model (ESDC Labour Program Enforces; Prov WCBs Administer Claims via GECA)
                         </span>
                         <span id="cardStructureDisplay" class="px-2.5 py-1 rounded-md bg-amber-950/40 border border-amber-800/40 text-amber-300 text-xs font-medium">
-                            3-Tier Structure: Act + Regulations + Code
+                            2-Tier Federal Framework: Canada Labour Code Part II + COHSR Regulations
                         </span>
                     </div>
 
                     <div>
-                        <h2 id="cardTitleDisplay" class="text-xl sm:text-2xl font-bold tracking-tight text-white">Alberta (AB)</h2>
+                        <h2 id="cardTitleDisplay" class="text-xl sm:text-2xl font-bold tracking-tight text-white">Federal (Canada Labour Code Part II)</h2>
                         <p id="cardSubtitleDisplay" class="text-xs text-slate-400 mt-1 leading-relaxed">
-                            <a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Occupational Health and Safety Act (SA 2020, c O-2.2)</a> – Regulated by <a href="https://www.alberta.ca/occupational-health-safety" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Alberta Jobs, Economy and Trade (OHS Inspectorate &amp; Policy)</a>
+                            <a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/page-22.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Canada Labour Code (R.S.C., 1985, c. L-2, Part II)</a> – Enforced by <a href="https://www.canada.ca/en/employment-social-development/corporate/portfolio/labour.html" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Labour Program (ESDC)</a>
                         </p>
                     </div>
                 </div>
@@ -161,11 +161,11 @@
                 <div class="lg:col-span-5 space-y-2.5">
                     
                     <!-- Primary Statute Slot -->
-                    <a id="primaryStatuteLink" href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html" target="_blank" rel="noopener noreferrer" class="group block bg-[#111d38]/80 hover:bg-[#152445] border border-slate-700/60 rounded-xl p-3.5 transition-colors">
+                    <a id="primaryStatuteLink" href="https://laws-lois.justice.gc.ca/eng/acts/L-2/page-22.html" target="_blank" rel="noopener noreferrer" class="group block bg-[#111d38]/80 hover:bg-[#152445] border border-slate-700/60 rounded-xl p-3.5 transition-colors">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-[11px] font-medium text-slate-400">Primary Statute:</p>
-                                <p id="primaryStatuteName" class="text-xs font-medium text-sky-400 group-hover:text-sky-300 mt-0.5">Occupational Health and Safety Act (SA 2020, c O-2.2)</p>
+                                <p id="primaryStatuteName" class="text-xs font-medium text-sky-400 group-hover:text-sky-300 mt-0.5">Canada Labour Code (R.S.C., 1985, c. L-2, Part II)</p>
                             </div>
                             <svg class="w-3.5 h-3.5 text-slate-500 group-hover:text-sky-300 transition-colors shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -174,11 +174,11 @@
                     </a>
 
                     <!-- Key Regulating Authority Slot -->
-                    <a id="keyAuthorityLink" href="https://www.alberta.ca/occupational-health-safety" target="_blank" rel="noopener noreferrer" class="group block bg-[#111d38]/80 hover:bg-[#152445] border border-slate-700/60 rounded-xl p-3.5 transition-colors">
+                    <a id="keyAuthorityLink" href="https://www.canada.ca/en/employment-social-development/corporate/portfolio/labour.html" target="_blank" rel="noopener noreferrer" class="group block bg-[#111d38]/80 hover:bg-[#152445] border border-slate-700/60 rounded-xl p-3.5 transition-colors">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-[11px] font-medium text-slate-400">Key Regulating Authority:</p>
-                                <p id="keyAuthorityName" class="text-xs font-medium text-emerald-400 group-hover:text-emerald-300 mt-0.5">Alberta Jobs, Economy and Trade (OHS Inspectorate &amp; Policy)</p>
+                                <p id="keyAuthorityName" class="text-xs font-medium text-emerald-400 group-hover:text-emerald-300 mt-0.5">Labour Program (Employment and Social Development Canada - ESDC)</p>
                             </div>
                             <svg class="w-3.5 h-3.5 text-slate-500 group-hover:text-emerald-300 transition-colors shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -196,6 +196,946 @@
             <div class="flex items-center justify-between flex-wrap gap-2">
                 <div class="flex items-center gap-2 text-xs font-bold text-sky-950 uppercase tracking-wider">
                     <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                    <span>Regulating Bodies in this Jurisdiction</span>
+                </div>
+                <span class="text-[11px] text-slate-400 italic">Select body to inspect statutory remit &amp; enforcement</span>
+            </div>
+
+            <!-- Dynamic Regulatory Body Tabs (Selectable) -->
+            <div id="regulatoryBodiesContainer" role="tablist" aria-label="Regulatory Bodies" class="flex flex-wrap items-center gap-2">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- 5. Universal Subtabs -->
+        <nav class="bg-white rounded-xl border border-slate-200/90 p-2 sm:p-2.5 shadow-xs" aria-label="Regulatory Subtabs">
+            <div id="universalSubtabsNav" class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <!-- Populated dynamically via JS to support interactive click switching -->
+            </div>
+        </nav>
+
+        <!-- Dynamic Content Viewport Below Subtabs Line -->
+        <section id="universalSubtabContent" aria-live="polite" class="space-y-4">
+            <!-- Populated dynamically via JS based on selected jurisdiction, regulatory body, and subtab -->
+        </section>
+
+    </main>
+
+    <script>
+        const jurisdictionDatabase = {
+            'ca-ab': {
+                name: 'Alberta (AB)',
+                model: 'Bifurcated Model (OHS Inspectorate Enforces; WCB Alberta Administers Insurance)',
+                structure: '3-Tier Structure: Act + Regulations + Code',
+                subtitleHtml: '<a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Occupational Health and Safety Act (SA 2020, c O-2.2)</a> – Regulated by <a href="https://www.alberta.ca/occupational-health-safety" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Alberta Jobs, Economy and Trade (OHS Inspectorate & Policy)</a>',
+                primaryStatuteName: 'Occupational Health and Safety Act (SA 2020, c O-2.2)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html',
+                keyAuthorityName: 'Alberta Jobs, Economy and Trade (OHS Inspectorate & Policy)',
+                keyAuthorityUrl: 'https://www.alberta.ca/occupational-health-safety',
+                regulatoryBodies: [
+                    {
+                        name: 'Alberta Jobs, Economy and Trade (OHS Inspectorate)',
+                        url: 'https://www.alberta.ca/occupational-health-safety',
+                        roleTitle: 'Provincial Ministry executing Inspections, Investigations, Compliance Orders & Legislation',
+                        modelDescription: 'Bifurcated Model: Government ministry handles prevention, enforcement, and investigations. WCB Alberta handles compensation independently.',
+                        statutePortalUrl: 'https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html',
+                        hierarchyHtml: 'Unique 3-Tier Legislative Hierarchy:<br><span class="font-semibold text-slate-900">1. OHS Act</span> (<a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SA 2020, c O-2.2</a>): High-level legal duties, enforcement powers, penalties.<br><span class="font-semibold text-slate-900">2. OHS Regulation</span> (<a href="https://www.canlii.org/en/ab/laws/regu/alta-reg-62-2003/latest/alta-reg-62-2003.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Alta Reg 62/2003</a> as amended): Administrative provisions, qualifications, medical monitoring.<br><span class="font-semibold text-slate-900">3. OHS Code</span> (<a href="https://www.alberta.ca/ohs-code-review" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">2009, substantially updated Dec 2023</a>): Deep technical standards (37 parts covering hazard assessment, PPE, noise, cranes, confined spaces, falls, first aid).',
+                        irsCitationUrl: 'https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec16',
+                        irsHtml: 'Every person in the workplace shares responsibility according to their authority and control. Joint Work Site Health and Safety Committees (<a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec16" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">JWSHSC - Section 16</a>) required for 20+ regularly employed workers; Health and Safety Representative required for 5–19 workers (<a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec17" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 17</a>).',
+                        distinctionLabel: 'Supplier Statutory Duty Inclusion:',
+                        distinctionTag: 'Explicit Statutory Duty Imposed',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec7" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 7</a> explicitly creates broad statutory duties for Suppliers to ensure equipment, tools, and substances comply with the Act/Regs/Code and are safe when used properly.'
+                    },
+                    {
+                        name: "Workers' Compensation Board (WCB) Alberta",
+                        url: 'https://www.wcb.ab.ca/',
+                        roleTitle: 'Independent Statutory Agency Administering No-Fault Workplace Injury Insurance & Return-to-Work',
+                        modelDescription: 'Dual Compensation Framework: Operates under Workers\' Compensation Act (RSA 2000, c W-15); finances rehabilitation and adjudicates disability claims independently of OHS prosecution.',
+                        statutePortalUrl: 'https://www.canlii.org/en/ab/laws/stat/rsa-2000-c-w-15/latest/rsa-2000-c-w-15.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/ab/laws/stat/rsa-2000-c-w-15/latest/rsa-2000-c-w-15.html',
+                        hierarchyHtml: 'Insurance & Compensation Hierarchy:<br><span class="font-semibold text-slate-900">1. Workers\' Compensation Act</span> (<a href="https://www.canlii.org/en/ab/laws/stat/rsa-2000-c-w-15/latest/rsa-2000-c-w-15.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSA 2000, c W-15</a>): Establishes accident fund, employer rate assessments, and no-fault compensation bar.<br><span class="font-semibold text-slate-900">2. WCB Regulations & Board Policy</span>: Governs experience rating (PIR program), injury reporting deadlines, and medical review panels.',
+                        irsCitationUrl: 'https://www.canlii.org/en/ab/laws/stat/rsa-2000-c-w-15/latest/rsa-2000-c-w-15.html#sec33',
+                        irsHtml: 'Employer and injured worker mutual obligations to cooperate in timely and safe return-to-work modified duty arrangements (<a href="https://www.canlii.org/en/ab/laws/stat/rsa-2000-c-w-15/latest/rsa-2000-c-w-15.html#sec89.1" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">WCA Section 89.1</a>).',
+                        distinctionLabel: 'Partnerships in Injury Reduction (PIR):',
+                        distinctionTag: 'Financial Premium Incentive Program',
+                        distinctionHtml: '<a href="https://www.wcb.ab.ca/insurance-and-premiums/discount-and-incentive-programs/partnerships-in-injury-reduction.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">COR Incentive</a> Employers earning a Certificate of Recognition (COR) through certifying partner safety audits receive premium rate discounts up to 20%.'
+                    },
+                    {
+                        name: 'Public Health Appeal Board / OHS Review Authority',
+                        url: 'https://www.alberta.ca/appealing-an-occupational-health-and-safety-decision',
+                        roleTitle: 'Quasi-Judicial Appellate Tribunal Adjudicating OHS Orders & Administrative Penalties',
+                        modelDescription: 'Independent Appeal Channel: Evaluates appeals of compliance orders, stop-work orders, administrative penalties, and discriminatory action decisions.',
+                        statutePortalUrl: 'https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec45',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec45',
+                        hierarchyHtml: 'Appellate Hierarchy:<br><span class="font-semibold text-slate-900">1. OHS Act Part 6 (Appeals)</span> (<a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec45" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Sections 45–49</a>): Codifies 30-day appeal windows for inspector directives and Director determinations.<br><span class="font-semibold text-slate-900">2. Administrative Procedures Act</span>: Quasi-judicial hearings granting powers to confirm, vary, or revoke orders.',
+                        irsCitationUrl: 'https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec35',
+                        irsHtml: 'Adjudicates claims of <a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec35" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Discriminatory Action (Section 35)</a> where workers face reprisal for exercising work refusal or reporting hazards.',
+                        distinctionLabel: 'Stay of Enforcement Orders:',
+                        distinctionTag: 'Administrative Relief',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/ab/laws/stat/sa-2020-c-o-2.2/latest/sa-2020-c-o-2.2.html#sec46" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 46(2)</a> Filing an appeal does not automatically operate as a stay of a compliance order or stop-work directive unless explicitly granted by the hearing Director or Board.'
+                    }
+                ]
+            },
+            'ca-sk': {
+                name: 'Saskatchewan (SK)',
+                model: 'Bifurcated Model (Labour Relations & Workplace Safety Enforces; SK WCB Operates Claims)',
+                structure: 'Consolidated Regulations Model: Act (Part III) + OHS Regulations (2020)',
+                subtitleHtml: '<a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">The Saskatchewan Employment Act (SS 2013, c S-15.1, Part III)</a> – Enforced by <a href="https://www.saskatchewan.ca/business/safety-in-the-workplace" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Ministry of Labour Relations and Workplace Safety (OHS Division)</a>',
+                primaryStatuteName: 'The Saskatchewan Employment Act (SS 2013, c S-15.1, Part III)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html',
+                keyAuthorityName: 'Ministry of Labour Relations and Workplace Safety (Occupational Health & Safety Division)',
+                keyAuthorityUrl: 'https://www.saskatchewan.ca/business/safety-in-the-workplace',
+                regulatoryBodies: [
+                    {
+                        name: 'Ministry of Labour Relations and Workplace Safety (OHS Division)',
+                        url: 'https://www.saskatchewan.ca/business/safety-in-the-workplace',
+                        roleTitle: 'Provincial Ministry Executing OHS Compliance, Targeted Audits & Investigations',
+                        modelDescription: 'Bifurcated Structure: Ministry conducts workplace inspections and enforcement; Saskatchewan Workers\' Compensation Board operates the accident fund independently.',
+                        statutePortalUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html',
+                        hierarchyHtml: 'Consolidated Regulations Model:<br><span class="font-semibold text-slate-900">1. Saskatchewan Employment Act Part III</span> (<a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SS 2013, c S-15.1</a>): Codifies OHS duties and powers.<br><span class="font-semibold text-slate-900">2. Occupational Health and Safety Regulations, 2020</span> (<a href="https://www.canlii.org/en/sk/laws/regu/rrs-c-s-15.1-reg-10/latest/rrs-c-s-15.1-reg-10.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RRS c S-15.1 Reg 10</a>): Consolidated single modern regulation replacing disparate predecessor rules.',
+                        irsCitationUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-22',
+                        irsHtml: 'Occupational Health Committee mandatory at workplaces with 10 or more workers (<a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-22" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 3-22</a>); Occupational Health Representative required for 5–9 workers (<a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-27" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 3-27</a>).',
+                        distinctionLabel: 'Low Committee Threshold:',
+                        distinctionTag: '10 Worker Threshold',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-22" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 3-22</a> Saskatchewan has one of the lowest thresholds in Canada, requiring joint committees starting at just 10 workers (vs 20 in AB/ON/BC).'
+                    },
+                    {
+                        name: "Saskatchewan Workers' Compensation Board (WCB)",
+                        url: 'https://www.wcbsask.com/',
+                        roleTitle: 'Independent Statutory Board Operating Workers\' Compensation Act, 2013',
+                        modelDescription: 'Insurance Body: Administers no-fault employer-funded insurance; promotes WorkSafe Saskatchewan prevention partnership.',
+                        statutePortalUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-w-17.11/latest/ss-2013-c-w-17.11.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-w-17.11/latest/ss-2013-c-w-17.11.html',
+                        hierarchyHtml: 'Insurance Hierarchy:<br><span class="font-semibold text-slate-900">1. Workers\' Compensation Act, 2013</span> (<a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-w-17.11/latest/ss-2013-c-w-17.11.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SS 2013, c W-17.11</a>): Governs injury fund and employer assessments.<br><span class="font-semibold text-slate-900">2. WorkSafe Saskatchewan</span>: Joint prevention partnership between WCB and the Ministry.',
+                        irsCitationUrl: 'https://www.worksafesask.ca/',
+                        irsHtml: 'Coordinates employer-worker prevention strategies through <a href="https://www.worksafesask.ca/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">WorkSafe Saskatchewan Prevention Programs</a>.',
+                        distinctionLabel: 'Targeted Prevention Strategy:',
+                        distinctionTag: 'Priority Industry Enforcement',
+                        distinctionHtml: '<a href="https://www.wcbsask.com/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">WorkSafe SK</a> Focuses targeted prevention audits on highest injury-rate employer codes across healthcare, manufacturing, and transportation.'
+                    },
+                    {
+                        name: 'Saskatchewan Labour Relations Board (OHS Adjudication)',
+                        url: 'https://sasklabourrelationsboard.com/',
+                        roleTitle: 'Quasi-Judicial Appellate Tribunal Adjudicating OHS Officer Decisions & Reprisals',
+                        modelDescription: 'Appellate Channel: Hears appeals of occupational health officer notices and adjudicates discriminatory action complaints under Part III of the SEA.',
+                        statutePortalUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-53',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-53',
+                        hierarchyHtml: 'Appellate Framework:<br><span class="font-semibold text-slate-900">Saskatchewan Employment Act Part III Division 8</span> (<a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-53" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Sections 3-52 to 3-58</a>): Codifies appeal hearings from adjudicator and officer compliance decisions.',
+                        irsCitationUrl: 'https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-35',
+                        irsHtml: 'Adjudicates complaints of discriminatory action against workers exercising safety rights under <a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-35" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 3-35 (Discriminatory Action Prohibited)</a>.',
+                        distinctionLabel: 'Discriminatory Action Reversal:',
+                        distinctionTag: 'Reversal Powers',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/sk/laws/stat/ss-2013-c-s-15.1/latest/ss-2013-c-s-15.1.html#sec3-36" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 3-36</a> Authorizes the board to order reinstatement and reimbursement of all lost wages for safety reprisals.'
+                    }
+                ]
+            },
+            'ca-mb': {
+                name: 'Manitoba (MB)',
+                model: 'Bifurcated Model (Workplace Safety & Health Branch Enforces; WCB Manitoba Manages Insurance)',
+                structure: '2-Tier Structure: Act + Workplace Safety & Health Regulation',
+                subtitleHtml: '<a href="https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">The Workplace Safety and Health Act (CCSM c W210)</a> – Enforced by <a href="https://www.gov.mb.ca/labour/safety/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Workplace Safety and Health (WSH) Branch</a>',
+                primaryStatuteName: 'The Workplace Safety and Health Act (CCSM c W210)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html',
+                keyAuthorityName: 'Workplace Safety and Health Branch (Manitoba Labour and Immigration)',
+                keyAuthorityUrl: 'https://www.gov.mb.ca/labour/safety/',
+                regulatoryBodies: [
+                    {
+                        name: 'Workplace Safety and Health Branch (Manitoba Labour)',
+                        url: 'https://www.gov.mb.ca/labour/safety/',
+                        roleTitle: 'Provincial Enforcement Agency Executing Inspections & Administrative Improvement Orders',
+                        modelDescription: 'Bifurcated Framework: Ministry inspects and enforces compliance; WCB Manitoba manages insurance and the SAFE Work prevention initiative.',
+                        statutePortalUrl: 'https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html',
+                        hierarchyHtml: '2-Tier Hierarchy:<br><span class="font-semibold text-slate-900">1. Workplace Safety and Health Act</span> (<a href="https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">CCSM c W210</a>): Statutory duties and officer powers.<br><span class="font-semibold text-slate-900">2. Workplace Safety and Health Regulation</span> (<a href="https://www.canlii.org/en/mb/laws/regu/man-reg-217-2006/latest/man-reg-217-2006.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Man Reg 217/2006</a>): 44 detailed regulatory parts.',
+                        irsCitationUrl: 'https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html#sec40',
+                        irsHtml: 'Workplace Safety and Health Committee required at workplaces with 20+ regularly employed workers (<a href="https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html#sec40" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 40</a>); Worker Representative required for 5–19 workers (<a href="https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html#sec41" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 41</a>).',
+                        distinctionLabel: 'Prime Contractor Requirements:',
+                        distinctionTag: 'Construction & Demolition Sites',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/mb/laws/stat/ccsm-c-w210/latest/ccsm-c-w210.html#sec7" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 7</a> Mandatory prime contractor appointment required on construction projects meeting statutory workforce thresholds.'
+                    },
+                    {
+                        name: 'SAFE Work Manitoba (WCB Prevention Initiative)',
+                        url: 'https://www.safemanitoba.com/',
+                        roleTitle: 'Public Prevention Agency Dedicated to Workplace Injury and Illness Prevention',
+                        modelDescription: 'Dedicated Prevention Arm: Operates under WCB Manitoba leadership to deliver safety training, standards, and safety certification programs.',
+                        statutePortalUrl: 'https://www.safemanitoba.com/',
+                        hierarchyCitationUrl: 'https://www.safemanitoba.com/',
+                        hierarchyHtml: 'Prevention Standards:<br><span class="font-semibold text-slate-900">SAFE Work Certified Standards</span>: Industry-based safety programs developed in collaboration with Manitoba industry sector safety associations.',
+                        irsCitationUrl: 'https://www.safemanitoba.com/Resources/Pages/joint-workplace-safety-and-health-committees.aspx',
+                        irsHtml: 'Administers mandatory and recommended training curricula for <a href="https://www.safemanitoba.com/Resources/Pages/joint-workplace-safety-and-health-committees.aspx" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">WSH Committee Members and Representatives</a>.',
+                        distinctionLabel: 'SAFE Work Certified Rebate:',
+                        distinctionTag: 'Financial Premium Incentive',
+                        distinctionHtml: '<a href="https://www.safemanitoba.com/safe-work-certified/Pages/default.aspx" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Certification Rebate</a> Certified employers receive up to a 15% prevention rebate on their WCB assessment premium.'
+                    },
+                    {
+                        name: 'Workers Compensation Board of Manitoba (WCB)',
+                        url: 'https://www.wcb.mb.ca/',
+                        roleTitle: 'No-Fault Workplace Injury Insurance Corporation Operating Under The Workers Compensation Act',
+                        modelDescription: 'Compensation Agency: Administers claims, medical benefits, and experience rating for Manitoba employers and workers.',
+                        statutePortalUrl: 'https://www.canlii.org/en/mb/laws/stat/ccsm-c-w200/latest/ccsm-c-w200.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/mb/laws/stat/ccsm-c-w200/latest/ccsm-c-w200.html',
+                        hierarchyHtml: 'Compensation Legislation:<br><span class="font-semibold text-slate-900">The Workers Compensation Act</span> (<a href="https://www.canlii.org/en/mb/laws/stat/ccsm-c-w200/latest/ccsm-c-w200.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">CCSM c W200</a>): Establishes employer coverage, benefit assessments, and claims appeals.',
+                        irsCitationUrl: 'https://www.canlii.org/en/mb/laws/stat/ccsm-c-w200/latest/ccsm-c-w200.html#sec4',
+                        irsHtml: 'Rehabilitation and return-to-work program obligations set out under <a href="https://www.canlii.org/en/mb/laws/stat/ccsm-c-w200/latest/ccsm-c-w200.html#sec4" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">WCA Section 4(1)</a>.',
+                        distinctionLabel: 'Experience Rating Assessment:',
+                        distinctionTag: 'Rate Setting Model',
+                        distinctionHtml: '<a href="https://www.wcb.mb.ca/how-your-premium-is-calculated" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">WCB Rates</a> Calculates annual assessment rates tailored to industry classifications and claims experience histories.'
+                    }
+                ]
+            },
+            'ca-ns': {
+                name: 'Nova Scotia (NS)',
+                model: 'Bifurcated Model (Safety Branch Enforces Compliance; WCB Nova Scotia Administers Compensation)',
+                structure: '2-Tier Structure: Act + Workplace Health and Safety Regulations',
+                subtitleHtml: '<a href="https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Occupational Health and Safety Act (SNS 1996, c 7)</a> – Enforced by <a href="https://novascotia.ca/lae/healthandsafety/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Safety Branch (Labour, Skills and Immigration)</a>',
+                primaryStatuteName: 'Occupational Health and Safety Act (SNS 1996, c 7)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html',
+                keyAuthorityName: 'Safety Branch (Nova Scotia Department of Labour, Skills and Immigration)',
+                keyAuthorityUrl: 'https://novascotia.ca/lae/healthandsafety/',
+                regulatoryBodies: [
+                    {
+                        name: 'Safety Branch (NS Labour, Skills and Immigration)',
+                        url: 'https://novascotia.ca/lae/healthandsafety/',
+                        roleTitle: 'Provincial Safety Enforcement Branch Executing Inspections & Administrative Penalties',
+                        modelDescription: 'Bifurcated Model: Government branch handles statutory inspection, orders, and administrative penalties; WCB Nova Scotia administers workers\' compensation.',
+                        statutePortalUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html',
+                        hierarchyHtml: '2-Tier Hierarchy:<br><span class="font-semibold text-slate-900">1. OHS Act</span> (<a href="https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SNS 1996, c 7</a>): Legal duties of employers, contractors, constructors.<br><span class="font-semibold text-slate-900">2. Workplace Health and Safety Regulations</span> (<a href="https://www.canlii.org/en/ns/laws/regu/ns-reg-52-2013/latest/ns-reg-52-2013.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">NS Reg 52/2013</a>): Consolidated general regulations.',
+                        irsCitationUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec29',
+                        irsHtml: 'Joint Occupational Health and Safety Committee required at workplaces with 20+ regularly employed persons (<a href="https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec29" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 29</a>); Health and Safety Representative required for 5–19 workers (<a href="https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec33" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 33</a>).',
+                        distinctionLabel: 'Direct Administrative Penalties:',
+                        distinctionTag: 'Inspector Ticketing Authority',
+                        distinctionHtml: '<a href="https://novascotia.ca/lae/healthandsafety/administrativepenalties.asp" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Admin Penalties</a> OHS officers issue points and monetary penalties directly to employers, supervisors, and employees for non-compliance.'
+                    },
+                    {
+                        name: "Workers' Compensation Board of Nova Scotia (WCB NS)",
+                        url: 'https://www.wcb.ns.ca/',
+                        roleTitle: 'Workplace Injury Insurance Corporation Managing Prevention & Claims',
+                        modelDescription: 'Insurance Body: Oversees no-fault compensation under Workers\' Compensation Act (SNS 1994-95, c 10).',
+                        statutePortalUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1994-95-c-10/latest/sns-1994-95-c-10.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1994-95-c-10/latest/sns-1994-95-c-10.html',
+                        hierarchyHtml: 'Insurance Hierarchy:<br><span class="font-semibold text-slate-900">Workers\' Compensation Act</span> (<a href="https://www.canlii.org/en/ns/laws/stat/sns-1994-95-c-10/latest/sns-1994-95-c-10.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SNS 1994-95, c 10</a>): Governs injury fund and employer assessment ratings.',
+                        irsCitationUrl: 'https://www.wcb.ns.ca/Safety.aspx',
+                        irsHtml: 'Collaborates with the Safety Branch on targeted workplace prevention strategies under provincial OHS accords.',
+                        distinctionLabel: 'Workplace Safety Action Plan:',
+                        distinctionTag: 'Joint Strategic Framework',
+                        distinctionHtml: '<a href="https://www.wcb.ns.ca/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Safety Strategy</a> Implements five-year joint strategic safety initiatives targeting high-risk fishing, health, and construction sectors.'
+                    },
+                    {
+                        name: 'Nova Scotia Labour Board (OHS Appeals)',
+                        url: 'https://nsselection.novascotia.ca/labourboard/',
+                        roleTitle: 'Quasi-Judicial Appellate Tribunal Adjudicating OHS Orders & Discriminatory Action',
+                        modelDescription: 'Appellate Body: External independent board hearing appeals from OHS Director orders, officer stop-work directives, and reprisal claims.',
+                        statutePortalUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec67',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec67',
+                        hierarchyHtml: 'Appellate Hierarchy:<br><span class="font-semibold text-slate-900">OHS Act Appeals</span> (<a href="https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec67" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SNS 1996, c 7, Sections 67–69</a>): Governs 30-day appeal windows for officer compliance directives and penalty orders.',
+                        irsCitationUrl: 'https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec45',
+                        irsHtml: 'Adjudicates worker complaints regarding <a href="https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec45" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Discriminatory Action (Section 45)</a>.',
+                        distinctionLabel: 'Appeal Finality:',
+                        distinctionTag: 'Binding Tribunal Decisions',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/ns/laws/stat/sns-1996-c-7/latest/sns-1996-c-7.html#sec69" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 69</a> Decisions of the Labour Board are final and binding on questions of fact and law.'
+                    }
+                ]
+            },
+            'ca-pe': {
+                name: 'Prince Edward Island (PE)',
+                model: 'Integrated Board Model (Workers Compensation Board PEI Administers OHS & Compensation)',
+                structure: '2-Tier Structure: Act + General Regulations',
+                subtitleHtml: '<a href="https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Occupational Health and Safety Act (RSPEI 1988, c O-1.01)</a> – Administered & enforced by <a href="https://www.wcb.pe.ca/Workplace/OHS" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WCB PEI Occupational Health and Safety Division</a>',
+                primaryStatuteName: 'Occupational Health and Safety Act (RSPEI 1988, c O-1.01)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html',
+                keyAuthorityName: 'Workers Compensation Board of PEI (Occupational Health & Safety Division)',
+                keyAuthorityUrl: 'https://www.wcb.pe.ca/Workplace/OHS',
+                regulatoryBodies: [
+                    {
+                        name: 'Workers Compensation Board of PEI (OHS Division)',
+                        url: 'https://www.wcb.pe.ca/Workplace/OHS',
+                        roleTitle: 'Integrated Crown Board Administering Both OHS Compliance & Workers\' Compensation',
+                        modelDescription: 'Integrated Board Model: WCB PEI directly employs OHS compliance officers, executes inspections, and adjudicates compensation claims.',
+                        statutePortalUrl: 'https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html',
+                        hierarchyHtml: '2-Tier Hierarchy:<br><span class="font-semibold text-slate-900">1. OHS Act</span> (<a href="https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSPEI 1988, c O-1.01</a>): Comprehensive workplace safety obligations.<br><span class="font-semibold text-slate-900">2. General Regulations</span> (<a href="https://www.canlii.org/en/pe/laws/regu/pe-reg-ec180-87/latest/pe-reg-ec180-87.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">EC180/87</a>): Mandatory safety standards.',
+                        irsCitationUrl: 'https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html#sec25',
+                        irsHtml: 'Joint Health and Safety Committee required for 20+ regularly employed workers (<a href="https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html#sec25" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 25</a>); Safety Representative required for 5–19 workers (<a href="https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html#sec26" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 26</a>).',
+                        distinctionLabel: 'Direct Board Enforcement:',
+                        distinctionTag: 'Integrated Board Structure',
+                        distinctionHtml: '<a href="https://www.wcb.pe.ca/Workplace/OHS" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">WCB PEI</a> Inspection, educational outreach, and compensation assessments are housed seamlessly inside one organizational framework.'
+                    },
+                    {
+                        name: "Workers' Compensation Appeal Tribunal (WCAT PEI)",
+                        url: 'https://wcatpei.ca/',
+                        roleTitle: 'Independent Appellate Tribunal Adjudicating PEI Compensation and OHS Appeals',
+                        modelDescription: 'Independent Quasi-Judicial Tribunal: Conducts independent external hearings for appeals against WCB decisions under provincial statute.',
+                        statutePortalUrl: 'https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-w-7.1/latest/rspei-1988-c-w-7.1.html#sec56',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-w-7.1/latest/rspei-1988-c-w-7.1.html#sec56',
+                        hierarchyHtml: 'Appellate Authority:<br><span class="font-semibold text-slate-900">Workers Compensation Act</span> (<a href="https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-w-7.1/latest/rspei-1988-c-w-7.1.html#sec56" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSPEI 1988, c W-7.1, Section 56</a>): Establishes independent appeal tribunal jurisdiction.',
+                        irsCitationUrl: 'https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html#sec31',
+                        irsHtml: 'Reviews worker allegations of discriminatory actions or employer reprisals under <a href="https://www.canlii.org/en/pe/laws/stat/rspei-1988-c-o-1.01/latest/rspei-1988-c-o-1.01.html#sec31" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">OHSA Section 31</a>.',
+                        distinctionLabel: 'Independent Review Mechanism:',
+                        distinctionTag: 'External Tribunal',
+                        distinctionHtml: '<a href="https://wcatpei.ca/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">WCAT PEI</a> Completely autonomous from the operational staff and administration of the Workers Compensation Board.'
+                    }
+                ]
+            },
+            'ca-nt': {
+                name: 'Northwest Territories (NT)',
+                model: 'Joint Territorial Commission Model (Shared WSCC Administers Safety & Compensation for NT & NU)',
+                structure: '2-Tier Structure: Act + Occupational Health and Safety Regulations',
+                subtitleHtml: '<a href="https://www.canlii.org/en/nt/laws/stat/rsnwt-1988-c-s-1/latest/rsnwt-1988-c-s-1.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Safety Act (RSNWT 1988, c S-1)</a> – Administered & enforced by <a href="https://www.wscc.nt.ca/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Workers\' Safety and Compensation Commission (WSCC)</a>',
+                primaryStatuteName: 'Safety Act (RSNWT 1988, c S-1)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/nt/laws/stat/rsnwt-1988-c-s-1/latest/rsnwt-1988-c-s-1.html',
+                keyAuthorityName: 'Workers\' Safety and Compensation Commission (WSCC - NT & NU)',
+                keyAuthorityUrl: 'https://www.wscc.nt.ca/',
+                regulatoryBodies: [
+                    {
+                        name: "Workers' Safety and Compensation Commission (WSCC)",
+                        url: 'https://www.wscc.nt.ca/',
+                        roleTitle: 'Joint Territorial Commission Regulating Workplace Safety & Insurance across NT and NU',
+                        modelDescription: 'Joint Territorial Entity: WSCC operates under identical dual territorial legislation covering both the Northwest Territories and Nunavut.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nt/laws/stat/rsnwt-1988-c-s-1/latest/rsnwt-1988-c-s-1.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nt/laws/stat/rsnwt-1988-c-s-1/latest/rsnwt-1988-c-s-1.html',
+                        hierarchyHtml: '2-Tier Territorial Hierarchy:<br><span class="font-semibold text-slate-900">1. Safety Act</span> (<a href="https://www.canlii.org/en/nt/laws/stat/rsnwt-1988-c-s-1/latest/rsnwt-1988-c-s-1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSNWT 1988, c S-1</a>): Core safety obligations and chief safety officer powers.<br><span class="font-semibold text-slate-900">2. Occupational Health and Safety Regulations</span> (<a href="https://www.canlii.org/en/nt/laws/regu/nwt-reg-039-2015/latest/nwt-reg-039-2015.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">NWT Reg 039-2015</a>): Harmonized modern safety standards.',
+                        irsCitationUrl: 'https://www.canlii.org/en/nt/laws/regu/nwt-reg-039-2015/latest/nwt-reg-039-2015.html#sec37',
+                        irsHtml: 'Joint Occupational Health and Safety Committee required at workplaces with 20+ workers (<a href="https://www.canlii.org/en/nt/laws/regu/nwt-reg-039-2015/latest/nwt-reg-039-2015.html#sec37" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">OHS Regs Section 37</a>); Health and Safety Representative required for 5–19 workers (<a href="https://www.canlii.org/en/nt/laws/regu/nwt-reg-039-2015/latest/nwt-reg-039-2015.html#sec44" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 44</a>).',
+                        distinctionLabel: 'Inter-Territorial Administration:',
+                        distinctionTag: 'Cross-Jurisdictional Accord',
+                        distinctionHtml: '<a href="https://www.wscc.nt.ca/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">WSCC Accord</a> Unique arrangement in Canada where a single unified board administers governance across two distinct Canadian territories.'
+                    },
+                    {
+                        name: 'WSCC Appeals Tribunal (Northwest Territories & Nunavut)',
+                        url: 'https://www.wscc.nt.ca/about-wscc/governance/appeals-tribunal',
+                        roleTitle: 'Quasi-Judicial Appellate Body Hearing Appeals of Chief Safety Officer Decisions',
+                        modelDescription: 'Territorial Appellate Channel: Independent body operating under territorial compensation and safety legislation to hear final appeals.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nt/laws/stat/snwt-2007-c-21/latest/snwt-2007-c-21.html#sec115',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nt/laws/stat/snwt-2007-c-21/latest/snwt-2007-c-21.html#sec115',
+                        hierarchyHtml: 'Appellate Authority:<br><span class="font-semibold text-slate-900">Workers\' Compensation Act</span> (<a href="https://www.canlii.org/en/nt/laws/stat/snwt-2007-c-21/latest/snwt-2007-c-21.html#sec115" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SNWT 2007, c 21, Section 115</a>): Confers exclusive authority to review review-committee and officer decisions.',
+                        irsCitationUrl: 'https://www.canlii.org/en/nt/laws/stat/rsnwt-1988-c-s-1/latest/rsnwt-1988-c-s-1.html#sec13',
+                        irsHtml: 'Reviews worker complaints alleging discrimination or punishment for reporting hazards under <a href="https://www.canlii.org/en/nt/laws/stat/rsnwt-1988-c-s-1/latest/rsnwt-1988-c-s-1.html#sec13" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Safety Act Section 13</a>.',
+                        distinctionLabel: 'Bilateral Territorial Mandate:',
+                        distinctionTag: 'Dual Assembly Jurisdiction',
+                        distinctionHtml: '<a href="https://www.wscc.nt.ca/about-wscc/governance/appeals-tribunal" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Tribunal Accord</a> Appointed by and accountable to the Ministers responsible for both territorial Legislative Assemblies.'
+                    }
+                ]
+            },
+            'ca-nu': {
+                name: 'Nunavut (NU)',
+                model: 'Joint Territorial Commission Model (Shared WSCC Administers Safety & Compensation for NU & NT)',
+                structure: '2-Tier Structure: Act + Occupational Health and Safety Regulations',
+                subtitleHtml: '<a href="https://www.canlii.org/en/nu/laws/stat/rsnwt-nu-1988-c-s-1/latest/rsnwt-nu-1988-c-s-1.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Safety Act (RSNWT (Nu) 1988, c S-1)</a> – Administered & enforced by <a href="https://www.wscc.nt.ca/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Workers\' Safety and Compensation Commission (WSCC)</a>',
+                primaryStatuteName: 'Safety Act (RSNWT (Nu) 1988, c S-1)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/nu/laws/stat/rsnwt-nu-1988-c-s-1/latest/rsnwt-nu-1988-c-s-1.html',
+                keyAuthorityName: 'Workers\' Safety and Compensation Commission (WSCC Nunavut)',
+                keyAuthorityUrl: 'https://www.wscc.nt.ca/',
+                regulatoryBodies: [
+                    {
+                        name: "Workers' Safety and Compensation Commission (WSCC Nunavut)",
+                        url: 'https://www.wscc.nt.ca/',
+                        roleTitle: 'Territorial Commission Regulating Workplace Health, Safety & Workers\' Compensation in Nunavut',
+                        modelDescription: 'Dual-Territory Commission: Operates under Nunavut territorial legislation in parallel with its Northwest Territories counterpart.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nu/laws/stat/rsnwt-nu-1988-c-s-1/latest/rsnwt-nu-1988-c-s-1.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nu/laws/stat/rsnwt-nu-1988-c-s-1/latest/rsnwt-nu-1988-c-s-1.html',
+                        hierarchyHtml: '2-Tier Territorial Hierarchy:<br><span class="font-semibold text-slate-900">1. Safety Act</span> (<a href="https://www.canlii.org/en/nu/laws/stat/rsnwt-nu-1988-c-s-1/latest/rsnwt-nu-1988-c-s-1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSNWT (Nu) 1988, c S-1</a>): Employer, supervisor, worker obligations.<br><span class="font-semibold text-slate-900">2. Occupational Health and Safety Regulations</span> (<a href="https://www.canlii.org/en/nu/laws/regu/nu-reg-003-2016/latest/nu-reg-003-2016.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Nu Reg 003-2016</a>): Harmonized modern safety standards.',
+                        irsCitationUrl: 'https://www.canlii.org/en/nu/laws/regu/nu-reg-003-2016/latest/nu-reg-003-2016.html#sec37',
+                        irsHtml: 'Joint Occupational Health and Safety Committee required at workplaces with 20+ workers (<a href="https://www.canlii.org/en/nu/laws/regu/nu-reg-003-2016/latest/nu-reg-003-2016.html#sec37" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">OHS Regs Section 37</a>); Safety Representative required for 5–19 workers (<a href="https://www.canlii.org/en/nu/laws/regu/nu-reg-003-2016/latest/nu-reg-003-2016.html#sec44" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 44</a>).',
+                        distinctionLabel: 'Inuktitut & Official Languages Service:',
+                        distinctionTag: 'Inuit Language Protection',
+                        distinctionHtml: '<a href="https://www.wscc.nt.ca/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Inuit Uqausiit</a> Safety information and services are delivered in Inuktitut and Inuinnaqtun under the Official Languages Act and Inuit Language Protection Act.'
+                    },
+                    {
+                        name: 'WSCC Appeals Tribunal (Nunavut Division)',
+                        url: 'https://www.wscc.nt.ca/about-wscc/governance/appeals-tribunal',
+                        roleTitle: 'Quasi-Judicial Appellate Tribunal Adjudicating Nunavut Safety Directives & Claims',
+                        modelDescription: 'Appellate Body: External quasi-judicial body hearing appeals from Nunavut safety officer decisions and compensation reviews.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nu/laws/stat/snu-2007-c-15/latest/snu-2007-c-15.html#sec115',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nu/laws/stat/snu-2007-c-15/latest/snu-2007-c-15.html#sec115',
+                        hierarchyHtml: 'Appellate Authority:<br><span class="font-semibold text-slate-900">Workers\' Compensation Act (Nunavut)</span> (<a href="https://www.canlii.org/en/nu/laws/stat/snu-2007-c-15/latest/snu-2007-c-15.html#sec115" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SNu 2007, c 15, Section 115</a>): Statutory review of Chief Safety Officer and Review Committee rulings.',
+                        irsCitationUrl: 'https://www.canlii.org/en/nu/laws/stat/rsnwt-nu-1988-c-s-1/latest/rsnwt-nu-1988-c-s-1.html#sec13',
+                        irsHtml: 'Investigates and adjudicates worker reprisal protection under <a href="https://www.canlii.org/en/nu/laws/stat/rsnwt-nu-1988-c-s-1/latest/rsnwt-nu-1988-c-s-1.html#sec13" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Safety Act Section 13</a>.',
+                        distinctionLabel: 'Nunavut Statutory Alignment:',
+                        distinctionTag: 'Territorial Autonomy',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/nu/laws/stat/snu-2007-c-15/latest/snu-2007-c-15.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">SNu 2007 c 15</a> Operates with independent territorial standing under the Legislative Assembly of Nunavut.'
+                    }
+                ]
+            },
+            'ca-yt': {
+                name: 'Yukon (YT)',
+                model: 'Integrated Board Model (Yukon Workers\' Safety and Compensation Board Regulates Safety & Insurance)',
+                structure: '2-Tier Structure: Act (Part 3 OHS) + OHS Regulations',
+                subtitleHtml: '<a href="https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Workers\' Safety and Compensation Act (SY 2021, c 11)</a> – Regulated & enforced by <a href="https://www.wcb.yk.ca/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Yukon Workers\' Safety and Compensation Board (YWSCB)</a>',
+                primaryStatuteName: 'Workers\' Safety and Compensation Act (SY 2021, c 11)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html',
+                keyAuthorityName: 'Yukon Workers\' Safety and Compensation Board (YWSCB)',
+                keyAuthorityUrl: 'https://www.wcb.yk.ca/',
+                regulatoryBodies: [
+                    {
+                        name: "Yukon Workers' Safety and Compensation Board (YWSCB)",
+                        url: 'https://www.wcb.yk.ca/',
+                        roleTitle: 'Integrated Territorial Board Administering Workplace Safety, Inspection & Compensation',
+                        modelDescription: 'Integrated Territorial Authority: Operates under modern consolidated 2021 territorial statute combining compensation and safety mandates.',
+                        statutePortalUrl: 'https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html',
+                        hierarchyHtml: '2-Tier Integrated Hierarchy:<br><span class="font-semibold text-slate-900">1. Workers\' Safety and Compensation Act Part 3 (OHS)</span> (<a href="https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SY 2021, c 11</a>): Consolidated modern safety obligations and inspection powers.<br><span class="font-semibold text-slate-900">2. Occupational Health and Safety Regulations</span> (<a href="https://www.canlii.org/en/yk/laws/regu/yoic-2006-178/latest/yoic-2006-178.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">YOIC 2006/178</a>): Core safety standards.',
+                        irsCitationUrl: 'https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html#sec36',
+                        irsHtml: 'Joint Health and Safety Committee required at workplaces with 20+ regularly employed workers (<a href="https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html#sec36" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 36</a>); Health and Safety Representative required for 5–19 workers (<a href="https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html#sec42" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 42</a>).',
+                        distinctionLabel: 'Consolidated Territorial Statute (2021):',
+                        distinctionTag: 'Modernized Statutory Code',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">SY 2021 c 11</a> Enacted modern single statute repealing former separate Workers\' Compensation Act and Occupational Health and Safety Act.'
+                    },
+                    {
+                        name: "Yukon Workers' Compensation Appeal Tribunal (YWSCAT)",
+                        url: 'https://www.canlii.org/en/yk/ykwscat/',
+                        roleTitle: 'Independent Quasi-Judicial Appellate Tribunal Adjudicating Yukon OHS and WCB Appeals',
+                        modelDescription: 'Appellate Channel: External tribunal hearing appeals under Part 6 of the Workers\' Safety and Compensation Act.',
+                        statutePortalUrl: 'https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html#sec67',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html#sec67',
+                        hierarchyHtml: 'Appellate Hierarchy:<br><span class="font-semibold text-slate-900">Workers\' Safety and Compensation Act Part 6</span> (<a href="https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html#sec67" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SY 2021, c 11, Sections 67–85</a>): Governs appeals of board decisions, claims, and administrative orders.',
+                        irsCitationUrl: 'https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html#sec45',
+                        irsHtml: 'Examines worker complaints regarding <a href="https://www.canlii.org/en/yk/laws/stat/sy-2021-c-11/latest/sy-2021-c-11.html#sec45" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Prohibition of Reprisal (Section 45)</a>.',
+                        distinctionLabel: 'Independent Adjudication:',
+                        distinctionTag: 'Tribunal Autonomy',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/yk/ykwscat/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">YWSCAT</a> Renders decisions independent of the Board, subject to review on statutory administrative law grounds.'
+                    }
+                ]
+            },
+            'ca-bc': {
+                name: 'British Columbia (BC)',
+                model: 'Unified Model (WorkSafeBC Enforces OHS & Administers Workers\' Compensation)',
+                structure: '2-Tier Structure: Workers Compensation Act (Part 2 OHS) + OHS Regulation',
+                subtitleHtml: '<a href="https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Workers Compensation Act (RSBC 2019, c 1, Part 2)</a> – Regulated & enforced by <a href="https://www.worksafebc.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WorkSafeBC (Workers\' Compensation Board of BC)</a>',
+                primaryStatuteName: 'Workers Compensation Act (RSBC 2019, c 1, Part 2)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html',
+                keyAuthorityName: 'WorkSafeBC (Workers\' Compensation Board of British Columbia)',
+                keyAuthorityUrl: 'https://www.worksafebc.com/',
+                regulatoryBodies: [
+                    {
+                        name: 'WorkSafeBC (OHS Prevention & Compliance)',
+                        url: 'https://www.worksafebc.com/',
+                        roleTitle: 'Integrated Statutory Board Enforcing OHS Compliance, Investigations & Insurance',
+                        modelDescription: 'Unified Model: Singular statutory agency manages OHS prevention, inspection enforcement, and no-fault injury claims under one authority.',
+                        statutePortalUrl: 'https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html',
+                        hierarchyHtml: '2-Tier Unified Hierarchy:<br><span class="font-semibold text-slate-900">1. Workers Compensation Act Part 2</span> (<a href="https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSBC 2019, c 1</a>): General duties, officer entry powers, stop-work orders, administrative penalties.<br><span class="font-semibold text-slate-900">2. Occupational Health and Safety Regulation</span> (<a href="https://www.canlii.org/en/bc/laws/regu/bc-reg-296-97/latest/bc-reg-296-97.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">BC Reg 296/97</a> as amended): Mandatory technical core standards.',
+                        irsCitationUrl: 'https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html#sec31',
+                        irsHtml: 'Joint Health and Safety Committee required at workplaces with 20 or more regularly employed workers (<a href="https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html#sec31" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 31</a>); Worker Health and Safety Representative required for 9–19 workers (<a href="https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html#sec45" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 45</a>).',
+                        distinctionLabel: 'Integrated Board Administration:',
+                        distinctionTag: 'Unified OHS & Compensation Model',
+                        distinctionHtml: '<a href="https://www.worksafebc.com/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">WorkSafeBC</a> British Columbia is one of the only Canadian provinces where the OHS inspectorate and workers\' compensation board are fully integrated within a single organization.'
+                    },
+                    {
+                        name: "Workers' Compensation Appeal Tribunal (WCAT BC)",
+                        url: 'https://www.wcat.bc.ca/',
+                        roleTitle: 'External Independent Quasi-Judicial Tribunal Adjudicating OHS Orders & Compensation Appeals',
+                        modelDescription: 'Appellate Channel: Completely independent tribunal operating under Part 7 of the Workers Compensation Act to hear final appeals from WorkSafeBC decisions.',
+                        statutePortalUrl: 'https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html#sec278',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html#sec278',
+                        hierarchyHtml: 'Appellate Hierarchy:<br><span class="font-semibold text-slate-900">Workers Compensation Act Part 7</span> (<a href="https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Sections 278–315</a>): Establishes independent jurisdiction for hearing appeals of Review Division decisions and discriminatory actions.',
+                        irsCitationUrl: 'https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html#sec49',
+                        irsHtml: 'Adjudicates complaints of <a href="https://www.canlii.org/en/bc/laws/stat/rsbc-2019-c-1/latest/rsbc-2019-c-1.html#sec49" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Discriminatory Action (Sections 49–50)</a> against workers who exercise refusal or report safety violations.',
+                        distinctionLabel: 'Independent Tribunal Finality:',
+                        distinctionTag: 'Binding Appellate Decisions',
+                        distinctionHtml: '<a href="https://www.wcat.bc.ca/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">WCAT BC</a> Operates entirely externally from WorkSafeBC staff, providing binding administrative determinations on appeal.'
+                    }
+                ]
+            },
+            'ca-nb': {
+                name: 'New Brunswick (NB)',
+                model: 'Integrated Crown Agency Model (WorkSafeNB Enforces Safety & Administers Insurance)',
+                structure: '2-Tier Structure: Occupational Health and Safety Act + General Regulation 91-191',
+                subtitleHtml: '<a href="https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Occupational Health and Safety Act (SNB 1983, c O-0.2)</a> – Administered & enforced by <a href="https://www.worksafenb.ca/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WorkSafeNB (Workplace Health, Safety and Compensation Commission)</a>',
+                primaryStatuteName: 'Occupational Health and Safety Act (SNB 1983, c O-0.2)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html',
+                keyAuthorityName: 'WorkSafeNB (Workplace Health, Safety and Compensation Commission)',
+                keyAuthorityUrl: 'https://www.worksafenb.ca/',
+                regulatoryBodies: [
+                    {
+                        name: 'WorkSafeNB (Compliance & Prevention Division)',
+                        url: 'https://www.worksafenb.ca/',
+                        roleTitle: 'Integrated Crown Corporation Executing OHS Compliance, Investigations & Insurance',
+                        modelDescription: 'Integrated Crown Model: Governed by the Workplace Health, Safety and Compensation Commission Act; enforces OHS and operates accident insurance.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html',
+                        hierarchyHtml: '2-Tier Integrated Hierarchy:<br><span class="font-semibold text-slate-900">1. OHS Act</span> (<a href="https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SNB 1983, c O-0.2</a>): Core health and safety duties, inspection mandates, compliance orders.<br><span class="font-semibold text-slate-900">2. General Regulation</span> (<a href="https://www.canlii.org/en/nb/laws/regu/nb-reg-91-191/latest/nb-reg-91-191.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">NB Reg 91-191</a>): Detailed technical rules across physical hazards, machinery, and air quality.',
+                        irsCitationUrl: 'https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html#sec14',
+                        irsHtml: 'Joint Health and Safety Committee required at workplaces with 20 or more regularly employed employees (<a href="https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html#sec14" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 14</a>); Safety Representative required for 5–19 employees (<a href="https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html#sec17" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 17</a>).',
+                        distinctionLabel: 'Tripartite Governance Statute:',
+                        distinctionTag: 'Integrated Crown Mandate',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/nb/laws/stat/snb-1994-c-w-14/latest/snb-1994-c-w-14.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">SNB 1994 c W-14</a> WorkSafeNB is constituted under a separate governance act that unites employers, labour, and government in directing health, safety, and compensation.'
+                    },
+                    {
+                        name: "Workers' Compensation Appeals Tribunal (WCAT New Brunswick)",
+                        url: 'https://www2.gnb.ca/content/gnb/en/departments/justice-public-safety/tribunals/wcat.html',
+                        roleTitle: 'Quasi-Judicial Appellate Tribunal Adjudicating WorkSafeNB Orders & Compensation Claims',
+                        modelDescription: 'Appellate Channel: External independent appellate body operating under provincial statute to review decisions made under OHS and compensation legislation.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nb/laws/stat/snb-1994-c-w-14/latest/snb-1994-c-w-14.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nb/laws/stat/snb-1994-c-w-14/latest/snb-1994-c-w-14.html',
+                        hierarchyHtml: 'Appellate Authority:<br><span class="font-semibold text-slate-900">Workplace Health, Safety and Compensation Commission and WCAT Act</span> (<a href="https://www.canlii.org/en/nb/laws/stat/snb-1994-c-w-14/latest/snb-1994-c-w-14.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SNB 1994, c W-14</a>): Establishes independent tribunal jurisdiction.',
+                        irsCitationUrl: 'https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html#sec24',
+                        irsHtml: 'Adjudicates worker reprisal protection under <a href="https://www.canlii.org/en/nb/laws/stat/snb-1983-c-o-0.2/latest/snb-1983-c-o-0.2.html#sec24" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 24 (Discriminatory Action Prohibited)</a>.',
+                        distinctionLabel: 'Independent Administrative Authority:',
+                        distinctionTag: 'Tribunal Independence',
+                        distinctionHtml: '<a href="https://www2.gnb.ca/content/gnb/en/departments/justice-public-safety/tribunals/wcat.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">WCAT NB</a> Autonomous from WorkSafeNB operational management, operating under the Department of Justice and Public Safety.'
+                    }
+                ]
+            },
+            'ca-nl': {
+                name: 'Newfoundland and Labrador (NL)',
+                model: 'Bifurcated Model (Service NL OHS Branch Enforces; WorkplaceNL Administers Insurance)',
+                structure: '2-Tier Structure: Occupational Health and Safety Act + OHS Regulations, 2012',
+                subtitleHtml: '<a href="https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Occupational Health and Safety Act (RSNL 1990, c O-3)</a> – Enforced by <a href="https://www.gov.nl.ca/dgsnl/ohs/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Digital Government and Service NL (OHS Branch)</a>',
+                primaryStatuteName: 'Occupational Health and Safety Act (RSNL 1990, c O-3)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html',
+                keyAuthorityName: 'Digital Government and Service NL (Occupational Health & Safety Branch)',
+                keyAuthorityUrl: 'https://www.gov.nl.ca/dgsnl/ohs/',
+                regulatoryBodies: [
+                    {
+                        name: 'Digital Government and Service NL (OHS Branch)',
+                        url: 'https://www.gov.nl.ca/dgsnl/ohs/',
+                        roleTitle: 'Provincial Enforcement Agency Executing Inspections, Stop-Work Orders & Prosecution',
+                        modelDescription: 'Bifurcated Model: Government ministry inspects and prosecutes; WorkplaceNL administers insurance claims and certified training.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html',
+                        hierarchyHtml: '2-Tier Hierarchy:<br><span class="font-semibold text-slate-900">1. OHS Act</span> (<a href="https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSNL 1990, c O-3</a>): Statutory rights, obligations, and inspector powers.<br><span class="font-semibold text-slate-900">2. OHS Regulations, 2012</span> (<a href="https://www.canlii.org/en/nl/laws/regu/nl-reg-5-12/latest/nl-reg-5-12.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">NL Reg 5/12</a>): Consolidated provincial technical regulations.',
+                        irsCitationUrl: 'https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec37',
+                        irsHtml: 'Occupational Health and Safety Committee required at workplaces with 10 or more workers (<a href="https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec37" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 37</a>); Worker Representative required for 2–9 workers (<a href="https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec41" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 41</a>).',
+                        distinctionLabel: 'Low Committee Threshold (10 Workers):',
+                        distinctionTag: '10 Worker Threshold',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec37" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 37</a> Newfoundland requires mandatory joint safety committees starting at just 10 employees, and a worker representative down to 2 employees.'
+                    },
+                    {
+                        name: 'WorkplaceNL (Workers\' Compensation Board of NL)',
+                        url: 'https://workplacenl.ca/',
+                        roleTitle: 'Statutory Board Administering Workers\' Compensation, Prevention Training & Assessments',
+                        modelDescription: 'Insurance Body: Oversees no-fault compensation under Workplace Health, Safety and Compensation Act, 2022.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nl/laws/stat/snl-2022-c-w-11.1/latest/snl-2022-c-w-11.1.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nl/laws/stat/snl-2022-c-w-11.1/latest/snl-2022-c-w-11.1.html',
+                        hierarchyHtml: 'Insurance Hierarchy:<br><span class="font-semibold text-slate-900">Workplace Health, Safety and Compensation Act, 2022</span> (<a href="https://www.canlii.org/en/nl/laws/stat/snl-2022-c-w-11.1/latest/snl-2022-c-w-11.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SNL 2022, c W-11.1</a>): Governs accident fund and employer assessment ratings.',
+                        irsCitationUrl: 'https://workplacenl.ca/prevention/training/',
+                        irsHtml: 'Regulates mandatory training certifications for <a href="https://workplacenl.ca/prevention/training/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">OHS Committee Members and Representatives</a>.',
+                        distinctionLabel: 'Mandatory Training Certification Standard:',
+                        distinctionTag: 'Certified Provider Regs',
+                        distinctionHtml: '<a href="https://workplacenl.ca/prevention/training/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Training Standards</a> Committee members and representatives must complete WorkplaceNL-certified training programs through approved external trainers.'
+                    },
+                    {
+                        name: 'Labour Relations Board (NL - OHS Adjudication)',
+                        url: 'https://www.gov.nl.ca/lrb/',
+                        roleTitle: 'Quasi-Judicial Appellate Tribunal Adjudicating OHS Reprisal Complaints',
+                        modelDescription: 'Appellate Body: Adjudicates discriminatory action complaints under Section 49 of the Occupational Health and Safety Act.',
+                        statutePortalUrl: 'https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec49',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec49',
+                        hierarchyHtml: 'Appellate Authority:<br><span class="font-semibold text-slate-900">OHS Act Section 49</span> (<a href="https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec49" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSNL 1990, c O-3, s. 49</a>): Codifies procedures for filing complaints of discrimination against employers.',
+                        irsCitationUrl: 'https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec49',
+                        irsHtml: 'Adjudicates worker complaints regarding <a href="https://www.canlii.org/en/nl/laws/stat/rsnl-1990-c-o-3/latest/rsnl-1990-c-o-3.html#sec49" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Discriminatory Action (Section 49)</a>.',
+                        distinctionLabel: 'Reinstatement and Remedial Powers:',
+                        distinctionTag: 'Binding Tribunal Orders',
+                        distinctionHtml: '<a href="https://www.gov.nl.ca/lrb/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">NL LRB</a> Holds statutory power to order full employee reinstatement, backpay, and removal of any reprimand records.'
+                    }
+                ]
+            },
+            'ca-on': {
+                name: 'Ontario (ON)',
+                model: 'Bifurcated Model (MLITSD Inspectorate Enforces; WSIB Administers Insurance)',
+                structure: 'Sector-Specific Regulations Model: OHSA + Sector Regulations ("Green Books")',
+                subtitleHtml: '<a href="https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Occupational Health and Safety Act (RSO 1990, c O.1)</a> – Enforced by <a href="https://www.ontario.ca/page/ministry-labour-immigration-training-skills-development" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Ministry of Labour, Immigration, Training and Skills Development (MLITSD)</a>',
+                primaryStatuteName: 'Occupational Health and Safety Act (RSO 1990, c O.1)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html',
+                keyAuthorityName: 'Ministry of Labour, Immigration, Training and Skills Development (MLITSD)',
+                keyAuthorityUrl: 'https://www.ontario.ca/page/ministry-labour-immigration-training-skills-development',
+                regulatoryBodies: [
+                    {
+                        name: 'Ministry of Labour, Immigration, Training and Skills Development (MLITSD)',
+                        url: 'https://www.ontario.ca/page/occupational-health-and-safety',
+                        roleTitle: 'Provincial Ministry Executing OHS Inspections, Investigations & Enforcement Orders',
+                        modelDescription: 'Bifurcated Model: Government ministry inspects workplaces and prosecutes offences; Workplace Safety and Insurance Board operates compensation separately.',
+                        statutePortalUrl: 'https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html',
+                        hierarchyHtml: 'Sector-Specific "Green Book" Hierarchy:<br><span class="font-semibold text-slate-900">1. OHSA</span> (<a href="https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSO 1990, c O.1</a>): High-level legal duties, stop-work powers, general duty clause (s. 25(2)(h)).<br><span class="font-semibold text-slate-900">2. Sector Regulations</span>: <a href="https://www.canlii.org/en/on/laws/regu/rro-1990-reg-851/latest/rro-1990-reg-851.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Industrial Reg 851</a>, <a href="https://www.canlii.org/en/on/laws/regu/o-reg-213-91/latest/o-reg-213-91.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Construction Reg 213/91</a>, <a href="https://www.canlii.org/en/on/laws/regu/rro-1990-reg-854/latest/rro-1990-reg-854.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Mines Reg 854</a>, and <a href="https://www.canlii.org/en/on/laws/regu/o-reg-67-93/latest/o-reg-67-93.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Health Care Reg 67/93</a>.',
+                        irsCitationUrl: 'https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec9',
+                        irsHtml: 'Joint Health and Safety Committee required at workplaces with 20+ regularly employed workers (<a href="https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec9" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 9</a>); Health and Safety Representative required for 6–19 workers (<a href="https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec8" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 8</a>).',
+                        distinctionLabel: 'Certified Member Requirement:',
+                        distinctionTag: 'Mandatory CPO Certification',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec9subsec12" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 9(12)</a> Most joint committees must have at least one management and one worker member certified by the Chief Prevention Officer (CPO).'
+                    },
+                    {
+                        name: 'Workplace Safety and Insurance Board (WSIB Ontario)',
+                        url: 'https://www.wsib.ca/',
+                        roleTitle: 'Crown Agency Administering No-Fault Workplace Injury Insurance & Return-to-Work',
+                        modelDescription: 'Dual Compensation Framework: Operates under Workplace Safety and Insurance Act, 1997; administers insurance fund and employer premiums independently.',
+                        statutePortalUrl: 'https://www.canlii.org/en/on/laws/stat/so-1997-c-16-sch-a/latest/so-1997-c-16-sch-a.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/on/laws/stat/so-1997-c-16-sch-a/latest/so-1997-c-16-sch-a.html',
+                        hierarchyHtml: 'Insurance Hierarchy:<br><span class="font-semibold text-slate-900">Workplace Safety and Insurance Act, 1997</span> (<a href="https://www.canlii.org/en/on/laws/stat/so-1997-c-16-sch-a/latest/so-1997-c-16-sch-a.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">SO 1997, c 16, Sched A</a>): Governs injury fund and employer assessment ratings.',
+                        irsCitationUrl: 'https://www.canlii.org/en/on/laws/stat/so-1997-c-16-sch-a/latest/so-1997-c-16-sch-a.html#sec40',
+                        irsHtml: 'Employer and worker statutory obligations to cooperate in timely return to work under <a href="https://www.canlii.org/en/on/laws/stat/so-1997-c-16-sch-a/latest/so-1997-c-16-sch-a.html#sec40" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">WSIA Section 40</a>.',
+                        distinctionLabel: 'Health and Safety Excellence Program:',
+                        distinctionTag: 'Financial Premium Incentive',
+                        distinctionHtml: '<a href="https://www.wsib.ca/en/health-and-safety-excellence-program" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">HSEP Program</a> Employers completing verified safety topics receive financial rebates on their annual WSIB premiums.'
+                    },
+                    {
+                        name: 'Ontario Labour Relations Board (OLRB - OHS Division)',
+                        url: 'http://www.olrb.gov.on.ca/',
+                        roleTitle: 'Quasi-Judicial Appellate Tribunal Adjudicating OHS Inspector Appeals & Reprisal Complaints',
+                        modelDescription: 'Appellate Body: External independent board hearing appeals from MLITSD inspector orders and reprisal complaints under OHSA Section 50.',
+                        statutePortalUrl: 'https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec50',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec61',
+                        hierarchyHtml: 'Appellate Framework:<br><span class="font-semibold text-slate-900">OHSA Sections 50 & 61</span> (<a href="https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec61" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSO 1990, c O.1, s. 61</a>): 30-day appeal windows for inspector directives and stop-work orders.',
+                        irsCitationUrl: 'https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec50',
+                        irsHtml: 'Adjudicates worker complaints regarding <a href="https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec50" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Reprisals by Employer Prohibited (Section 50)</a>.',
+                        distinctionLabel: 'Reverse Onus in Reprisal Proceedings:',
+                        distinctionTag: 'Reverse Onus Burden',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/on/laws/stat/rso-1990-c-o.1/latest/rso-1990-c-o.1.html#sec50subsec5" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 50(5)</a> On an inquiry into a reprisal complaint before the OLRB, the legal burden of proof lies upon the employer.'
+                    }
+                ]
+            },
+            'ca-qc': {
+                name: 'Quebec (QC)',
+                model: 'Unified Commission Model (CNESST Regulates OHS, Labour Standards & Compensation)',
+                structure: 'Civil Law Framework: Act (AOHS / LMRSST) + General Regulation (RSST)',
+                subtitleHtml: '<a href="https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Act respecting occupational health and safety (CQLR c S-2.1)</a> – Administered & enforced by <a href="https://www.cnesst.gouv.qc.ca/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">CNESST</a>',
+                primaryStatuteName: 'Act respecting occupational health and safety (CQLR c S-2.1)',
+                primaryStatuteUrl: 'https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html',
+                keyAuthorityName: 'Commission des normes, de l\'équité, de la santé et de la sécurité du travail (CNESST)',
+                keyAuthorityUrl: 'https://www.cnesst.gouv.qc.ca/',
+                regulatoryBodies: [
+                    {
+                        name: 'CNESST (Santé et sécurité du travail)',
+                        url: 'https://www.cnesst.gouv.qc.ca/en',
+                        roleTitle: 'Integrated Statutory Commission Executing OHS Compliance, Standards & Insurance',
+                        modelDescription: 'Unified Commission Model: Singular agency unites labour standards, pay equity, OHS inspection enforcement, and injury compensation.',
+                        statutePortalUrl: 'https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html',
+                        hierarchyHtml: 'Civil Code Legislative Hierarchy:<br><span class="font-semibold text-slate-900">1. Act respecting OHS</span> (<a href="https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">CQLR c S-2.1</a>): Fundamental statutory duties and inspection powers.<br><span class="font-semibold text-slate-900">2. Regulation respecting OHS (RSST)</span> (<a href="https://www.canlii.org/en/qc/laws/regu/cqlr-c-s-2.1-r-13/latest/cqlr-c-s-2.1-r-13.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">CQLR c S-2.1, r 13</a>): Detailed technical rules across all industrial establishments.',
+                        irsCitationUrl: 'https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html#sec68',
+                        irsHtml: 'Health and Safety Committee required at workplaces with 20 or more workers (<a href="https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html#sec68" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 68</a>); Health and Safety Representative designated under <a href="https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html#sec87" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 87</a>.',
+                        distinctionLabel: 'Modernization Act Harmonization (LMRSST):',
+                        distinctionTag: 'Comprehensive Reform',
+                        distinctionHtml: '<a href="https://www.canlii.org/en/qc/laws/astat/sq-2021-c-27/latest/sq-2021-c-27.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">SQ 2021 c 27</a> The 2021 regime modernization progressively phased in mandatory prevention mechanisms and representatives across all economic sectors.'
+                    },
+                    {
+                        name: 'Tribunal administratif du travail (TAT - Division SST)',
+                        url: 'https://www.tat.gouv.qc.ca/',
+                        roleTitle: 'Specialized Administrative Tribunal Adjudicating Quebec OHS Decisions & Reprisals',
+                        modelDescription: 'Appellate Body: External quasi-judicial tribunal reviewing CNESST inspector directives, penalties, and worker reprisal complaints under Quebec administrative law.',
+                        statutePortalUrl: 'https://www.canlii.org/en/qc/laws/stat/cqlr-c-t-15.1/latest/cqlr-c-t-15.1.html',
+                        hierarchyCitationUrl: 'https://www.canlii.org/en/qc/laws/stat/cqlr-c-t-15.1/latest/cqlr-c-t-15.1.html',
+                        hierarchyHtml: 'Appellate Authority:<br><span class="font-semibold text-slate-900">Act respecting the Administrative Labour Tribunal</span> (<a href="https://www.canlii.org/en/qc/laws/stat/cqlr-c-t-15.1/latest/cqlr-c-t-15.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">CQLR c T-15.1</a>): Establishes jurisdiction for occupational health and safety appeals.',
+                        irsCitationUrl: 'https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html#sec227',
+                        irsHtml: 'Adjudicates worker complaints regarding reprisal or disciplinary action under <a href="https://www.canlii.org/en/qc/laws/stat/cqlr-c-s-2.1/latest/cqlr-c-s-2.1.html#sec227" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 227 (Recourse Against Reprisals)</a>.',
+                        distinctionLabel: 'Civil Law Administrative Authority:',
+                        distinctionTag: 'Exclusive Jurisdiction',
+                        distinctionHtml: '<a href="https://www.tat.gouv.qc.ca/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">TAT SST</a> Holds exclusive jurisdiction over appeals regarding occupational health and safety matters under Quebec civil law.'
+                    }
+                ]
+            },
+            'ca-fed': {
+                name: 'Federal (Canada Labour Code Part II)',
+                model: 'Federal Ministry Model (ESDC Labour Program Enforces; Prov WCBs Administer Claims via GECA)',
+                structure: '2-Tier Federal Framework: Canada Labour Code Part II + COHSR Regulations',
+                subtitleHtml: '<a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/page-22.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline">Canada Labour Code (R.S.C., 1985, c. L-2, Part II)</a> – Enforced by <a href="https://www.canada.ca/en/employment-social-development/corporate/portfolio/labour.html" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Labour Program (ESDC)</a>',
+                primaryStatuteName: 'Canada Labour Code (R.S.C., 1985, c. L-2, Part II)',
+                primaryStatuteUrl: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/page-22.html',
+                keyAuthorityName: 'Labour Program (Employment and Social Development Canada - ESDC)',
+                keyAuthorityUrl: 'https://www.canada.ca/en/employment-social-development/corporate/portfolio/labour.html',
+                regulatoryBodies: [
+                    {
+                        name: 'ESDC Labour Program (OHS Directorate)',
+                        url: 'https://www.canada.ca/en/services/jobs/workplace/health-safety.html',
+                        roleTitle: 'Federal Inspectorate Enforcing Part II Across Federally Regulated Enterprises',
+                        modelDescription: 'Federal Ministry Model: Inspects federally regulated employers (aviation, marine, rail, banking, telecoms, interprovincial trucking, Crown corps).',
+                        statutePortalUrl: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/page-22.html',
+                        hierarchyCitationUrl: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/page-22.html',
+                        hierarchyHtml: '2-Tier Federal Hierarchy:<br><span class="font-semibold text-slate-900">1. Canada Labour Code Part II</span> (<a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/page-22.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSC 1985, c L-2</a>): Statutory obligations of employers (s. 124/125), employee rights, ministerial orders.<br><span class="font-semibold text-slate-900">2. Federal Regulations</span>: <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-86-304/" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">COHSR (SOR/86-304)</a>, Aviation OHS, Maritime OHS, and On Board Trains OHS Regulations.',
+                        irsCitationUrl: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/section-135.html',
+                        irsHtml: 'Workplace Health and Safety Committee required for 20+ employees (<a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/section-135.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 135</a>); Health and Safety Representative required for fewer than 20 employees (<a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/section-136.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 136</a>); Policy Committee required for 300+ employees (<a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/section-134.1.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 134.1</a>).',
+                        distinctionLabel: 'Mandatory Policy Committee (300+ Workers):',
+                        distinctionTag: 'Mandatory Policy Committee',
+                        distinctionHtml: '<a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/section-134.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">Section 134.1</a> Federal employers with 300 or more employees must establish a corporate-level Policy Health and Safety Committee in addition to workplace committees.'
+                    },
+                    {
+                        name: 'Canada Industrial Relations Board (CIRB - OHS Adjudication)',
+                        url: 'https://www.cirb-ccri.gc.ca/en',
+                        roleTitle: 'Quasi-Judicial Appellate Tribunal Adjudicating Federal OHS Directions & Reprisals',
+                        modelDescription: 'Appellate Body: Independent federal board hearing appeals from ministerial directions and adjudicating reprisal complaints under CLC Part II.',
+                        statutePortalUrl: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/section-145.1.html',
+                        hierarchyCitationUrl: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/section-146.1.html',
+                        hierarchyHtml: 'Appellate Hierarchy:<br><span class="font-semibold text-slate-900">Canada Labour Code Part II Sections 145.1 to 146.3</span> (<a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/section-146.1.html" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">CLC s. 146.1</a>): 30-day appeal windows for directions issued by the Head of Compliance and Enforcement.',
+                        irsCitationUrl: 'https://laws-lois.justice.gc.ca/eng/acts/L-2/section-133.html',
+                        irsHtml: 'Adjudicates employee complaints regarding reprisal or discipline under <a href="https://laws-lois.justice.gc.ca/eng/acts/L-2/section-133.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">Section 133 (Complaint to the Board)</a>.',
+                        distinctionLabel: 'National Adjudicative Jurisdiction:',
+                        distinctionTag: 'Cross-Canada Federal Board',
+                        distinctionHtml: '<a href="https://www.cirb-ccri.gc.ca/en" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">CIRB OHS</a> Holds nationwide jurisdiction across interprovincial airlines, railways, telecommunications networks, and shipping ports.'
+                    },
+                    {
+                        name: 'Government Employees Compensation Act (GECA) Administration',
+                        url: 'https://www.canada.ca/en/employment-social-development/services/health-safety/compensation.html',
+                        roleTitle: 'Federal Compensation Framework Coordinating Injury Claims via Provincial WCBs',
+                        modelDescription: 'Dual Compensation Framework: Administers workers\' compensation for federal public servants by partnering with provincial compensation boards.',
+                        statutePortalUrl: 'https://laws-lois.justice.gc.ca/eng/acts/G-5/',
+                        hierarchyCitationUrl: 'https://laws-lois.justice.gc.ca/eng/acts/G-5/',
+                        hierarchyHtml: 'Compensation Legislation:<br><span class="font-semibold text-slate-900">Government Employees Compensation Act</span> (<a href="https://laws-lois.justice.gc.ca/eng/acts/G-5/" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">RSC 1985, c G-5</a>): Confers claim adjudication to the board of the province where the federal employee is usually employed.',
+                        irsCitationUrl: 'https://laws-lois.justice.gc.ca/eng/acts/G-5/section-4.html',
+                        irsHtml: 'Coordinates medical treatment and wage-loss compensation through <a href="https://laws-lois.justice.gc.ca/eng/acts/G-5/section-4.html" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">GECA Section 4</a>.',
+                        distinctionLabel: 'Federal-Provincial Cost Recovery Accord:',
+                        distinctionTag: 'Provincial WCB Administration',
+                        distinctionHtml: '<a href="https://laws-lois.justice.gc.ca/eng/acts/G-5/" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:underline font-semibold mr-1.5">GECA</a> The federal government maintains no independent compensation board; claims are handled by provincial boards and billed back to the Treasury.'
+                    }
+                ]
+            }
+        };
+
+        const universalSubtabsList = [
+            { id: 1, name: '1. Jurisdictional Framework', icon: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' },
+            { id: 2, name: '2. Acts & Enabling Laws', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
+            { id: 3, name: '3. Regulations & Codes', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+            { id: 4, name: '4. Employer Responsibilities', icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+            { id: 5, name: '5. Statutory Duty Holders', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' },
+            { id: 6, name: '6. Self-Employed Provisions', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
+            { id: 7, name: '7. Official Documents & Links', icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1' }
+        ];
+
+        let selectedRegulatoryBodyIndex = 0;
+        let selectedUniversalSubtabId = 1;
+
+        function selectUniversalSubtab(tabId) {
+            selectedUniversalSubtabId = tabId;
+            renderUniversalSubtabs();
+            renderSubtabContent();
+        }
+
+        function renderUniversalSubtabs() {
+            const container = document.getElementById('universalSubtabsNav');
+            if (!container) return;
+            container.innerHTML = '';
+
+            universalSubtabsList.forEach(tab => {
+                const isSelected = tab.id === selectedUniversalSubtabId;
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.onclick = () => selectUniversalSubtab(tab.id);
+                button.className = isSelected
+                    ? 'inline-flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-3.5 py-2 rounded-lg text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-200/80 transition-colors flex-grow sm:flex-grow-0 shadow-xs cursor-pointer'
+                    : 'inline-flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-3.5 py-2 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors flex-grow sm:flex-grow-0 cursor-pointer';
+
+                button.innerHTML = `
+                    <svg class="w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-sky-600' : 'text-slate-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${tab.icon}" />
+                    </svg>
+                    <span>${tab.name}</span>
+                `;
+                container.appendChild(button);
+            });
+        }
+
+        function renderSubtabContent() {
+            const viewport = document.getElementById('universalSubtabContent');
+            if (!viewport) return;
+
+            const currentJurisdiction = document.getElementById('jurisdictionSelect')?.value || 'ca-fed';
+            const data = jurisdictionDatabase[currentJurisdiction];
+            if (!data) return;
+
+            const activeBody = data.regulatoryBodies[selectedRegulatoryBodyIndex] || data.regulatoryBodies[0];
+
+            if (selectedUniversalSubtabId === 1) {
+                // Tab 1: Jurisdictional Framework Card Layout
+                viewport.innerHTML = `
+                    <div class="bg-white rounded-xl border border-slate-200/90 p-5 sm:p-6 shadow-xs space-y-5">
+                        
+                        <!-- Administrative & Legislative Structure Header Block -->
+                        <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 pb-4 border-b border-slate-100">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-600">Administrative &amp; Legislative Structure</span>
+                                <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mt-0.5">${activeBody.name}</h3>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed">${activeBody.roleTitle}</p>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
+                                <a href="${activeBody.statutePortalUrl}" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0081c9] hover:bg-[#0070af] text-white text-xs font-semibold shadow-xs transition-colors">
+                                    <span>Access Statute Portal</span>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </a>
+
+                                <div class="px-3.5 py-2 rounded-lg bg-sky-50/70 border border-sky-200/80 text-sky-900 text-xs font-medium max-w-xl">
+                                    ${activeBody.modelDescription}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2-Column Responsive Layout: Hierarchy and IRS -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            
+                            <!-- Card 1: Legal Hierarchy & Legislative Structure -->
+                            <div class="bg-slate-50/50 rounded-xl border border-slate-200/80 p-4 sm:p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between gap-2 pb-3 border-b border-slate-200/60 mb-3">
+                                        <div class="flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                            </svg>
+                                            <span class="text-xs font-bold uppercase tracking-wider text-slate-800">Legal Hierarchy &amp; Legislative Structure</span>
+                                        </div>
+                                        <a href="${activeBody.hierarchyCitationUrl}" target="_blank" rel="noopener noreferrer" 
+                                           class="text-xs text-sky-600 hover:text-sky-800 font-medium hover:underline inline-flex items-center gap-0.5">
+                                            <span>Citation</span>
+                                            <span class="text-[10px]">↗</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="text-xs text-slate-600 leading-relaxed space-y-2">
+                                        ${activeBody.hierarchyHtml}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: Internal Responsibility System (IRS) -->
+                            <div class="bg-slate-50/50 rounded-xl border border-slate-200/80 p-4 sm:p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between gap-2 pb-3 border-b border-slate-200/60 mb-3">
+                                        <div class="flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                            </svg>
+                                            <span class="text-xs font-bold uppercase tracking-wider text-slate-800">Internal Responsibility System (IRS)</span>
+                                        </div>
+                                        <a href="${activeBody.irsCitationUrl}" target="_blank" rel="noopener noreferrer" 
+                                           class="text-xs text-emerald-600 hover:text-emerald-800 font-medium hover:underline inline-flex items-center gap-0.5">
+                                            <span>Citation</span>
+                                            <span class="text-[10px]">↗</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="text-xs text-slate-600 leading-relaxed space-y-2">
+                                        ${activeBody.irsHtml}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Statutory Distinction Banner -->
+                        <div class="bg-[#0b1329] rounded-xl p-4 text-white border border-slate-800 flex flex-col md:flex-row md:items-center md:justify-between gap-3 shadow-xs">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold uppercase tracking-wider text-sky-400">${activeBody.distinctionLabel}</span>
+                                <div class="text-xs text-slate-300 leading-relaxed">
+                                    ${activeBody.distinctionHtml}
+                                </div>
+                            </div>
+                            <div class="shrink-0">
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold text-emerald-300 bg-emerald-950/70 border border-emerald-700/60 shadow-xs">
+                                    ${activeBody.distinctionTag}
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                `;
+            } else {
+                // Modules for subtabs 2-7
+                const currentTab = universalSubtabsList.find(t => t.id === selectedUniversalSubtabId);
+                viewport.innerHTML = `
+                    <div class="bg-white rounded-xl border border-slate-200/90 p-8 shadow-xs text-center space-y-3">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${currentTab?.icon || 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'}" />
+                            </svg>
+                        </div>
+                        <h4 class="text-base font-bold text-slate-900">${currentTab?.name}</h4>
+                        <p class="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+                            Structured data slot for <span class="font-semibold text-slate-800">${data.name}</span> under regulating body <span class="font-semibold text-slate-800">${activeBody.name}</span>.
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        function selectRegulatoryBody(index) {
+            selectedRegulatoryBodyIndex = index;
+            const currentJurisdiction = document.getElementById('jurisdictionSelect')?.value || 'ca-fed';
+            const bodies = jurisdictionDatabase[currentJurisdiction]?.regulatoryBodies || [];
+            renderRegulatoryTabs(bodies);
+            renderSubtabContent();
+        }
+
+        function renderRegulatoryTabs(bodies) {
+            const container = document.getElementById('regulatoryBodiesContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            bodies.forEach((body, index) => {
+                const isSelected = index === selectedRegulatoryBodyIndex;
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.role = 'tab';
+                button.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+                button.onclick = () => selectRegulatoryBody(index);
+
+                button.className = isSelected
+                    ? 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-600 border border-sky-500 text-white text-xs font-semibold shadow-xs select-none cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400/50'
+                    : 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111d38] hover:bg-[#162548] border border-slate-700/80 hover:border-slate-600 text-slate-300 text-xs font-medium select-none cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400/50';
+                
+                button.innerHTML = `
+                    <span class="w-2 h-2 rounded-full shrink-0 ${isSelected ? 'bg-white' : 'bg-sky-400'} pointer-events-none"></span>
+                    <span class="pointer-events-none text-left">${body.name}</span>
+                `;
+                container.appendChild(button);
+            });
+        }
+
+        function handleJurisdictionSelect(val) {
+            const data = jurisdictionDatabase[val];
+            if (!data) return;
+
+            // Reset active regulatory body to index 0 on jurisdiction switch
+            selectedRegulatoryBodyIndex = 0;
+
+            // Update main card text & pills
+            const modelEl = document.getElementById('cardModelDisplay');
+            if (modelEl) modelEl.textContent = data.model;
+
+            const structEl = document.getElementById('cardStructureDisplay');
+            if (structEl) structEl.textContent = data.structure;
+
+            const titleEl = document.getElementById('cardTitleDisplay');
+            if (titleEl) titleEl.textContent = data.name;
+
+            const subEl = document.getElementById('cardSubtitleDisplay');
+            if (subEl) subEl.innerHTML = data.subtitleHtml;
+
+            // Update Primary Statute card & link
+            const statuteLink = document.getElementById('primaryStatuteLink');
+            const statuteName = document.getElementById('primaryStatuteName');
+            if (statuteLink) statuteLink.href = data.primaryStatuteUrl;
+            if (statuteName) statuteName.textContent = data.primaryStatuteName;
+
+            // Update Key Authority card & link
+            const authLink = document.getElementById('keyAuthorityLink');
+            const authName = document.getElementById('keyAuthorityName');
+            if (authLink) authLink.href = data.keyAuthorityUrl;
+            if (authName) authName.textContent = data.keyAuthorityName;
+
+            // Render jurisdiction-specific relevant OHS bodies
+            renderRegulatoryTabs(data.regulatoryBodies);
+
+            // Re-render subtab content for the newly selected jurisdiction
+            renderSubtabContent();
+        }
+
+        // Initialize with default selection
+        window.addEventListener('DOMContentLoaded', () => {
+            renderUniversalSubtabs();
+            const selectEl = document.getElementById('jurisdictionSelect');
+            if (selectEl) {
+                handleJurisdictionSelect(selectEl.value || 'ca-fed');
+            }
+        });
+    </script>
+</body>
+</html>                    <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
                     <span>Regulating Bodies in this Jurisdiction</span>
