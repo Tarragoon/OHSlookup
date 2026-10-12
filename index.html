@@ -92,13 +92,14 @@
                             <span class="flex items-center justify-center w-4 h-4 rounded-full bg-slate-100 text-slate-600 text-[10px]">2</span>
                             <span class="uppercase tracking-wider">Province / State / Jurisdiction</span>
                         </div>
-                        <span class="text-slate-400 font-normal">14 Options</span>
+                        <span class="text-slate-400 font-normal">14 Options (Scrollable)</span>
                     </div>
 
-                    <div class="relative">
-                        <select id="jurisdictionSelect" 
-                                onchange="handleJurisdictionSelect(this.value)"
-                                class="w-full pl-3.5 pr-10 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 shadow-xs focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 appearance-none cursor-pointer">
+                    <!-- Custom Dropdown with 5-Item Viewport & Federal First -->
+                    <div id="customJurisdictionDropdown" class="relative">
+                        <!-- Hidden select element for form/state compatibility -->
+                        <select id="jurisdictionSelect" class="hidden" aria-hidden="true">
+                            <option value="ca-fed" selected>Federal (Canada Labour Code Part II)</option>
                             <option value="ca-ab">Alberta (AB)</option>
                             <option value="ca-bc">British Columbia (BC)</option>
                             <option value="ca-mb">Manitoba (MB)</option>
@@ -112,12 +113,102 @@
                             <option value="ca-qc">Quebec (QC)</option>
                             <option value="ca-sk">Saskatchewan (SK)</option>
                             <option value="ca-yt">Yukon (YT)</option>
-                            <option value="ca-fed" selected>Federal (Canada Labour Code Part II)</option>
                         </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
+
+                        <!-- Dropdown Trigger Button -->
+                        <button type="button" 
+                                id="jurisdictionTriggerBtn"
+                                onclick="toggleJurisdictionMenu()" 
+                                aria-haspopup="listbox" 
+                                aria-expanded="false"
+                                class="w-full pl-3.5 pr-10 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 shadow-xs hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 flex items-center justify-between cursor-pointer transition-colors text-left">
+                            <span id="selectedJurisdictionLabel" class="truncate">Federal (Canada Labour Code Part II)</span>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
+                                <svg id="jurisdictionChevron" class="w-4 h-4 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </button>
+
+                        <!-- Scrollable Menu (~5 items visible at 195px max-height) -->
+                        <div id="jurisdictionMenu" 
+                             role="listbox"
+                             class="hidden absolute z-50 left-0 right-0 mt-1 max-h-[195px] overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-lg py-1 text-xs text-slate-800 divide-y divide-slate-100/60 focus:outline-none">
+                            
+                            <!-- 1. Federal placed at the top -->
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-fed')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-semibold text-sky-700 bg-sky-50/50 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-fed">
+                                <span>Federal (Canada Labour Code Part II)</span>
+                                <span class="check-icon text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+
+                            <!-- Remaining 13 Jurisdictions in Strict Alphabetical Order -->
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-ab')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-ab">
+                                <span>Alberta (AB)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-bc')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-bc">
+                                <span>British Columbia (BC)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-mb')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-mb">
+                                <span>Manitoba (MB)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-nb')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-nb">
+                                <span>New Brunswick (NB)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-nl')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-nl">
+                                <span>Newfoundland and Labrador (NL)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-nt')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-nt">
+                                <span>Northwest Territories (NT)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-ns')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-ns">
+                                <span>Nova Scotia (NS)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-nu')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-nu">
+                                <span>Nunavut (NU)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-on')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-on">
+                                <span>Ontario (ON)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-pe')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-pe">
+                                <span>Prince Edward Island (PE)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-qc')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-qc">
+                                <span>Quebec (QC)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-sk')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-sk">
+                                <span>Saskatchewan (SK)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+                            <button type="button" role="option" onclick="selectJurisdictionOption('ca-yt')"
+                                    class="jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer" data-val="ca-yt">
+                                <span>Yukon (YT)</span>
+                                <span class="check-icon hidden text-sky-600 font-bold text-xs">✓</span>
+                            </button>
+
                         </div>
                     </div>
 
@@ -1061,6 +1152,32 @@
             renderSubtabContent();
         }
 
+        function toggleJurisdictionMenu() {
+            const menu = document.getElementById('jurisdictionMenu');
+            const chevron = document.getElementById('jurisdictionChevron');
+            const btn = document.getElementById('jurisdictionTriggerBtn');
+            if (!menu) return;
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                btn?.setAttribute('aria-expanded', 'true');
+                chevron?.classList.add('rotate-180');
+            } else {
+                menu.classList.add('hidden');
+                btn?.setAttribute('aria-expanded', 'false');
+                chevron?.classList.remove('rotate-180');
+            }
+        }
+
+        function selectJurisdictionOption(val) {
+            const selectEl = document.getElementById('jurisdictionSelect');
+            if (selectEl) {
+                selectEl.value = val;
+            }
+            handleJurisdictionSelect(val);
+            toggleJurisdictionMenu();
+        }
+
         function renderRegulatoryTabs(bodies) {
             // Safeguard: detect and remove any duplicate regulatory body sections in DOM
             const allContainers = document.querySelectorAll('#regulatoryBodiesContainer');
@@ -1101,6 +1218,22 @@
             // Reset active regulatory body to index 0 on jurisdiction switch
             selectedRegulatoryBodyIndex = 0;
 
+            // Update dropdown display label and active option styling
+            const labelEl = document.getElementById('selectedJurisdictionLabel');
+            if (labelEl) labelEl.textContent = data.name;
+
+            document.querySelectorAll('.jurisdiction-option-btn').forEach(btn => {
+                const isSelected = btn.getAttribute('data-val') === val;
+                const check = btn.querySelector('.check-icon');
+                if (isSelected) {
+                    btn.className = 'jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-semibold text-sky-700 bg-sky-50/50 flex items-center justify-between transition-colors cursor-pointer';
+                    check?.classList.remove('hidden');
+                } else {
+                    btn.className = 'jurisdiction-option-btn w-full text-left px-3.5 py-2.5 hover:bg-sky-50 hover:text-sky-700 font-medium text-slate-700 flex items-center justify-between transition-colors cursor-pointer';
+                    check?.classList.add('hidden');
+                }
+            });
+
             // Update main card text & pills
             const modelEl = document.getElementById('cardModelDisplay');
             if (modelEl) modelEl.textContent = data.model;
@@ -1132,6 +1265,19 @@
             // Re-render subtab content for the newly selected jurisdiction
             renderSubtabContent();
         }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('customJurisdictionDropdown');
+            const menu = document.getElementById('jurisdictionMenu');
+            const chevron = document.getElementById('jurisdictionChevron');
+            const btn = document.getElementById('jurisdictionTriggerBtn');
+            if (dropdown && menu && !dropdown.contains(e.target)) {
+                menu.classList.add('hidden');
+                btn?.setAttribute('aria-expanded', 'false');
+                chevron?.classList.remove('rotate-180');
+            }
+        });
 
         // Initialize with default selection
         window.addEventListener('DOMContentLoaded', () => {
